@@ -20,9 +20,9 @@ const blog = defineCollection({
         .optional(),
       description: z.string(),
       canonicalURL: z.string().optional(),
-      published: z.boolean().optional(),
+      published: z.string().optional(),
       created: z.date(),
-      updated: z.date().optional(),
+      updated: z.string().optional(),
     }),
 });
 
