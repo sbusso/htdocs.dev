@@ -1,7 +1,9 @@
 ---
 created: 2023-12-15T12:46
-updated: 2023-12-18T00:23
+updated: 2023-12-18T00:48
 published: true
+description: Ship KumoMTA logs with Filebeat
+title: Ship KumoMTA logs with Filebeat
 ---
 
 DISCLAIMER: not the recommended way, AMPQ is much more scalable.
