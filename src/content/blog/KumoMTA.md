@@ -1,7 +1,9 @@
 ---
 created: 2023-12-13T08:41
-updated: 2023-12-16T18:13
-published: "true"
+updated: 2023-12-18T00:55
+published: true
+description: KumoMTA is a new (as of the end of 2023) solution for a high-volume, high-performance, on-premise email-sending platform. It is designed with a modern architecture mindset, mixing Rust and Lua for high performance and configurability.
+title: KumoMTA
 ---
 
 For 15 years or so, Postifx has been my solution for sending out marketing emails. Always on the lookout for something a bit more flexible and user-friendly. And then KumoMTA comes along!
