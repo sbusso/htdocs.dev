@@ -1,6 +1,6 @@
 ---
 author: Sat Naing
-pubDatetime: 2023-09-25T10:25:54.547Z
+created: 2023-09-25T10:25:54.547Z
 title: AstroPaper 3.0
 postSlug: astro-paper-v3
 featured: true
@@ -104,7 +104,7 @@ It's important to keep all the files which have been already updated. These file
   code {
     white-space: pre;
     overflow: scroll;
-  } 
+  }
   */
 
   /* New code */

@@ -1,6 +1,6 @@
 ---
 author: Sat Naing
-pubDatetime: 2022-09-23T15:22:00Z
+created: 2022-09-23T15:22:00Z
 title: Adding new posts in AstroPaper theme
 postSlug: adding-new-posts-in-astropaper-theme
 featured: true
@@ -26,7 +26,7 @@ Here is the list of frontmatter property for each post.
 | ------------------ | ------------------------------------------------------------------------------- | --------------------------------------------- |
 | **_title_**        | Title of the post. (h1)                                                         | required<sup>\*</sup>                         |
 | **_description_**  | Description of the post. Used in post excerpt and site description of the post. | required<sup>\*</sup>                         |
-| **_pubDatetime_**  | Published datetime in ISO 8601 format.                                          | required<sup>\*</sup>                         |
+| **_created_**      | Published datetime in ISO 8601 format.                                          | required<sup>\*</sup>                         |
 | **_author_**       | Author of the post.                                                             | default = SITE.author                         |
 | **_postSlug_**     | Slug for the post. Will automatically be slugified.                             | default = slugified title                     |
 | **_featured_**     | Whether or not display this post in featured section of home page               | default = false                               |
@@ -35,7 +35,7 @@ Here is the list of frontmatter property for each post.
 | **_ogImage_**      | OG image of the post. Useful for social media sharing and SEO.                  | default = SITE.ogImage or generated OG image  |
 | **_canonicalURL_** | Canonical URL (absolute), in case the article already exists on other source.   | default = `Astro.site` + `Astro.url.pathname` |
 
-Only `title`, `description` and `pubDatetime` fields in frontmatter must be specified.
+Only `title`, `description` and `created` fields in frontmatter must be specified.
 
 Title and description (excerpt) are important for search engine optimization (SEO) and thus AstroPaper encourages to include these in blog posts.
 
@@ -62,7 +62,7 @@ Here is the sample frontmatter for a post.
 ---
 title: The title of the post
 author: your name
-pubDatetime: 2022-09-21T05:17:19Z
+created: 2022-09-21T05:17:19Z
 postSlug: the-title-of-the-post
 featured: true
 draft: false

@@ -1,8 +1,8 @@
 import rss from "@astrojs/rss";
-import { getCollection } from "astro:content";
+import { SITE } from "@config";
 import getSortedPosts from "@utils/getSortedPosts";
 import slugify from "@utils/slugify";
-import { SITE } from "@config";
+import { getCollection } from "astro:content";
 
 export async function GET() {
   const posts = await getCollection("blog");
@@ -15,7 +15,7 @@ export async function GET() {
       link: `posts/${slugify(data)}`,
       title: data.title,
       description: data.description,
-      pubDate: new Date(data.pubDatetime),
+      pubDate: new Date(data.created),
     })),
   });
 }

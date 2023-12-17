@@ -1,7 +1,7 @@
 ---
 title: How to replace Docker Desktop with Portainer
 description: Using Multipass with Portainer on Mac and Windows
-pubDatetime: 2021-11-12
+created: 2021-11-12
 ogImage: /images/multipass@2x.webp
 tags: ["posts", "portainer", "multipass", "docker"]
 ---

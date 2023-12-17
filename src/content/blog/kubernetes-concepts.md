@@ -1,7 +1,7 @@
 ---
 title: Kubernetes Concepts
 description: Understanding Kubernetes
-pubDatetime: 2020-10-27
+created: 2020-10-27
 ogImage: /images/kubernetes@2x.webp
 tags: ["posts", "kubernetes"]
 ---

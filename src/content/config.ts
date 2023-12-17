@@ -6,7 +6,7 @@ const blog = defineCollection({
   schema: ({ image }) =>
     z.object({
       author: z.string().default(SITE.author),
-      pubDatetime: z.date(),
+
       title: z.string(),
       postSlug: z.string().optional(),
       featured: z.boolean().optional(),
@@ -20,6 +20,9 @@ const blog = defineCollection({
         .optional(),
       description: z.string(),
       canonicalURL: z.string().optional(),
+      published: z.boolean().optional(),
+      created: z.date(),
+      updated: z.date().optional(),
     }),
 });
 
@@ -28,7 +31,7 @@ const cookbooks = defineCollection({
   schema: ({ image }) =>
     z.object({
       author: z.string().default(SITE.author),
-      pubDatetime: z.date(),
+      created: z.date(),
       title: z.string(),
       postSlug: z.string().optional(),
       featured: z.boolean().optional(),
@@ -50,7 +53,7 @@ const projects = defineCollection({
   schema: ({ image }) =>
     z.object({
       author: z.string().default(SITE.author),
-      pubDatetime: z.date(),
+      created: z.date(),
       title: z.string(),
       postSlug: z.string().optional(),
       featured: z.boolean().optional(),
@@ -64,6 +67,9 @@ const projects = defineCollection({
         .optional(),
       description: z.string(),
       canonicalURL: z.string().optional(),
+      published: z.boolean().optional(),
+      created: z.date(),
+      updated: z.date().optional(),
     }),
 });
 
