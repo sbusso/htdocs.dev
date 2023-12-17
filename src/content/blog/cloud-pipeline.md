@@ -1,7 +1,7 @@
 ---
 title: Cloud Pipelines
 description: Execute video batch and control the flow
-created: 2020-09-23
+created: 2020-09-23T00:00
 tags: ["posts", "swarm", "kubernetes", "workflow"]
 ---
 

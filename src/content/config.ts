@@ -1,6 +1,9 @@
 import { SITE } from "@config";
 import { defineCollection, z } from "astro:content";
 
+const dateRegex = /^\d{4}-\d{2}-\d{2}$/; // Matches "YYYY-MM-DD"
+const dateTimeRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/;
+
 const blog = defineCollection({
   type: "content",
   schema: ({ image }) =>
@@ -20,8 +23,10 @@ const blog = defineCollection({
         .optional(),
       description: z.string(),
       canonicalURL: z.string().optional(),
-      published: z.string().optional(),
-      created: z.date(),
+      published: z.boolean().optional(),
+      created: z.string().refine(date => {
+        return dateRegex.test(date) || dateTimeRegex.test(date);
+      }),
       updated: z.string().optional(),
     }),
 });
