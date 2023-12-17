@@ -180,7 +180,7 @@ sudo chown kumod:kumod /opt/kumomta/etc/dkim/$DOMAIN -R
 
 [KumoMTA Configuration](KumoMTA%20Configuration.md)
 ## Management
-![CleanShot 2023-12-13 at 09.53.17@2x.png](../../../public/assets/CleanShot%202023-12-13%20at%2009.53.17@2x.png)
+![CleanShot 2023-12-13 at 09.53.17@2x.png](../../assets/CleanShot%202023-12-13%20at%2009.53.17@2x.png)
 
 ```sh
 sudo /opt/kumomta/sbin/tailer --tail /var/log/kumomta
@@ -202,9 +202,9 @@ We can really feel the experience behind building and managing mail service. Mod
 DISCLAIMER: This was written in December 2023 and regularly updated. This is heavily based on the fantastic documentation from KumoMTA, with some specific data and the whole process required to get up and running. Do refer to the official documentation, which will evolve with development.
 
 
-![CleanShot 2023-12-14 at 19.59.11@2x.png](../../../public/assets/CleanShot%202023-12-14%20at%2019.59.11@2x.png)
+![CleanShot 2023-12-14 at 19.59.11@2x.png](../../assets/CleanShot%202023-12-14%20at%2019.59.11@2x.png)
 
-![CleanShot 2023-12-14 at 19.59.27@2x.png](../../../public/assets/CleanShot%202023-12-14%20at%2019.59.27@2x.png)
+![CleanShot 2023-12-14 at 19.59.27@2x.png](../../assets/CleanShot%202023-12-14%20at%2019.59.27@2x.png)
 
 
 
