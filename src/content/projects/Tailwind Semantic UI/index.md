@@ -1,5 +1,7 @@
 ---
 title: Tailwind Semantic UI
+created: 2021-11-13T00:00
+description: Tailwind Semantic UI
 ---
 
 ## Colors

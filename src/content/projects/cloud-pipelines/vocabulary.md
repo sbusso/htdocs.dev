@@ -1,3 +1,9 @@
+---
+title: Airflow Vocabulary
+created: 2021-11-13T00:00
+description: Vocabulary
+---
+
 ## Airflow vocabulary
 
 - Task or Operator: A defined unit of work.

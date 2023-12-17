@@ -1,6 +1,7 @@
 ---
 title: Cloud Pipeline
-layout: layouts/page
+created: 2021-11-13T00:00
+description: Cloud Pipeline
 ---
 
 On the way to find a way to execute batch video and control the flow, I looked at the different solutions. Goal:

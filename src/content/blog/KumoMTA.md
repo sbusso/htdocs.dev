@@ -8,22 +8,28 @@ title: KumoMTA
 
 For 15 years or so, Postifx has been my solution for sending out marketing emails. Always on the lookout for something a bit more flexible and user-friendly. And then KumoMTA comes along!
 
-KumoMTA is a new (as of the end of 2023) solution for a high-volume, high-performance, on-premise email-sending platform. It is designed with a modern architecture mindset, mixing Rust and Lua for high performance and configurability. 
+KumoMTA is a new (as of the end of 2023) solution for a high-volume, high-performance, on-premise email-sending platform. It is designed with a modern architecture mindset, mixing Rust and Lua for high performance and configurability.
 
 The Open Source project Email Service Providers don't want you to know about. There are some pricey, big-name products out there that should be sweating bullets right now.
+
 ## Features
+
 - Extensive documentation and tutorials
 - Use Lua as a configuration language.
 - Delivery to HTTP
 
 Other: Monitoring with Prometheus
+
 ## Proxmox setup
+
 ### Installing Rocky Linux 9
+
 Download ISO image Rocky Linux 9 minimal`https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.3-x86_64-minimal.iso`
 
 4 cores, 8 Gb memory, 12Gb disk
 
 Start the VM and follow the install instructions.
+
 ### Post-installation
 
 Disable postfix
@@ -59,14 +65,15 @@ Optional: rocksdb for spool management
 sudo dnf makecache
 sudo dnf install rocksdb.x86_64
 ```
+
 #### Firewall
+
 Select the correct network interface, you can list existing interfaces wirth:
 
 ```sh
 firewall-cmd --list-interfaces
 # ens18
 ```
-
 
 ```sh
 sudo echo "ZONE=public
@@ -85,7 +92,9 @@ sudo firewall-cmd --zone=public --permanent --add-port=587/tcp
 sudo systemctl enable firewalld
 sudo firewall-cmd --reload
 ```
+
 ### SSL Certificate
+
 ```sh
 # For the certificate enter your FQDN
 MYFQDN="kyr.sh"
@@ -116,7 +125,9 @@ sudo mv -f ca.crt /etc/pki/tls/certs
 sudo mv -f ca.key /etc/pki/tls/private/ca.key
 sudo mv -f ca.csr /etc/pki/tls/private/ca.csr
 ```
+
 ## KumoMTA setup
+
 Install KumoMTA packages
 
 ```sh
@@ -132,16 +143,17 @@ On 13/11 the production installation is `kumomta-2023.11.28.115529_b5252a41-1.ro
 The instructions above will place a default configuration file at `/opt/kumomta/etc/policy/init.lua` and start the KumoMTA service, if the service does not start by default, it can be started and enabled with the following commands:
 
 ```sh
-sudo systemctl start kumomta 
+sudo systemctl start kumomta
 sudo systemctl enable kumomta
 ```
 
 KumoMTA will now be installed and running the `init.lua` configuration from `/opt/kumomta/sbin/kumod`
 
 ## Tuning sysctl.conf
+
 The following tuning parameters can help KumoMTA fully leverage its host server resources.
 
-These parameters should be added or updated in _/etc/sysctl.conf_:
+These parameters should be added or updated in */etc/sysctl.conf*:
 
 ```toml
 vm.max_map_count = 768000
@@ -159,15 +171,17 @@ kernel.shmmni = 4096
 ```
 
 After editing, the changes can be implemented without a restart with the sysctl -p command.
+
 ## Configuration
 
 1. `init.lua`
-	1. relay host
-	2. http listener
+   1. relay host
+   2. http listener
 2. `shaping.toml`
 3. `listener_domains.toml` accept incoming bounce notifications and Feedback Lopp messages
-4. `sources.toml` Egress Sources and Pools- [ ] #todo 
+4. `sources.toml` Egress Sources and Pools- [ ] #todo
 5. DKIM
+
 ```sh
 export DOMAIN=nuibits.com
 export SELECTOR=_kmdomainkey
@@ -176,11 +190,14 @@ sudo openssl genrsa -f4 -out /opt/kumomta/etc/dkim/$DOMAIN/$SELECTOR.key 1024
 sudo openssl rsa -in /opt/kumomta/etc/dkim/$DOMAIN/$SELECTOR.key -outform PEM -pubout -out /opt/kumomta/etc/dkim/$DOMAIN/$SELECTOR.pub
 sudo chown kumod:kumod /opt/kumomta/etc/dkim/$DOMAIN -R
 ```
+
 1. `dkim_data.toml`
 
 [KumoMTA Configuration](KumoMTA%20Configuration.md)
+
 ## Management
-![CleanShot 2023-12-13 at 09.53.17@2x.png](../../assets/CleanShot%202023-12-13%20at%2009.53.17@2x.png)
+
+![CleanShot 2023-12-13 at 09.53.17@2x.png](/assets/1.png)
 
 ```sh
 sudo /opt/kumomta/sbin/tailer --tail /var/log/kumomta
@@ -189,24 +206,18 @@ sudo /opt/kumomta/sbin/tailer --tail /var/log/kumomta
 add `/opt/kumomta/sbin` to `$PATH`
 
 ## Monitoring
+
 - Setup Prometheus node exporter
 - Connect to prometheus
 - Configure Grafana
 
-
 ## Conclusion
+
 Has amazing documentation and modern patterns, and it is the best in the class using Lua and Rust. Globally, it is relatively easy to set up due to good documentation. Sending focused, best practices.
 
-We can really feel the experience behind building and managing mail service. Modern design, there is no non sense, 
+We can really feel the experience behind building and managing mail service. Modern design, there is no non sense,
 
 DISCLAIMER: This was written in December 2023 and regularly updated. This is heavily based on the fantastic documentation from KumoMTA, with some specific data and the whole process required to get up and running. Do refer to the official documentation, which will evolve with development.
-
-
-![CleanShot 2023-12-14 at 19.59.11@2x.png](../../assets/CleanShot%202023-12-14%20at%2019.59.11@2x.png)
-
-![CleanShot 2023-12-14 at 19.59.27@2x.png](../../assets/CleanShot%202023-12-14%20at%2019.59.27@2x.png)
-
-
 
 ## Bounce command
 
@@ -216,10 +227,10 @@ kcli bounce --everything --reason clean
 
 > [!warning]
 > Everytime this command is used, we cannot send any more mail
+
 ### Add DMARC record
 
 `_dmarc.smtp.kyr.sh` TXT v=DMARC1; p=none; rua=mailto:dmarc-reports@smtp.kyr.sh
-
 
 ### Test
 

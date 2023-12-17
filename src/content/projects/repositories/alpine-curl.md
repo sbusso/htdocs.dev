@@ -1,3 +1,9 @@
+---
+title: Alpine Curl
+created: 2021-11-13T00:00
+description: Alpine Curl
+---
+
 Used to test content of website via curl
 
 ```

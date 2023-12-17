@@ -1,6 +1,7 @@
 ---
 title: Repositories
-layout: layouts/page
+description: Repositories
+created: 2021-11-13T00:00
 ---
 
 ??? summary "Bear Power Pack"
