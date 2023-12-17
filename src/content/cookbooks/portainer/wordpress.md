@@ -1,6 +1,6 @@
 ---
 title: Wordpress hosting with Docker and Portainer
-created: 2021-11-13
+created: 2021-11-13T00:00
 description: Wordpress hosting with Docker and Portainer
 ---
 
