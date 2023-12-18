@@ -1,6 +1,6 @@
 ---
 created: 2023-12-13T08:41
-updated: 2023-12-19T10:51
+updated: 2023-12-19T11:39
 published: true
 description: KumoMTA is a new (as of the end of 2023) solution for a high-volume, high-performance, on-premise email-sending platform. It is designed with a modern architecture mindset, mixing Rust and Lua for high performance and configurability.
 title: KumoMTA
@@ -9,23 +9,23 @@ tags:
   - smtp
   - tutorial
   - kumomta
+  - postfix
 ---
 
-For 15 years or so, Postifx has been my solution for sending out marketing emails. Always on the lookout for something a bit more flexible and user-friendly. And then KumoMTA comes along!
+For 15 years or so, Postfix has been my solution for sending out marketing emails. Always on the lookout for something a bit more flexible and user-friendly. And then KumoMTA comes along!
 
 KumoMTA is a new (as of the end of 2023) solution for a high-volume, high-performance, on-premise email-sending platform. It is designed with a modern architecture mindset, mixing Rust and Lua for high performance and configurability. 
 
-Email Service Providers don't want you to know about the Open Source project. Some pricey, big-name products out there (looking at you PowerMTA) should be sweating bullets right now.
+The Open Source project Email Service Providers don't want you to know about. Some pricey, big-name products out there (looking at you, PowerMTA) should be sweating bullets right now.
 ## Features
 - Use Lua as a configuration language.
-- Delivery to HTTP
+- Delivery to SMTP and HTTP
 - Events and metrics export
 - Extensive documentation and tutorials
+## First, What is an MTA?
+An MTA, or Mail Transfer Agent, is a key part of how emails are sent over the Internet. In the context of SMTP, which stands for Simple Mail Transfer Protocol, the MTA acts like a mailman for emails. When you send an email, it first goes to an SMTP server. Working as an MTA, this server figures out where the email needs to go efficiently.
 
-## What is an MTA?
-An MTA, or Mail Transfer Agent, is a key part of how emails are sent over the internet. In the context of SMTP, which stands for Simple Mail Transfer Protocol, the MTA acts like a mailman for emails. When you send an email, it first goes to an SMTP server. This server, working as an MTA, figures out where the email needs to go efficiently.
-
-When you send an email, it first hits an SMTP server, which acts as the MTA. The MTA’s job is to find the best path to deliver your email. It looks up the recipient's email server using DNS (a system that matches email addresses with server locations) and then forwards your email there.
+When you send an email, it first hits an SMTP server, which acts as the MTA. The MTA’s job is finding the best email delivery path. It looks up the recipient's email server using DNS (a system that matches email addresses with server locations) and then forwards your email there.
 
 Beyond just routing emails, MTAs have several important responsibilities, particularly in high-volume email sending scenarios:
 
@@ -33,7 +33,7 @@ Beyond just routing emails, MTAs have several important responsibilities, partic
     
 2. **Managing Delivery Queues**: If an email can't be delivered immediately, the MTA places it in a queue. The MTA then periodically attempts to resend these queued emails. This queuing system is crucial for handling delivery issues and maintaining email flow.
     
-3. **Adjusting Delivery for ESP Policies**: Different Email Service Providers (ESPs) have their own rules and limitations (like limits on the number of emails sent per hour). MTAs are smart enough to adjust their delivery tactics to comply with these various ESP policies, which helps in avoiding emails being marked as spam or rejected.
+3. **Adjusting Delivery for ESP Policies**: Different Email Service Providers (ESPs) have their own rules and limitations (like limits on the number of emails sent per hour). MTAs are smart enough to adjust their delivery tactics to comply with these various ESP policies, which helps avoid emails being marked as spam or rejected.
     
 4. **Security and Compliance**: MTAs also play a role in maintaining the security of the emails transmitted. They may include features like encryption to protect the content of emails during transfer. This is becoming even more important in 2024: [New Gmail protections for a safer, less spammy inbox](https://blog.google/products/gmail/gmail-security-authentication-spam-protection/)
 
@@ -94,8 +94,7 @@ firewall-cmd --list-interfaces
 
 
 ```sh
-sudo echo "ZONE=public
-" | sudo tee -a /etc/sysconfig/network-scripts/ifcfg-eth0
+sudo echo "ZONE=public" | sudo tee -a /etc/sysconfig/network-scripts/ifcfg-eth0
 
 sudo systemctl stop firewalld
 sudo systemctl start firewalld.service
@@ -152,9 +151,9 @@ sudo dnf config-manager \
 sudo yum install kumomta
 ```
 
-On 13/11 the production installation is `kumomta-2023.11.28.115529_b5252a41-1.rocky9.2.x86_64.rpm`.
+On `13/11` the production installation is `kumomta-2023.11.28.115529_b5252a41-1.rocky9.2.x86_64.rpm`.
 
-The instructions above will place a default configuration file at `/opt/kumomta/etc/policy/init.lua` and start the KumoMTA service, if the service does not start by default, it can be started and enabled with the following commands:
+The instructions above will place a default configuration file at `/opt/kumomta/etc/policy/init.lua` and start the KumoMTA service. If the service does not start by default, it can be started and enabled with the following commands:
 
 ```sh
 sudo systemctl start kumomta 
@@ -192,7 +191,7 @@ After editing, the changes can be implemented without a restart with the sysctl
 2. `shaping.toml`
 3. `listener_domains.toml` accept incoming bounce notifications and Feedback Lopp messages
 4. `sources.toml` Egress Sources and Pools- [ ] #todo 
-5. DKIM
+5. DKIM and `dkim_data.toml`
 ```sh
 export DOMAIN=nuibits.com
 export SELECTOR=_kmdomainkey
@@ -201,11 +200,10 @@ sudo openssl genrsa -f4 -out /opt/kumomta/etc/dkim/$DOMAIN/$SELECTOR.key 1024
 sudo openssl rsa -in /opt/kumomta/etc/dkim/$DOMAIN/$SELECTOR.key -outform PEM -pubout -out /opt/kumomta/etc/dkim/$DOMAIN/$SELECTOR.pub
 sudo chown kumod:kumod /opt/kumomta/etc/dkim/$DOMAIN -R
 ```
-1. `dkim_data.toml`
 
 [KumoMTA Configuration](KumoMTA%20Configuration.md)
 
-As you are setting up DNS record, one more record
+As you are setting up the DNS record, one more record
 #### Add DMARC record
 ```
 _dmarc.smtp.kyr.sh TXT v=DMARC1; p=none; rua=mailto:dmarc-reports@smtp.kyr.sh
@@ -218,8 +216,8 @@ In an upcoming post, I will go through setting up Graylog for events and logs mo
 - Connect to Prometheus
 - Configure Grafana
 ## Conclusion
-Has amazing documentation and modern patterns, and it is the best in the class using Lua and Rust. Globally, it is relatively easy to set up due to good documentation. Sending focused, best practices.
+It has excellent documentation and modern patterns, and it is the best in the class using Lua and Rust. Globally, it is relatively easy to set up due to good documentation. It is sending focused, best practices.
 
 We can feel the experience behind building and managing mail service. Modern design, there is no-nonsense, 
 
-DISCLAIMER: This was written in December 2023 and will be regularly updated. This is heavily based on the fantastic documentation from [KumoMTA](https://docs.kumomta.com/tutorial/quickstart/), with some specific data and the whole process required to get up and running. Do refer to the official documentation to ensure up-to-date information, as the platform is still early days and actively developed.
+NB: This was written in December 2023 and will be regularly updated. This is heavily based on the fantastic documentation from [KumoMTA](https://docs.kumomta.com/tutorial/quickstart/), with some specific data and the whole process required to get up and running. Refer to the official documentation to ensure up-to-date information, as the platform is still in the early days and actively developed.
