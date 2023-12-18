@@ -1,6 +1,6 @@
 ---
 created: 2023-12-13T08:41
-updated: 2023-12-19T10:04
+updated: 2023-12-19T10:48
 published: true
 description: KumoMTA is a new (as of the end of 2023) solution for a high-volume, high-performance, on-premise email-sending platform. It is designed with a modern architecture mindset, mixing Rust and Lua for high performance and configurability.
 title: KumoMTA
@@ -208,11 +208,12 @@ As you are setting up DNS record, one more record
 _dmarc.smtp.kyr.sh TXT v=DMARC1; p=none; rua=mailto:dmarc-reports@smtp.kyr.sh
 ```
 ## Monitoring
+In an upcoming post, I will go through setting up Graylog for events and logs monitoring and Prometheus for metrics.
+- KumoMTA config to export logs to RabbitMQ
+- Graylog's Configuration to extract data and alerts
 - Setup Prometheus node exporter
-- Connect to prometheus
+- Connect to Prometheus
 - Configure Grafana
-
-
 ## Conclusion
 Has amazing documentation and modern patterns, and it is the best in the class using Lua and Rust. Globally, it is relatively easy to set up due to good documentation. Sending focused, best practices.
 
