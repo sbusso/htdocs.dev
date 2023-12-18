@@ -1,6 +1,6 @@
 ---
 created: 2023-12-13T08:41
-updated: 2023-12-18T09:22
+updated: 2023-12-19T10:04
 published: true
 description: KumoMTA is a new (as of the end of 2023) solution for a high-volume, high-performance, on-premise email-sending platform. It is designed with a modern architecture mindset, mixing Rust and Lua for high performance and configurability.
 title: KumoMTA
@@ -11,23 +11,44 @@ For 15 years or so, Postifx has been my solution for sending out marketing email
 
 KumoMTA is a new (as of the end of 2023) solution for a high-volume, high-performance, on-premise email-sending platform. It is designed with a modern architecture mindset, mixing Rust and Lua for high performance and configurability. 
 
-The Open Source project Email Service Providers don't want you to know about. There are some pricey, big-name products out there that should be sweating bullets right now.
+The Open Source project Email Service Providers don't want you to know about. Some pricey, big-name products out there (looking at your - [ ] #todo ) should be sweating bullets right now.
 ## Features
-- Extensive documentation and tutorials
 - Use Lua as a configuration language.
 - Delivery to HTTP
+- Extensive documentation and tutorials
 
 Other: Monitoring with Prometheus
-## Proxmox setup
+
+## What is an MTA?
+An MTA, or Mail Transfer Agent, is a key part of how emails are sent over the internet. In the context of SMTP, which stands for Simple Mail Transfer Protocol, the MTA acts like a mailman for emails. When you send an email, it first goes to an SMTP server. This server, working as an MTA, figures out where the email needs to go efficiently.
+
+When you send an email, it first hits an SMTP server, which acts as the MTA. The MTA’s job is to find the best path to deliver your email. It looks up the recipient's email server using DNS (a system that matches email addresses with server locations) and then forwards your email there.
+
+Beyond just routing emails, MTAs have several important responsibilities, particularly in high-volume email sending scenarios:
+
+1. **Performance**: MTAs are designed to handle a large number of emails quickly and efficiently. They must process and forward emails without significant delays, ensuring timely delivery.
+    
+2. **Managing Delivery Queues**: If an email can't be delivered immediately, the MTA places it in a queue. The MTA then periodically attempts to resend these queued emails. This queuing system is crucial for handling delivery issues and maintaining email flow.
+    
+3. **Adjusting Delivery for ESP Policies**: Different Email Service Providers (ESPs) have their own rules and limitations (like limits on the number of emails sent per hour). MTAs are smart enough to adjust their delivery tactics to comply with these various ESP policies, which helps in avoiding emails being marked as spam or rejected.
+    
+4. **Security and Compliance**: MTAs also play a role in maintaining the security of the emails transmitted. They may include features like encryption to protect the content of emails during transfer. This is becoming even more important in 2024: [New Gmail protections for a safer, less spammy inbox](https://blog.google/products/gmail/gmail-security-authentication-spam-protection/)
+
+In essence, an MTA in an SMTP environment is more than just a simple mail forwarder. It ensures not only the efficient and secure delivery of emails but also manages complex delivery scenarios and compliance with various ESP rules, making it an indispensable tool for email communication such as marketing campaigns.
+## Setup
 ### Installing Rocky Linux 9
-Download ISO image Rocky Linux 9 minimal`https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.3-x86_64-minimal.iso`
+For the setup I will use Proxmox, but you can use any VPS or dedicated server following the recommended specs 4 cores, 8 Gb memory, 12Gb disk.
 
-4 cores, 8 Gb memory, 12Gb disk
+Download ISO image Rocky Linux 9 minimal
 
-Start the VM and follow the install instructions.
+```
+https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.3-x86_64-minimal.iso
+```
+
+Launch the OS install and follow the instructions.
 ### Post-installation
 
-Disable postfix
+Disable postfix and qpidd:
 
 ```sh
 sudo dnf clean all
@@ -48,7 +69,7 @@ sudo systemctl start named
 sudo systemctl enable named
 ```
 
-setup autoupdate packages
+setup auto update packages
 
 ```sh
 echo "0 3 * * * root /usr/bin/dnf update -y >/dev/null 2>&1" | sudo tee /etc/cron.d/dnf-updates >/dev/null
@@ -61,11 +82,11 @@ sudo dnf makecache
 sudo dnf install rocksdb.x86_64
 ```
 #### Firewall
-Select the correct network interface, you can list existing interfaces wirth:
+Select the correct network interface. You can list existing interfaces with `eth0` for a VPS, but in `ens18` in Proxmox. Do check the right interface, your case may vary and the MTA setup won't work without the right config.
 
 ```sh
 firewall-cmd --list-interfaces
-# ens18
+# eht0
 ```
 
 
@@ -180,15 +201,12 @@ sudo chown kumod:kumod /opt/kumomta/etc/dkim/$DOMAIN -R
 1. `dkim_data.toml`
 
 [KumoMTA Configuration](KumoMTA%20Configuration.md)
-## Management
-![CleanShot 2023-12-13 at 09.53.17@2x.png](../../assets/CleanShot%202023-12-13%20at%2009.53.17@2x.png)
 
-```sh
-sudo /opt/kumomta/sbin/tailer --tail /var/log/kumomta
+As you are setting up DNS record, one more record
+#### Add DMARC record
 ```
-
-add `/opt/kumomta/sbin` to `$PATH`
-
+_dmarc.smtp.kyr.sh TXT v=DMARC1; p=none; rua=mailto:dmarc-reports@smtp.kyr.sh
+```
 ## Monitoring
 - Setup Prometheus node exporter
 - Connect to prometheus
@@ -198,32 +216,13 @@ add `/opt/kumomta/sbin` to `$PATH`
 ## Conclusion
 Has amazing documentation and modern patterns, and it is the best in the class using Lua and Rust. Globally, it is relatively easy to set up due to good documentation. Sending focused, best practices.
 
-We can really feel the experience behind building and managing mail service. Modern design, there is no non sense, 
+We can feel the experience behind building and managing mail service. Modern design, there is no-nonsense, 
 
-DISCLAIMER: This was written in December 2023 and regularly updated. This is heavily based on the fantastic documentation from KumoMTA, with some specific data and the whole process required to get up and running. Do refer to the official documentation, which will evolve with development.
-
-
-![CleanShot 2023-12-14 at 19.59.11@2x.png](../../assets/CleanShot%202023-12-14%20at%2019.59.11@2x.png)
-
-![CleanShot 2023-12-14 at 19.59.27@2x.png](../../assets/CleanShot%202023-12-14%20at%2019.59.27@2x.png)
+DISCLAIMER: This was written in December 2023 and will be regularly updated. This is heavily based on the fantastic documentation from [KumoMTA](https://docs.kumomta.com/tutorial/quickstart/), with some specific data and the whole process required to get up and running. Do refer to the official documentation to ensure up-to-date information, as the platform is still early days and actively developed.
 
 
+![CleanShot 2023-12-14 at 19.59.11@2x.png](../../../public/assets/CleanShot%202023-12-14%20at%2019.59.11@2x.png)
 
-## Bounce command
-
-```bash
-kcli bounce --everything --reason clean
-```
-
-> [!warning]
-> Everytime this command is used, we cannot send any more mail
-### Add DMARC record
-
-`_dmarc.smtp.kyr.sh` TXT v=DMARC1; p=none; rua=mailto:dmarc-reports@smtp.kyr.sh
+![CleanShot 2023-12-14 at 19.59.27@2x.png](../../../public/assets/CleanShot%202023-12-14%20at%2019.59.27@2x.png)
 
 
-### Test
-
-```sh
-swaks --from contact@smtp.kyr.sh --to sbusso-KHLV@srv1.mail-tester.com --ehlo smtp.kyr.sh --server localhost:2525 --body body.txt
-```
