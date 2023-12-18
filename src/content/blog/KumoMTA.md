@@ -1,23 +1,26 @@
 ---
 created: 2023-12-13T08:41
-updated: 2023-12-19T10:48
+updated: 2023-12-19T10:51
 published: true
 description: KumoMTA is a new (as of the end of 2023) solution for a high-volume, high-performance, on-premise email-sending platform. It is designed with a modern architecture mindset, mixing Rust and Lua for high performance and configurability.
 title: KumoMTA
 featured: true
+tags:
+  - smtp
+  - tutorial
+  - kumomta
 ---
 
 For 15 years or so, Postifx has been my solution for sending out marketing emails. Always on the lookout for something a bit more flexible and user-friendly. And then KumoMTA comes along!
 
 KumoMTA is a new (as of the end of 2023) solution for a high-volume, high-performance, on-premise email-sending platform. It is designed with a modern architecture mindset, mixing Rust and Lua for high performance and configurability. 
 
-The Open Source project Email Service Providers don't want you to know about. Some pricey, big-name products out there (looking at your - [ ] #todo ) should be sweating bullets right now.
+Email Service Providers don't want you to know about the Open Source project. Some pricey, big-name products out there (looking at you PowerMTA) should be sweating bullets right now.
 ## Features
 - Use Lua as a configuration language.
 - Delivery to HTTP
+- Events and metrics export
 - Extensive documentation and tutorials
-
-Other: Monitoring with Prometheus
 
 ## What is an MTA?
 An MTA, or Mail Transfer Agent, is a key part of how emails are sent over the internet. In the context of SMTP, which stands for Simple Mail Transfer Protocol, the MTA acts like a mailman for emails. When you send an email, it first goes to an SMTP server. This server, working as an MTA, figures out where the email needs to go efficiently.
@@ -220,10 +223,3 @@ Has amazing documentation and modern patterns, and it is the best in the class u
 We can feel the experience behind building and managing mail service. Modern design, there is no-nonsense, 
 
 DISCLAIMER: This was written in December 2023 and will be regularly updated. This is heavily based on the fantastic documentation from [KumoMTA](https://docs.kumomta.com/tutorial/quickstart/), with some specific data and the whole process required to get up and running. Do refer to the official documentation to ensure up-to-date information, as the platform is still early days and actively developed.
-
-
-![CleanShot 2023-12-14 at 19.59.11@2x.png](../../../public/assets/CleanShot%202023-12-14%20at%2019.59.11@2x.png)
-
-![CleanShot 2023-12-14 at 19.59.27@2x.png](../../../public/assets/CleanShot%202023-12-14%20at%2019.59.27@2x.png)
-
-
