@@ -16,7 +16,7 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
   };
 
   return (
-    <li className="prose my-6">
+    <li className=" my-6 min-w-full">
       <a
         href={href}
         className=" inline-block text-lg font-medium text-skin-accent decoration-1 underline-offset-4 hover:decoration-solid"
@@ -28,9 +28,7 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
         )}
       </a>
       {/* <Datetime datetime={created} /> */}
-      <p className="mt-2 !text-zinc-300/70 dark:!text-zinc-500">
-        {description}
-      </p>
+      <p className="mt-2  ">{description}</p>
     </li>
   );
 }
