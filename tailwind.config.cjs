@@ -18,6 +18,9 @@ module.exports = {
     },
 
     extend: {
+      // colors: {
+      //   border: withOpacity("--color-border"),
+      // },
       textColor: {
         skin: {
           base: withOpacity("--color-text-base"),
@@ -56,6 +59,8 @@ module.exports = {
       fontFamily: {
         mono: ["IBM Plex Mono", "monospace"],
       },
+
+
 
       typography: {
         DEFAULT: {

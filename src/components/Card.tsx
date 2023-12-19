@@ -1,6 +1,5 @@
 import { slugifyStr } from "@utils/slugify";
 import type { CollectionEntry } from "astro:content";
-import Datetime from "./Datetime";
 
 export interface Props {
   href?: string;
@@ -13,15 +12,14 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
 
   const headerProps = {
     style: { viewTransitionName: slugifyStr(title) },
-    className:
-      "text-lg font-medium decoration-dashed hover:underline not-italic",
+    className: "text-lg font-medium not-italic hover:decoration-solid",
   };
 
   return (
     <li className="prose my-6">
       <a
         href={href}
-        className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
+        className=" inline-block text-lg font-medium text-skin-accent decoration-1 underline-offset-4 hover:decoration-solid"
       >
         {secHeading ? (
           <h2 {...headerProps}>{title}</h2>
@@ -29,8 +27,10 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
           <h3 {...headerProps}>{title}</h3>
         )}
       </a>
-      <Datetime datetime={created} />
-      <p>{description}</p>
+      {/* <Datetime datetime={created} /> */}
+      <p className="mt-2 !text-zinc-300/70 dark:!text-zinc-500">
+        {description}
+      </p>
     </li>
   );
 }
