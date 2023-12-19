@@ -1,10 +1,10 @@
 ---
 created: 2023-12-13T08:41
-updated: 2023-12-19T11:39
+updated: 2023-12-19T23:41
 published: true
 description: KumoMTA is a new (as of the end of 2023) solution for a high-volume, high-performance, on-premise email-sending platform. It is designed with a modern architecture mindset, mixing Rust and Lua for high performance and configurability.
 title: KumoMTA
-featured: true
+featured: false
 tags:
   - smtp
   - tutorial
@@ -201,7 +201,7 @@ sudo openssl rsa -in /opt/kumomta/etc/dkim/$DOMAIN/$SELECTOR.key -outform PEM -p
 sudo chown kumod:kumod /opt/kumomta/etc/dkim/$DOMAIN -R
 ```
 
-[KumoMTA Configuration](KumoMTA%20Configuration.md)
+[KumoMTA Configuration](KumoMTA%20Configuration.md) [TODO]
 
 As you are setting up the DNS record, one more record
 #### Add DMARC record
