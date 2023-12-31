@@ -6,8 +6,8 @@ description: Postfix - Rate limiting
 
 References:
 
-(http://steam.io/2013/04/01/postfix-rate-limiting/)
-http://wiki.wordtothewise.com/ISP_Summary_Information
+(https://steam.io/2013/04/01/postfix-rate-limiting/)
+https://wiki.wordtothewise.com/ISP_Summary_Information
 
 ## 6.1. Add policies in /etc/postfix/master.cf
 

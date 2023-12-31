@@ -18,7 +18,8 @@ There's no Mailgraph package available for Fedora Core 5, so we must install it 
 
 Then we download the Mailgraph sources and copy the Mailgraph scripts to the appropriate locations:
 
-    cd /tmpwget http://people.ee.ethz.ch/~dws/software/mailgraph/pub/mailgraph-1.12.tar.gztar xvfz mailgraph-1.12.tar.gzcd mailgraph-1.12mv mailgraph.pl /usr/local/bin/mailgraph.plmv mailgraph-init /etc/init.d/mailgraph
+    cd /tmp
+    wget https://people.ee.ethz.ch/~dws/software/mailgraph/pub/mailgraph-1.12.tar.gztar xvfz mailgraph-1.12.tar.gzcd mailgraph-1.12mv mailgraph.pl /usr/local/bin/mailgraph.plmv mailgraph-init /etc/init.d/mailgraph
 
 Now we must adjust the Mailgraph init script /etc/init.d/mailgraph:
 
@@ -115,7 +116,7 @@ Then we make the script executable:
 
 If you use suExec for the www.example.com web site, you must chown mailgraph.cgi to the appropriate owner and group.
 
-Now direct your browser to http://www.example.com/cgi-bin/mailgraph.cgi, and you should see some graphs. Of course, there must be some emails going through your system before you see the first results, so be patient.
+Now direct your browser to https://www.example.com/cgi-bin/mailgraph.cgi, and you should see some graphs. Of course, there must be some emails going through your system before you see the first results, so be patient.
 
 ### 4.2 pflogsumm
 

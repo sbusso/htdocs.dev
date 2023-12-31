@@ -7,13 +7,13 @@ description: Postfix - Conclusion
 HELO check
 helocheck@cbl.abuseat.org
 
-http://www.mail-tester.com/
+https://www.mail-tester.com/
 avoid broken links, multi domains links
-http://www.kitterman.com/spf/validate.html
+https://www.kitterman.com/spf/validate.html
 
 https://www.blacklistmaster.com
 
-http://postmaster.free.fr/
+https://postmaster.free.fr/
 
 Big companies can send millions emails a day without trick, just following good practices
 
@@ -36,16 +36,16 @@ Sending mail from different domains and/or IP addresses for each function.
 Update: For future reference, the problem was in /etc/mailname which listed a name that wasn't in the mydestinations list of postfix. This caused all mails to be considered foreign and the mail bypassed /etc/aliases processing
 
 Test Test Test
-http://www.facilemail.fr/
-http://www.port25.com/support/authentication-center/email-verification/
-http://isnotspam.com/
-http://spamscorechecker.com/
+https://www.facilemail.fr/
+https://www.port25.com/support/authentication-center/email-verification/
+https://isnotspam.com/
+https://spamscorechecker.com/
 https://www.dnsstuff.com/member/register/
-http://www.dnsgoodies.com/
-http://www.debouncer.com/mx-lookup
-http://dnscheck.pingdom.com/?domain=mailing.pronostic-facile.fr
-http://protodave.com/security/checking-your-dkim-dns-record/
-http://mxtoolbox.com/SuperTool.aspx?action=smtp%3a188.226.182.49&run=toolpage#
+https://www.dnsgoodies.com/
+https://www.debouncer.com/mx-lookup
+https://dnscheck.pingdom.com/?domain=mailing.pronostic-facile.fr
+https://protodave.com/security/checking-your-dkim-dns-record/
+https://mxtoolbox.com/SuperTool.aspx?action=smtp%3a188.226.182.49&run=toolpage#
 
 Resources
 

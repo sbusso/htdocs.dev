@@ -15,7 +15,7 @@ Create a VPS with Ubuntu 20.04 LTS
 (optional)
 
 ```shell
-	wget http://software.virtualmin.com/gpl/scripts/install.sh
+	wget https://software.virtualmin.com/gpl/scripts/install.sh
 	sudo /bin/sh install.sh
 ```
 

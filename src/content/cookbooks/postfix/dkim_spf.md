@@ -72,4 +72,4 @@ Publish the contents of file /etc/opendkim/keys/pronostic-facile.fr/default.txt 
     root@Ubuntu-1204-precise-64-minimal ~ #
 
 Ref: https://help.ubuntu.com/community/Postfix/DKIM
-http://askubuntu.com/questions/134725/setup-dkim-domainkeys-for-ubuntu-postfix-and-mailman
+https://askubuntu.com/questions/134725/setup-dkim-domainkeys-for-ubuntu-postfix-and-mailman
