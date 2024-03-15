@@ -1,9 +1,9 @@
 ---
 created: 2024-02-29T13:33
-updated: 2024-03-15T14:08
+updated: 2024-03-15T14:14
 title: "The Modern Data Stack: Empowering Data-Driven Organizations with Dagster, dbt, Great Expectations, Superset, and DataHub"
 published: true
-desciption: The modern data stack, combining tools like Dagster, dbt, Great Expectations, Superset, and DataHub, empowers organizations to efficiently manage, transform, and derive insights from their data. By adopting these best-in-class tools, data teams can streamline workflows, improve data quality, and drive data-driven decision-making.
+description: The modern data stack, combining tools like Dagster, dbt, Great Expectations, Superset, and DataHub, empowers organizations to efficiently manage, transform, and derive insights from their data. By adopting these best-in-class tools, data teams can streamline workflows, improve data quality, and drive data-driven decision-making.
 tags:
   - mds
   - dagster
