@@ -8,7 +8,7 @@ description: No tool - Low code platform
 
 
 <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
-  <div class="w-1/2 flex-shrink-0">
+  <div class="w-1/2 flex-shrink-0 h-24">
     <img src="https://repository-images.githubusercontent.com/529708137/b511aa1c-7e86-4dfd-ba1e-df76e0adf023" alt="Preview Image" class="w-full h-full object-cover">
   </div>
   <div class="w-2/2 p-4">
@@ -24,7 +24,7 @@ description: No tool - Low code platform
 
 
 <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
-  <div class="w-1/2 flex-shrink-0">
+  <div class="w-1/2 flex-shrink-0 h-24">
     <img src="https://repository-images.githubusercontent.com/285012857/d1144180-9639-11eb-8848-d7d896d426ff" alt="Preview Image" class="w-full h-full object-cover">
   </div>
   <div class="w-2/2 p-4">
@@ -39,7 +39,7 @@ description: No tool - Low code platform
 
 
 <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
-  <div class="w-1/2 flex-shrink-0">
+  <div class="w-1/2 flex-shrink-0 h-24">
     <img src="https://repository-images.githubusercontent.com/197743848/836735f6-dc16-4906-9d1f-2fce19b48665" alt="Preview Image" class="w-full h-full object-cover">
   </div>
   <div class="w-2/2 p-4">
@@ -55,7 +55,7 @@ description: No tool - Low code platform
 
 
 <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
-  <div class="w-1/2 flex-shrink-0">
+  <div class="w-1/2 flex-shrink-0 h-24">
     <img src="https://repository-images.githubusercontent.com/650344440/11b72f99-1d37-4c19-ac01-a35f92c1929a" alt="Preview Image" class="w-full h-full object-cover">
   </div>
   <div class="w-2/2 p-4">
@@ -72,7 +72,7 @@ description: No tool - Low code platform
 
 
 <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
-  <div class="w-1/2 flex-shrink-0">
+  <div class="w-1/2 flex-shrink-0 h-24">
     <img src="https://opengraph.githubassets.com/0f37741322b27fadbc1cdd36a36db424aaf3c0d460180388fb07e521eb2630f3/uptrace/uptrace" alt="Preview Image" class="w-full h-full object-cover">
   </div>
   <div class="w-2/2 p-4">
@@ -87,7 +87,7 @@ description: No tool - Low code platform
 
 
 <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
-  <div class="w-1/2 flex-shrink-0">
+  <div class="w-1/2 flex-shrink-0 h-24">
     <img src="https://opengraph.githubassets.com/8e9b50e8d8c8b102448f3986fef2c57ee762dc6246db3422805f3625a91d455f/hyperdxio/hyperdx" alt="Preview Image" class="w-full h-full object-cover">
   </div>
   <div class="w-2/2 p-4">
@@ -103,7 +103,7 @@ description: No tool - Low code platform
 
 
 <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
-  <div class="w-1/2 flex-shrink-0">
+  <div class="w-1/2 flex-shrink-0 h-24">
     <img src="https://opengraph.githubassets.com/fe3ea20251e6d1bc3a9ba5411e971ee498b83c1a6441342433601fa41b08750b/Graylog2/graylog2-server" alt="Preview Image" class="w-full h-full object-cover">
   </div>
   <div class="w-2/2 p-4">
@@ -119,7 +119,7 @@ description: No tool - Low code platform
 
 
 <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
-  <div class="w-1/2 flex-shrink-0">
+  <div class="w-1/2 flex-shrink-0 h-24">
     <img src="https://repository-images.githubusercontent.com/614656648/5abd81d4-f291-41e5-b8e0-a3f3d2904737" alt="Preview Image" class="w-full h-full object-cover">
   </div>
   <div class="w-2/2 p-4">
@@ -137,7 +137,7 @@ description: No tool - Low code platform
 
 
 <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
-  <div class="w-1/2 flex-shrink-0">
+  <div class="w-1/2 flex-shrink-0 h-24">
     <img src="https://repository-images.githubusercontent.com/109291007/64988459-0986-451d-b9c7-4cad8be424b1" alt="Preview Image" class="w-full h-full object-cover">
   </div>
   <div class="w-2/2 p-4">
@@ -152,7 +152,7 @@ description: No tool - Low code platform
 
 
 <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
-  <div class="w-1/2 flex-shrink-0">
+  <div class="w-1/2 flex-shrink-0 h-24">
     <img src="https://repository-images.githubusercontent.com/204949916/1c504901-733b-4bf5-b887-9c7fc75397fa" alt="Preview Image" class="w-full h-full object-cover">
   </div>
   <div class="w-2/2 p-4">
@@ -168,7 +168,7 @@ description: No tool - Low code platform
 
 
 <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
-  <div class="w-1/2 flex-shrink-0">
+  <div class="w-1/2 flex-shrink-0 h-24">
     <img src="https://repository-images.githubusercontent.com/149026292/a2901cd6-298a-4285-a023-a23670ec6431" alt="Preview Image" class="w-full h-full object-cover">
   </div>
   <div class="w-2/2 p-4">
@@ -185,7 +185,7 @@ description: No tool - Low code platform
 
 
 <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
-  <div class="w-1/2 flex-shrink-0">
+  <div class="w-1/2 flex-shrink-0 h-24">
     <img src="https://www.metabase.com/images/opengraph/home-og.jpg" alt="Preview Image" class="w-full h-full object-cover">
   </div>
   <div class="w-2/2 p-4">
@@ -200,7 +200,7 @@ description: No tool - Low code platform
 
 
 <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
-  <div class="w-1/2 flex-shrink-0">
+  <div class="w-1/2 flex-shrink-0 h-24">
     <img src="undefined" alt="Preview Image" class="w-full h-full object-cover">
   </div>
   <div class="w-2/2 p-4">
@@ -216,7 +216,7 @@ description: No tool - Low code platform
 
 
 <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
-  <div class="w-1/2 flex-shrink-0">
+  <div class="w-1/2 flex-shrink-0 h-24">
     <img src="https://opengraph.githubassets.com/e1e4c586af85164c27cc30844b1574c5d2dc158b3e13e1bfdaea38b7d99593d3/getredash/redash" alt="Preview Image" class="w-full h-full object-cover">
   </div>
   <div class="w-2/2 p-4">
@@ -232,7 +232,7 @@ description: No tool - Low code platform
 
 
 <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
-  <div class="w-1/2 flex-shrink-0">
+  <div class="w-1/2 flex-shrink-0 h-24">
     <img src="https://opengraph.githubassets.com/2927491d5c37d09e5b837ab13934835d7e8f6952704e9e57deed9e24e0f06246/lightdash/lightdash" alt="Preview Image" class="w-full h-full object-cover">
   </div>
   <div class="w-2/2 p-4">
@@ -252,7 +252,7 @@ description: No tool - Low code platform
 
 
 <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
-  <div class="w-1/2 flex-shrink-0">
+  <div class="w-1/2 flex-shrink-0 h-24">
     <img src="https://repository-images.githubusercontent.com/614656648/5abd81d4-f291-41e5-b8e0-a3f3d2904737" alt="Preview Image" class="w-full h-full object-cover">
   </div>
   <div class="w-2/2 p-4">
@@ -269,7 +269,7 @@ description: No tool - Low code platform
 
 
 <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
-  <div class="w-1/2 flex-shrink-0">
+  <div class="w-1/2 flex-shrink-0 h-24">
     <img src="https://repository-images.githubusercontent.com/309512982/5f774c00-279b-11eb-815d-c8ee10fbb94f" alt="Preview Image" class="w-full h-full object-cover">
   </div>
   <div class="w-2/2 p-4">
