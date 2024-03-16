@@ -1,6 +1,6 @@
 ---
 created: 2024-03-16T11:12
-updated: 2024-03-16T16:03
+updated: 2024-03-16T16:26
 title: Python Quick Web UIs
 description: Quickly build web ui with python frameworks
 published: true
@@ -15,6 +15,7 @@ Machine Learning Oriented, Hugging Face integration
 https://www.gradio.app
 
 Fastapi
+
 
 ```python
 import gradio as gr
