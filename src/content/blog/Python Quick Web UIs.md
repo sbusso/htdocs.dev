@@ -1,6 +1,6 @@
 ---
 created: 2024-03-16T11:12
-updated: 2024-03-16T11:20
+updated: 2024-03-16T11:41
 title: Python Quick Web UIs
 description: Quickly build web ui with python frameworks
 published: true
@@ -10,8 +10,41 @@ A list of libraries to build quick Web UI with python
 ## Gradio
 Gradio is the fastest way to demo your machine learning model with a friendly web interface so that anyone can use it, anywhere!
 
+Machine Learning Oriented, Hugging Face integration
+![Pasted image 20240316113520.png](../../../public/assets/Pasted%20image%2020240316113520.png)
 https://www.gradio.app
 
+Fastapi
+
+```python
+import gradio as gr
+
+def greet(name):
+    return "Hello " + name + "!"
+
+demo = gr.Interface(fn=greet, inputs="text", outputs="text")
+demo.launch()
+```
+
+Gradio Playground 
+https://www.gradio.app/playground
+
+Hosting Hugging Face Spaces or self hosted
+
+## Hyperdiv
+Open-source framework for rapidly building reactive web UIs in Python, with built-in [Shoelace](https://shoelace.style/) components, Markdown, charts, tables, and more.
+
+```sh
+pip install hyperdiv
+hyperdiv docs
+```
+
+https://hyperdiv.io
+
+deploy to 
+https://replit.com
+https://railway.app
+https://fly.io
 ## PySimpleGUI
 **PySimpleGUI** creates graphical user interfaces (GUIs) using Python, quickly and easily!
 
