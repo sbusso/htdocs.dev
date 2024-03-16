@@ -1,11 +1,12 @@
 ---
 created: 2023-12-22T00:49
-updated: 2024-03-17T12:45
+updated: 2024-03-17T12:57
 title: Natural Language Processing in Golang
 author: Stephane Busso
 description: Natural Language Processing in Golang Librairies
 published: true
-tags: 
+tags:
+  - golang
 cover: 
 ---
 ## Natural Language Processing in Golang
