@@ -1,12 +1,14 @@
 ---
-created: 2024-03-16T23:35
-updated: 2024-03-16T23:54
-title: Caddy as a reverse proxy for Docker
+created: 2024-03-16T20:26:00
+updated: 2024-03-17T12:14
+title: Caddy Docker Reverse Proxy
 description: How to setup caddy as a reverse proxy with docker standalone and docker swarm.
 published: true
 tags:
   - docker
   - caddy
+author: Stephane Busso
+cover: 
 ---
 How to setup caddy as a reverse proxy with docker standalone and docker swarm.
 
