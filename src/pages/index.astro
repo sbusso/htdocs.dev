@@ -10,6 +10,7 @@ import Layout from "@layouts/Layout.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import slugify from "@utils/slugify";
 import { getCollection } from "astro:content";
+import { SITE } from "@config";
 
 const posts = await getCollection("blog");
 
@@ -78,7 +79,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
             .filter(({ data }) => !data.featured)
             .map(
               ({ data }, index) =>
-                index < 4 && (
+                index < SITE.postPerPage && (
                   <Card
                     href={`/posts/${slugify(data)}`}
                     frontmatter={data}
