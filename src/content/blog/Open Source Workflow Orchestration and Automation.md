@@ -1,6 +1,6 @@
 ---
 created: 2024-03-17T11:30:00
-updated: 2024-03-17T11:36
+updated: 2024-03-17T11:43
 title: Open Source Workflow Orchestration and Automation
 description: Discover the power of open-source workflow orchestration and automation tools like Apache Airflow, Prefect, Dagster, and more. Streamline your processes, boost efficiency, and unlock the true potential of your workflows with these cutting-edge solutions.
 published: true
@@ -143,7 +143,7 @@ Luigi is a Python package developed by Spotify that helps build complex pipeline
       <img src="assets/images/favicon.png" alt="Favicon" class="w-4 h-4 mr-2">
       <a href="https://argoproj.github.io/argo-workflows/" target="_blank" class="text-blue-600 hover:underline">"Argo Workflows - The workflow engine for Kubernetes"</a>
     </div>
-    <p class="text-gray-600">undefined</p>
+    <p class="text-gray-600"></p>
   </div>
 </div>
 
@@ -190,4 +190,4 @@ Node-RED is an open-source, flow-based programming tool for wiring together hard
 ## Conclusion
 In conclusion, the open-source workflow orchestration and automation landscape offers a wide array of powerful tools that cater to diverse needs and use cases. Apache Airflow, Prefect, Dagster, Luigi, Argo Workflows, n8n, and Node-RED are just a few examples of the impressive solutions available to streamline workflows, automate tasks, and optimize processes.
 
-These tools empower organizations to break free from manual, time-consuming tasks and focus on higher-level objectives. By leveraging the capabilities of these open-source platforms, businesses can achieve increased efficiency, reduced errors, and improved scalability. Whether you're dealing with complex data pipelines, IoT workflows, or general automation requirements, there's an open-source tool that can help you achieve your goals.
+These tools empower organizations to break free from manual, time-consuming tasks and focus on higher-level objectives. By leveraging the capabilities of these open-source platforms, businesses can achieve increased efficiency, reduced errors, and improved scalability. Whether you're dealing with complex data pipelines, IoT workflows, or general automation requirements, there's an open-source tool that can help you achieve your goals.- [ ] #todo 
