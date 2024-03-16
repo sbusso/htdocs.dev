@@ -1,6 +1,6 @@
 ---
 created: 2024-03-16T11:12
-updated: 2024-03-16T15:49
+updated: 2024-03-16T15:59
 title: Python Quick Web UIs
 description: Quickly build web ui with python frameworks
 published: true
@@ -8,7 +8,7 @@ published: true
 
 A list of libraries to build quick Web UI with python
 ## Gradio
-Gradio is the fastest way to demo your machine learning model with a friendly web interface so that anyone can use it, anywhere!
+Gradio is the fastest way to demo your machine learning model with a friendly web interface so that anyone can use it, anywhere
 
 Machine Learning Oriented, Hugging Face integration
 ![Pasted image 20240316113520.png](../../../assets/Pasted%20image%2020240316113520.png)
