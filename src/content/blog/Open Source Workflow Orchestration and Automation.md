@@ -1,6 +1,6 @@
 ---
-created: 2024-03-16T23:35
-updated: 2024-03-17T11:31
+created: 2024-03-17T11:30:00
+updated: 2024-03-17T11:36
 title: Open Source Workflow Orchestration and Automation
 description: Discover the power of open-source workflow orchestration and automation tools like Apache Airflow, Prefect, Dagster, and more. Streamline your processes, boost efficiency, and unlock the true potential of your workflows with these cutting-edge solutions.
 published: true
