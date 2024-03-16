@@ -1,5 +1,5 @@
 ---
-created: 2024-03-16T20:26:00
+created: 2024-03-16T20:26
 updated: 2024-03-17T12:14
 title: Caddy Docker Reverse Proxy
 description: How to setup caddy as a reverse proxy with docker standalone and docker swarm.
@@ -8,8 +8,9 @@ tags:
   - docker
   - caddy
 author: Stephane Busso
-cover: 
+cover:
 ---
+
 How to setup caddy as a reverse proxy with docker standalone and docker swarm.
 
 Caddy service:
@@ -42,13 +43,12 @@ volumes:
   caddy_data: {}
 ```
 
-
 ```yml
 # swarm
 deploy:
-    labels:
-        caddy: <url>
-        caddy.reverse_proxy: "{{upstreams <UPSTREAM_PORT>}}"
+  labels:
+    caddy: <url>
+    caddy.reverse_proxy: "{{upstreams <UPSTREAM_PORT>}}"
 
 networks:
   caddy:
@@ -59,8 +59,8 @@ networks:
 # standalone
 
 labels:
-    caddy: <url>
-    caddy.reverse_proxy: "{{upstreams <UPSTREAM_PORT>}}"
+  caddy: <url>
+  caddy.reverse_proxy: "{{upstreams <UPSTREAM_PORT>}}"
 
 networks:
   caddy:
