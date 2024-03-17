@@ -2,7 +2,10 @@ import { SITE } from "@config";
 import { defineCollection, z } from "astro:content";
 
 const dateRegex = /^\d{4}-\d{2}-\d{2}$/; // Matches "YYYY-MM-DD"
-const dateTimeRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/;
+const dateTimeRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/; // Matches "YYYY-MM-DDTHH:MM"
+const dateTimeWithSecondsRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/; // Matches "YYYY-MM-DDTHH:MM:SS"
+
+const dateTimeWithTimezoneRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/; // Matches "YYYY-MM-DDTHH:MM:SSZ"
 
 const blog = defineCollection({
   type: "content",
@@ -24,9 +27,21 @@ const blog = defineCollection({
       description: z.string(),
       canonicalURL: z.string().optional(),
       published: z.boolean().optional(),
-      created: z.string().refine(date => {
-        return dateRegex.test(date) || dateTimeRegex.test(date);
-      }),
+      created: z.union([
+        z.string().refine(date => dateRegex.test(date)),
+        z.string().refine(dateTime => dateTimeRegex.test(dateTime)),
+        z
+          .string()
+          .refine(dateTimeWithSeconds =>
+            dateTimeWithSecondsRegex.test(dateTimeWithSeconds)
+          ),
+        z
+          .string()
+          .refine(dateTimeWithTimezone =>
+            dateTimeWithTimezoneRegex.test(dateTimeWithTimezone)
+          ),
+        z.date(),
+      ]),
       updated: z.string().optional(),
     }),
 });
