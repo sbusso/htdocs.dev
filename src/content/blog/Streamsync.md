@@ -9,11 +9,12 @@ tags:
   - streamsync
 updated: 2024-03-17T15:12
 created: 2024-03-17T15:11:15+13:00
-cover:
+cover: 
 url: https://github.com/streamsync-cloud/streamsync
 ---
-
 Streamsync is a new open-source framework for building data apps that combines a no-code frontend using a visual editor with a Python backend. It aims to provide faster response times compared to competitors like Streamlit by running the user script only once, using WebSockets for syncing frontend and backend states, and keeping things in memory without the need for caching.
+
+
 
 <div class="p-4 flex">
   <div class="w-24 h-24 mr-4 flex-shrink-0">
@@ -21,12 +22,13 @@ Streamsync is a new open-source framework for building data apps that combines a
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="https://github.githubassets.com/favicons/favicon.svg" alt="Favicon" class="w-4 h-4 mr-2">
-      <a href="https://github.com/streamsync-cloud/streamsync" target="_blank" class="text-blue-600 hover:underline">"GitHub - streamsync-cloud/streamsync: No-code in the front, Python in the back. An open-source framework for creating data apps."</a>
+      <a href="https://github.com/streamsync-cloud/streamsync" target="_blank" class="text-blue-600 hover:underline">streamsync-cloud/streamsync: No-code in the front, Python in the back. An open-source framework for creating data apps.</a>
     </div>
-    <p class="text-gray-600">"No-code in the front, Python in the back. An open-source framework for creating data apps. - streamsync-cloud/streamsync"</p>
+    <p class="text-gray-600">"No-code in the front, Python in the back. An open-source framework for creating data apps. - streamsync-cloud/streamsync</p>
   </div>
 </div>
+
+
 
 Key features of Streamsync include:
 
