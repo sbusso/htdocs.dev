@@ -4,8 +4,6 @@ import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
 import Hr from "@components/Hr.astro";
 import LinkButton from "@components/LinkButton.astro";
-import Socials from "@components/Socials.astro";
-import { SOCIALS } from "@config";
 import Layout from "@layouts/Layout.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import slugify from "@utils/slugify";
@@ -16,41 +14,11 @@ const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-
-const socialCount = SOCIALS.filter(social => social.active).length;
 ---
 
 <Layout>
   <Header />
   <main id="main-content">
-    <section id="hero">
-      <p class="prose min-w-full text-skin-base">
-        Hey there &#128075;! <strong>Stephane Busso</strong> here, a French 🇫🇷 software
-        builder and engineering manager currently based in New Zealand 🇳🇿. HTDOCS.dev
-        is a medium to share about technologies and engineering.
-      </p>
-      <!-- <p>
-        Check
-        <LinkButton
-          className="hover:text-skin-accent underline underline-offset-4 decoration-dashed"
-          href="/about"
-        >
-          ABOUT
-        </LinkButton> for more info.
-      </p> -->
-      {
-        // only display if at least one social link is enabled
-        socialCount > 0 && (
-          <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
-    </section>
-
-    <Hr />
-
     {
       featuredPosts.length > 0 && (
         <>
