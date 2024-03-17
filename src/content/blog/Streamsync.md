@@ -24,7 +24,7 @@ Streamsync is a new open-source framework for building data apps that combines a
     <div class="text-xl font-semibold mb-2 flex items-center">
       <a href="https://github.com/streamsync-cloud/streamsync" target="_blank" class="text-blue-600 hover:underline">streamsync-cloud/streamsync: No-code in the front, Python in the back. An open-source framework for creating data apps.</a>
     </div>
-    <p class="text-gray-600">"No-code in the front, Python in the back. An open-source framework for creating data apps. - streamsync-cloud/streamsync</p>
+    <p class="text-gray-600">No-code in the front, Python in the back. An open-source framework for creating data apps. - streamsync-cloud/streamsync</p>
   </div>
 </div>
 
