@@ -42,7 +42,7 @@ dependencies:
 devDependencies:
   '@astrojs/react':
     specifier: ^3.1.0
-    version: 3.1.0(@types/react-dom@18.2.18)(@types/react@18.2.66)(react-dom@18.2.0)(react@18.2.0)(vite@5.1.5)
+    version: 3.1.0(@types/react-dom@18.2.18)(@types/react@18.2.66)(react-dom@18.2.0)(react@18.2.0)(vite@5.1.6)
   '@astrojs/sitemap':
     specifier: ^3.1.1
     version: 3.1.1
@@ -213,7 +213,7 @@ packages:
     dependencies:
       prismjs: 1.29.0
 
-  /@astrojs/react@3.1.0(@types/react-dom@18.2.18)(@types/react@18.2.66)(react-dom@18.2.0)(react@18.2.0)(vite@5.1.5):
+  /@astrojs/react@3.1.0(@types/react-dom@18.2.18)(@types/react@18.2.66)(react-dom@18.2.0)(react@18.2.0)(vite@5.1.6):
     resolution: {integrity: sha512-KZhZyV+sUDZEjlrmPWNiPGeYowG9uq6/aMbCgVaeKEBlWT4Kg32TNwBOhZk6AcE4LY1l3mIwt3orUGE2JV96/g==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
@@ -224,7 +224,7 @@ packages:
     dependencies:
       '@types/react': 18.2.66
       '@types/react-dom': 18.2.18
-      '@vitejs/plugin-react': 4.2.1(vite@5.1.5)
+      '@vitejs/plugin-react': 4.2.1(vite@5.1.6)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       ultrahtml: 1.5.2
@@ -1687,7 +1687,7 @@ packages:
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
-  /@vitejs/plugin-react@4.2.1(vite@5.1.5):
+  /@vitejs/plugin-react@4.2.1(vite@5.1.6):
     resolution: {integrity: sha512-oojO9IDc4nCUUi8qIR11KoQm0XFFLIwsRBwHRR4d/88IWghn1y6ckz/bJ8GHDCsYEJee8mDzqtJxh15/cisJNQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -1698,7 +1698,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.23.3(@babel/core@7.23.6)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.0
-      vite: 5.1.5(@types/node@18.19.3)
+      vite: 5.1.6(@types/node@18.19.3)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1980,8 +1980,8 @@ packages:
       tsconfck: 3.0.0(typescript@5.4.2)
       unist-util-visit: 5.0.0
       vfile: 6.0.1
-      vite: 5.1.5(@types/node@18.19.3)
-      vitefu: 0.2.5(vite@5.1.5)
+      vite: 5.1.6(@types/node@18.19.3)
+      vitefu: 0.2.5(vite@5.1.6)
       which-pm: 2.1.1
       yargs-parser: 21.1.1
       zod: 3.22.4
@@ -2463,7 +2463,7 @@ packages:
       dom-serializer: 2.0.0
       domhandler: 5.0.3
       htmlparser2: 8.0.2
-      postcss: 8.4.32
+      postcss: 8.4.35
       pretty-bytes: 5.6.0
     dev: true
 
@@ -6290,8 +6290,8 @@ packages:
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
 
-  /vite@5.1.5(@types/node@18.19.3):
-    resolution: {integrity: sha512-BdN1xh0Of/oQafhU+FvopafUp6WaYenLU/NFoL5WyJL++GxkNfieKzBhM24H3HVsPQrlAqB7iJYTHabzaRed5Q==}
+  /vite@5.1.6(@types/node@18.19.3):
+    resolution: {integrity: sha512-yYIAZs9nVfRJ/AiOLCA91zzhjsHUgMjB+EigzFb6W2XTLO8JixBCKCjvhKZaye+NKYHCrkv3Oh50dH9EdLU2RA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -6325,7 +6325,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
 
-  /vitefu@0.2.5(vite@5.1.5):
+  /vitefu@0.2.5(vite@5.1.6):
     resolution: {integrity: sha512-SgHtMLoqaeeGnd2evZ849ZbACbnwQCIwRH57t18FxcXoZop0uQu0uzlIhJBlF/eWVzuce0sHeqPcDo+evVcg8Q==}
     peerDependencies:
       vite: ^3.0.0 || ^4.0.0 || ^5.0.0
@@ -6333,7 +6333,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 5.1.5(@types/node@18.19.3)
+      vite: 5.1.6(@types/node@18.19.3)
 
   /volar-service-css@0.0.34(@volar/language-service@2.1.2):
     resolution: {integrity: sha512-C7ua0j80ZD7bsgALAz/cA1bykPehoIa5n+3+Ccr+YLpj0fypqw9iLUmGLX11CqzqNCO2XFGe/1eXB/c+SWrF/g==}
