@@ -1,12 +1,12 @@
 ---
 title: "Web Scraping: Scrapy vs BeautifulSoup/Requests"
 author: Stephane Busso
-description: 
+description: Scraping the web comparison of scrapy and requests with beautifulsoup
 published: true
 tags:
   - scrapy
   - python
-updated: 2024-03-22T19:47
+updated: 2024-03-22T19:54
 created: 2024-03-22T19:35
 cover: 
 ---
