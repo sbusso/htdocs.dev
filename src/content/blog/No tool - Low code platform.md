@@ -1,6 +1,6 @@
 ---
 created: 2024-02-22T21:53
-updated: 2024-03-23T20:36
+updated: 2024-03-23T20:45
 published: true
 title: No tool - Low code platform
 description: No tool - Low code platform
@@ -87,6 +87,20 @@ description: No tool - Low code platform
       <a href="https://github.com/getlago/lago" target="_blank" class="text-blue-600 hover:underline">getlago/lago: Open Source Metering and Usage Based Billing API ⭐️ Consumption tracking, Subscription management, Pricing iterations, Payment orchestration & Revenue analytics</a>
     </div>
     <p class="text-gray-600">Open Source Metering and Usage Based Billing API ⭐️ Consumption tracking, Subscription management, Pricing iterations, Payment orchestration & Revenue analytics - getlago/lago</p>
+  </div>
+</div>
+
+
+
+<div class="p-4 flex">
+  <div class="w-24 h-24 mr-4 flex-shrink-0">
+    <img src="https://opengraph.githubassets.com/4d3011fbdbc7a23e2341624c95f4e0f835dc89e6b15ade9d5c95001b7aa144a5/cortezaproject/corteza" alt="Preview Image" class="w-full h-full object-cover rounded">
+  </div>
+  <div>
+    <div class="text-xl font-semibold mb-2 flex items-center">
+      <a href="https://github.com/cortezaproject/corteza" target="_blank" class="text-blue-600 hover:underline">cortezaproject/corteza: Low-code platform</a>
+    </div>
+    <p class="text-gray-600">Low-code platform. Contribute to cortezaproject/corteza development by creating an account on GitHub.</p>
   </div>
 </div>
 
