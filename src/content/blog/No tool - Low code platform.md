@@ -1,6 +1,6 @@
 ---
 created: 2024-02-22T21:53
-updated: 2024-03-16T23:00
+updated: 2024-03-23T20:36
 published: true
 title: No tool - Low code platform
 description: No tool - Low code platform
@@ -13,13 +13,25 @@ description: No tool - Low code platform
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="https://github.githubassets.com/favicons/favicon.svg" alt="Favicon" class="w-4 h-4 mr-2">
-      <a href="https://github.com/dubinc/dub" target="_blank" class="text-blue-600 hover:underline">"GitHub - dubinc/dub: Open-source link management infrastructure."</a>
+      <a href="https://github.com/dubinc/dub" target="_blank" class="text-blue-600 hover:underline">dubinc/dub: Open-source link management infrastructure.</a>
     </div>
-    <p class="text-gray-600">"Open-source link management infrastructure. Contribute to dubinc/dub development by creating an account on GitHub."</p>
+    <p class="text-gray-600">Open-source link management infrastructure. Contribute to dubinc/dub development by creating an account on GitHub.</p>
   </div>
 </div>
 
+
+
+<div class="p-4 flex">
+  <div class="w-24 h-24 mr-4 flex-shrink-0">
+    <img src="https://repository-images.githubusercontent.com/378310716/5060c6dc-22ac-4a8f-a9ac-4e18c02b8aa8" alt="Preview Image" class="w-full h-full object-cover rounded">
+  </div>
+  <div>
+    <div class="text-xl font-semibold mb-2 flex items-center">
+      <a href="https://github.com/logto-io/logto" target="_blank" class="text-blue-600 hover:underline">logto-io/logto: 🧑‍🚀 The better identity infrastructure for developers and the open-source alternative to Auth0.</a>
+    </div>
+    <p class="text-gray-600">🧑‍🚀 The better identity infrastructure for developers and the open-source alternative to Auth0. - logto-io/logto</p>
+  </div>
+</div>
 
 
 
@@ -29,10 +41,9 @@ description: No tool - Low code platform
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="https://github.githubassets.com/favicons/favicon.svg" alt="Favicon" class="w-4 h-4 mr-2">
-      <a href="https://github.com/jitsucom/jitsu" target="_blank" class="text-blue-600 hover:underline">"GitHub - jitsucom/jitsu: Jitsu is an open-source Segment alternative. Fully-scriptable data ingestion engine for modern data teams. Set-up a real-time data pipeline in minutes, not days"</a>
+      <a href="https://github.com/jitsucom/jitsu" target="_blank" class="text-blue-600 hover:underline">jitsucom/jitsu: Jitsu is an open-source Segment alternative. Fully-scriptable data ingestion engine for modern data teams. Set-up a real-time data pipeline in minutes, not days</a>
     </div>
-    <p class="text-gray-600">"Jitsu is an open-source Segment alternative. Fully-scriptable data ingestion engine for modern data teams. Set-up a real-time data pipeline in minutes, not days - jitsucom/jitsu"</p>
+    <p class="text-gray-600">Jitsu is an open-source Segment alternative. Fully-scriptable data ingestion engine for modern data teams. Set-up a real-time data pipeline in minutes, not days - jitsucom/jitsu</p>
   </div>
 </div>
 
@@ -44,10 +55,9 @@ description: No tool - Low code platform
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="https://github.githubassets.com/favicons/favicon.svg" alt="Favicon" class="w-4 h-4 mr-2">
-      <a href="https://github.com/rudderlabs/rudder-server" target="_blank" class="text-blue-600 hover:underline">"GitHub - rudderlabs/rudder-server: Privacy and Security focused Segment-alternative, in Golang and React"</a>
+      <a href="https://github.com/rudderlabs/rudder-server" target="_blank" class="text-blue-600 hover:underline">rudderlabs/rudder-server: Privacy and Security focused Segment-alternative, in Golang and React</a>
     </div>
-    <p class="text-gray-600">"Privacy and Security focused Segment-alternative, in Golang and React   - GitHub - rudderlabs/rudder-server: Privacy and Security focused Segment-alternative, in Golang and React"</p>
+    <p class="text-gray-600">Privacy and Security focused Segment-alternative, in Golang and React   - GitHub - rudderlabs/rudder-server: Privacy and Security focused Segment-alternative, in Golang and React</p>
   </div>
 </div>
 
@@ -60,10 +70,23 @@ description: No tool - Low code platform
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="https://github.githubassets.com/favicons/favicon.svg" alt="Favicon" class="w-4 h-4 mr-2">
-      <a href="https://github.com/openmeterio/openmeter" target="_blank" class="text-blue-600 hover:underline">"GitHub - openmeterio/openmeter: Cloud Metering for AI, Billing and FinOps. Collect and aggregate millions of usage events in real-time."</a>
+      <a href="https://github.com/openmeterio/openmeter" target="_blank" class="text-blue-600 hover:underline">openmeterio/openmeter: Cloud Metering for AI, Billing and FinOps. Collect and aggregate millions of usage events in real-time.</a>
     </div>
-    <p class="text-gray-600">"Cloud Metering for AI, Billing and FinOps. Collect and aggregate millions of usage events in real-time. - openmeterio/openmeter"</p>
+    <p class="text-gray-600">Cloud Metering for AI, Billing and FinOps. Collect and aggregate millions of usage events in real-time. - openmeterio/openmeter</p>
+  </div>
+</div>
+
+
+
+<div class="p-4 flex">
+  <div class="w-24 h-24 mr-4 flex-shrink-0">
+    <img src="https://opengraph.githubassets.com/f76fadc5d3d11feb6fa1bb0fc848dc87c4df892e8908e782ad14b708d310c41c/getlago/lago" alt="Preview Image" class="w-full h-full object-cover rounded">
+  </div>
+  <div>
+    <div class="text-xl font-semibold mb-2 flex items-center">
+      <a href="https://github.com/getlago/lago" target="_blank" class="text-blue-600 hover:underline">getlago/lago: Open Source Metering and Usage Based Billing API ⭐️ Consumption tracking, Subscription management, Pricing iterations, Payment orchestration & Revenue analytics</a>
+    </div>
+    <p class="text-gray-600">Open Source Metering and Usage Based Billing API ⭐️ Consumption tracking, Subscription management, Pricing iterations, Payment orchestration & Revenue analytics - getlago/lago</p>
   </div>
 </div>
 
@@ -77,10 +100,9 @@ description: No tool - Low code platform
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="https://github.githubassets.com/favicons/favicon.svg" alt="Favicon" class="w-4 h-4 mr-2">
-      <a href="https://github.com/uptrace/uptrace" target="_blank" class="text-blue-600 hover:underline">"GitHub - uptrace/uptrace: Open source APM: OpenTelemetry traces, metrics, and logs"</a>
+      <a href="https://github.com/uptrace/uptrace" target="_blank" class="text-blue-600 hover:underline">uptrace/uptrace: Open source APM: OpenTelemetry traces, metrics, and logs</a>
     </div>
-    <p class="text-gray-600">"Open source APM: OpenTelemetry traces, metrics, and logs - uptrace/uptrace"</p>
+    <p class="text-gray-600">Open source APM: OpenTelemetry traces, metrics, and logs - uptrace/uptrace</p>
   </div>
 </div>
 
@@ -92,10 +114,9 @@ description: No tool - Low code platform
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="https://github.githubassets.com/favicons/favicon.svg" alt="Favicon" class="w-4 h-4 mr-2">
-      <a href="https://github.com/hyperdxio/hyperdx" target="_blank" class="text-blue-600 hover:underline">"GitHub - hyperdxio/hyperdx: Resolve production issues, fast. An open source observability platform unifying session replays, logs, metrics, traces and errors powered by Clickhouse and OpenTelemetry."</a>
+      <a href="https://github.com/hyperdxio/hyperdx" target="_blank" class="text-blue-600 hover:underline">hyperdxio/hyperdx: Resolve production issues, fast. An open source observability platform unifying session replays, logs, metrics, traces and errors powered by Clickhouse and OpenTelemetry.</a>
     </div>
-    <p class="text-gray-600">"Resolve production issues, fast. An open source observability platform unifying session replays, logs, metrics, traces and errors powered by Clickhouse and OpenTelemetry. - hyperdxio/hyperdx"</p>
+    <p class="text-gray-600">Resolve production issues, fast. An open source observability platform unifying session replays, logs, metrics, traces and errors powered by Clickhouse and OpenTelemetry. - hyperdxio/hyperdx</p>
   </div>
 </div>
 
@@ -108,10 +129,9 @@ description: No tool - Low code platform
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="https://github.githubassets.com/favicons/favicon.svg" alt="Favicon" class="w-4 h-4 mr-2">
-      <a href="https://github.com/Graylog2/graylog2-server" target="_blank" class="text-blue-600 hover:underline">"GitHub - Graylog2/graylog2-server: Free and open log management"</a>
+      <a href="https://github.com/Graylog2/graylog2-server" target="_blank" class="text-blue-600 hover:underline">Graylog2/graylog2-server: Free and open log management</a>
     </div>
-    <p class="text-gray-600">"Free and open log management. Contribute to Graylog2/graylog2-server development by creating an account on GitHub."</p>
+    <p class="text-gray-600">Free and open log management. Contribute to Graylog2/graylog2-server development by creating an account on GitHub.</p>
   </div>
 </div>
 
@@ -124,10 +144,9 @@ description: No tool - Low code platform
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="https://github.githubassets.com/favicons/favicon.svg" alt="Favicon" class="w-4 h-4 mr-2">
-      <a href="https://github.com/sqlchat/sqlchat" target="_blank" class="text-blue-600 hover:underline">"GitHub - sqlchat/sqlchat: Chat-based SQL Client and Editor for the next decade"</a>
+      <a href="https://github.com/sqlchat/sqlchat" target="_blank" class="text-blue-600 hover:underline">sqlchat/sqlchat: Chat-based SQL Client and Editor for the next decade</a>
     </div>
-    <p class="text-gray-600">"Chat-based SQL Client and Editor for the next decade - sqlchat/sqlchat"</p>
+    <p class="text-gray-600">Chat-based SQL Client and Editor for the next decade - sqlchat/sqlchat</p>
   </div>
 </div>
 
@@ -142,10 +161,9 @@ description: No tool - Low code platform
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="https://github.githubassets.com/favicons/favicon.svg" alt="Favicon" class="w-4 h-4 mr-2">
-      <a href="https://github.com/finos/perspective" target="_blank" class="text-blue-600 hover:underline">"GitHub - finos/perspective: A data visualization and analytics component, especially well-suited for large and/or streaming datasets."</a>
+      <a href="https://github.com/finos/perspective" target="_blank" class="text-blue-600 hover:underline">finos/perspective: A data visualization and analytics component, especially well-suited for large and/or streaming datasets.</a>
     </div>
-    <p class="text-gray-600">"A data visualization and analytics component, especially well-suited for large and/or streaming datasets. - finos/perspective"</p>
+    <p class="text-gray-600">A data visualization and analytics component, especially well-suited for large and/or streaming datasets. - finos/perspective</p>
   </div>
 </div>
 
@@ -157,10 +175,9 @@ description: No tool - Low code platform
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="https://github.githubassets.com/favicons/favicon.svg" alt="Favicon" class="w-4 h-4 mr-2">
-      <a href="https://github.com/Kanaries/Rath" target="_blank" class="text-blue-600 hover:underline">"GitHub - Kanaries/Rath: Next generation of automated data exploratory analysis and visualization platform."</a>
+      <a href="https://github.com/Kanaries/Rath" target="_blank" class="text-blue-600 hover:underline">Kanaries/Rath: Next generation of automated data exploratory analysis and visualization platform.</a>
     </div>
-    <p class="text-gray-600">"Next generation of automated data exploratory analysis and visualization platform. - Kanaries/Rath"</p>
+    <p class="text-gray-600">Next generation of automated data exploratory analysis and visualization platform. - Kanaries/Rath</p>
   </div>
 </div>
 
@@ -173,10 +190,9 @@ description: No tool - Low code platform
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="https://github.githubassets.com/favicons/favicon.svg" alt="Favicon" class="w-4 h-4 mr-2">
-      <a href="https://github.com/cube-js/cube" target="_blank" class="text-blue-600 hover:underline">"GitHub - cube-js/cube: 📊  Cube — The Semantic Layer for Building Data Applications"</a>
+      <a href="https://github.com/cube-js/cube" target="_blank" class="text-blue-600 hover:underline">cube-js/cube: 📊  Cube — The Semantic Layer for Building Data Applications</a>
     </div>
-    <p class="text-gray-600">"📊  Cube — The Semantic Layer for Building Data Applications - cube-js/cube"</p>
+    <p class="text-gray-600">📊  Cube — The Semantic Layer for Building Data Applications - cube-js/cube</p>
   </div>
 </div>
 
@@ -190,10 +206,9 @@ description: No tool - Low code platform
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="undefined" alt="Favicon" class="w-4 h-4 mr-2">
-      <a href="https://www.metabase.com" target="_blank" class="text-blue-600 hover:underline">"Metabase | Business Intelligence, Dashboards, and Data Visualization"</a>
+      <a href="https://www.metabase.com" target="_blank" class="text-blue-600 hover:underline">Metabase | Business Intelligence, Dashboards, and Data Visualization</a>
     </div>
-    <p class="text-gray-600">"Metabase business intelligence, dashboards, and data visualization tools. Dig deeper into your data with open source, no SQL tools for data visualization."</p>
+    <p class="text-gray-600">Metabase business intelligence, dashboards, and data visualization tools. Dig deeper into your data with open source, no SQL tools for data visualization.</p>
   </div>
 </div>
 
@@ -205,10 +220,9 @@ description: No tool - Low code platform
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="https://superset.apache.org/img/favicon.ico" alt="Favicon" class="w-4 h-4 mr-2">
-      <a href="https://superset.apache.org" target="_blank" class="text-blue-600 hover:underline">"Welcome | Superset"</a>
+      <a href="https://superset.apache.org" target="_blank" class="text-blue-600 hover:underline">Welcome | Superset</a>
     </div>
-    <p class="text-gray-600">"Community website for Apache Superset™, a data visualization and data exploration platform"</p>
+    <p class="text-gray-600">Community website for Apache Superset™, a data visualization and data exploration platform</p>
   </div>
 </div>
 
@@ -221,10 +235,9 @@ description: No tool - Low code platform
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="https://github.githubassets.com/favicons/favicon.svg" alt="Favicon" class="w-4 h-4 mr-2">
-      <a href="https://github.com/getredash/redash" target="_blank" class="text-blue-600 hover:underline">"GitHub - getredash/redash: Make Your Company Data Driven. Connect to any data source, easily visualize, dashboard and share your data."</a>
+      <a href="https://github.com/getredash/redash" target="_blank" class="text-blue-600 hover:underline">getredash/redash: Make Your Company Data Driven. Connect to any data source, easily visualize, dashboard and share your data.</a>
     </div>
-    <p class="text-gray-600">"Make Your Company Data Driven. Connect to any data source, easily visualize, dashboard and share your data. - getredash/redash"</p>
+    <p class="text-gray-600">Make Your Company Data Driven. Connect to any data source, easily visualize, dashboard and share your data. - getredash/redash</p>
   </div>
 </div>
 
@@ -237,10 +250,9 @@ description: No tool - Low code platform
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="https://github.githubassets.com/favicons/favicon.svg" alt="Favicon" class="w-4 h-4 mr-2">
-      <a href="https://github.com/lightdash/lightdash" target="_blank" class="text-blue-600 hover:underline">"GitHub - lightdash/lightdash: Open source BI for teams that move fast ⚡️"</a>
+      <a href="https://github.com/lightdash/lightdash" target="_blank" class="text-blue-600 hover:underline">lightdash/lightdash: Open source BI for teams that move fast ⚡️</a>
     </div>
-    <p class="text-gray-600">"Open source BI for teams that move fast ⚡️. Contribute to lightdash/lightdash development by creating an account on GitHub."</p>
+    <p class="text-gray-600">Open source BI for teams that move fast ⚡️. Contribute to lightdash/lightdash development by creating an account on GitHub.</p>
   </div>
 </div>
 
@@ -257,10 +269,9 @@ description: No tool - Low code platform
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="https://github.githubassets.com/favicons/favicon.svg" alt="Favicon" class="w-4 h-4 mr-2">
-      <a href="https://github.com/sqlchat/sqlchat" target="_blank" class="text-blue-600 hover:underline">"GitHub - sqlchat/sqlchat: Chat-based SQL Client and Editor for the next decade"</a>
+      <a href="https://github.com/sqlchat/sqlchat" target="_blank" class="text-blue-600 hover:underline">sqlchat/sqlchat: Chat-based SQL Client and Editor for the next decade</a>
     </div>
-    <p class="text-gray-600">"Chat-based SQL Client and Editor for the next decade - sqlchat/sqlchat"</p>
+    <p class="text-gray-600">Chat-based SQL Client and Editor for the next decade - sqlchat/sqlchat</p>
   </div>
 </div>
 
@@ -274,10 +285,83 @@ description: No tool - Low code platform
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="https://github.githubassets.com/favicons/favicon.svg" alt="Favicon" class="w-4 h-4 mr-2">
-      <a href="https://github.com/redpanda-data/redpanda/" target="_blank" class="text-blue-600 hover:underline">"GitHub - redpanda-data/redpanda: Redpanda is a streaming data platform for developers. Kafka API compatible. 10x faster. No ZooKeeper. No JVM!"</a>
+      <a href="https://github.com/redpanda-data/redpanda/" target="_blank" class="text-blue-600 hover:underline">redpanda-data/redpanda: Redpanda is a streaming data platform for developers. Kafka API compatible. 10x faster. No ZooKeeper. No JVM!</a>
     </div>
-    <p class="text-gray-600">"Redpanda is a streaming data platform for developers. Kafka API compatible. 10x faster. No ZooKeeper. No JVM! - redpanda-data/redpanda"</p>
+    <p class="text-gray-600">Redpanda is a streaming data platform for developers. Kafka API compatible. 10x faster. No ZooKeeper. No JVM! - redpanda-data/redpanda</p>
+  </div>
+</div>
+
+
+## Low Code / CMS
+
+
+<div class="p-4 flex">
+  <div class="w-24 h-24 mr-4 flex-shrink-0">
+    <img src="https://opengraph.githubassets.com/b894dda3d91443b56d5b887e9f26f8aefc377b40c6013952d2435e1c440a33e5/frappe/frappe" alt="Preview Image" class="w-full h-full object-cover rounded">
+  </div>
+  <div>
+    <div class="text-xl font-semibold mb-2 flex items-center">
+      <a href="https://github.com/frappe/frappe" target="_blank" class="text-blue-600 hover:underline">frappe/frappe: Low code web framework for real world applications, in Python and Javascript</a>
+    </div>
+    <p class="text-gray-600">Low code web framework for real world applications, in Python and Javascript - frappe/frappe</p>
+  </div>
+</div>
+
+
+
+
+<div class="p-4 flex">
+  <div class="w-24 h-24 mr-4 flex-shrink-0">
+    <img src="https://repository-images.githubusercontent.com/525004931/a0e0770e-b8f4-4518-add7-3d900e243d29" alt="Preview Image" class="w-full h-full object-cover rounded">
+  </div>
+  <div>
+    <div class="text-xl font-semibold mb-2 flex items-center">
+      <a href="https://github.com/dashpresshq/dashpress" target="_blank" class="text-blue-600 hover:underline">dashpresshq/dashpress: Generate powerful admin apps without writing a single line of code - Run `npx dashpress` to see some magic!</a>
+    </div>
+    <p class="text-gray-600">Generate powerful admin apps without writing a single line of code - Run `npx dashpress` to see some magic!  - GitHub - dashpresshq/dashpress: Generate powerful admin apps without writing a single ...</p>
+  </div>
+</div>
+
+
+
+<div class="p-4 flex">
+  <div class="w-24 h-24 mr-4 flex-shrink-0">
+    <img src="https://repository-images.githubusercontent.com/331293626/c760bee2-be89-478e-88a0-0424d1eaed7a" alt="Preview Image" class="w-full h-full object-cover rounded">
+  </div>
+  <div>
+    <div class="text-xl font-semibold mb-2 flex items-center">
+      <a href="https://github.com/refinedev/refine" target="_blank" class="text-blue-600 hover:underline">refinedev/refine: A React Framework for building  internal tools, admin panels, dashboards & B2B apps with unmatched flexibility.</a>
+    </div>
+    <p class="text-gray-600">A React Framework for building  internal tools, admin panels, dashboards & B2B apps with unmatched flexibility. - refinedev/refine</p>
+  </div>
+</div>
+
+
+
+<div class="p-4 flex">
+  <div class="w-24 h-24 mr-4 flex-shrink-0">
+    <img src="https://repository-images.githubusercontent.com/327089870/01936d93-1fb4-415e-8451-1d84dc56d00d" alt="Preview Image" class="w-full h-full object-cover rounded">
+  </div>
+  <div>
+    <div class="text-xl font-semibold mb-2 flex items-center">
+      <a href="https://github.com/payloadcms/payload" target="_blank" class="text-blue-600 hover:underline">payloadcms/payload: The best way to build a modern backend + admin UI. No black magic, all TypeScript, and fully open-source, Payload is both an app framework and a headless CMS.</a>
+    </div>
+    <p class="text-gray-600">The best way to build a modern backend + admin UI. No black magic, all TypeScript, and fully open-source, Payload is both an app framework and a headless CMS. - payloadcms/payload</p>
+  </div>
+</div>
+
+
+Admin
+
+<div class="p-4 flex">
+  <div class="w-24 h-24 mr-4 flex-shrink-0">
+    <img src="https://repository-images.githubusercontent.com/7122594/7e5b1d59-0bc8-47c3-8a94-c63db5a9c9de" alt="Preview Image" class="w-full h-full object-cover rounded">
+  </div>
+  <div>
+    <div class="text-xl font-semibold mb-2 flex items-center">
+      <a href="https://github.com/directus/directus" target="_blank" class="text-blue-600 hover:underline">directus/directus: The Modern Data Stack 🐰 — Directus is an instant REST+GraphQL API and intuitive no-code data collaboration app for any SQL database.</a>
+    </div>
+    <p class="text-gray-600">The Modern Data Stack 🐰 — Directus is an instant REST+GraphQL API and intuitive no-code data collaboration app for any SQL database. - directus/directus</p>
   </div>
 </div>
 
