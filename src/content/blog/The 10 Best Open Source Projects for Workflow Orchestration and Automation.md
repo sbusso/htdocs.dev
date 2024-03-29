@@ -1,6 +1,6 @@
 ---
 created: 2024-03-17T11:30
-updated: 2024-03-24T08:16
+updated: 2024-03-30T10:05
 title: The 10 Best Open Source Projects for Workflow Orchestration and Automation
 description: Discover the power of open-source workflow orchestration and automation tools like Apache Airflow, Prefect, Dagster, and more. Streamline your processes, boost efficiency, and unlock the true potential of your workflows with these cutting-edge solutions.
 published: true
@@ -17,6 +17,46 @@ tags:
   - nodered
 ---
 in today's fast-paced digital landscape, businesses constantly seek ways to streamline their operations, automate repetitive tasks, and optimize their workflows. Fortunately, the open-source community has developed a plethora of powerful tools and platforms that enable organizations to achieve these goals without breaking the bank. In this blog post, we will explore some of the most popular open-source workflow orchestration and automation tools, including Apache Airflow, Prefect, Dagster, Luigi, Argo Workflows, n8n, and Node-RED.
+
+## n8n 
+
+
+<div class="p-4 flex">
+  <div class="w-24 h-24 mr-4 flex-shrink-0">
+    <img src="https://n8niostorageaccount.blob.core.windows.net/n8nio-strapi-blobs-prod/assets/og_image_website_3_afd66761a9.png" alt="Preview Image" class="w-full h-full object-cover rounded">
+  </div>
+  <div>
+    <div class="text-xl font-semibold mb-2 flex items-center">
+      <a href="https://n8n.io" target="_blank" class="text-blue-600 hover:underline">n8n.io - a powerful workflow automation tool</a>
+    </div>
+    <p class="text-gray-600">n8n is a free and source-available workflow automation tool</p>
+  </div>
+</div>
+
+
+n8n is a fair-code licensed automation tool that allows connecting different services, APIs, and devices to create powerful workflows. It provides a user-friendly interface for designing and automating workflows without requiring extensive programming knowledge. n8n supports a wide range of integrations, enabling users to connect various tools and services seamlessly. It offers features like error handling, conditional execution, and data transformation, making it a versatile tool for automating tasks and workflows.
+
+Pros: Extensive list of plugins, no code interface
+Cons: Limited features compared to the business edition
+## Node-RED
+
+
+<div class="p-4 flex">
+  <div class="w-24 h-24 mr-4 flex-shrink-0">
+    <img src="https://avatars.githubusercontent.com/u/5375661?s=200&v=4" alt="Preview Image" class="w-full h-full object-cover rounded">
+  </div>
+  <div>
+    <div class="text-xl font-semibold mb-2 flex items-center">
+      <a href="https://nodered.org/" target="_blank" class="text-blue-600 hover:underline">Node-RED</a>
+    </div>
+    <p class="text-gray-600">Node-RED is a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways. It provides a browser-based editor that makes it easy to wire together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single-click.</p>
+  </div>
+</div>
+
+Node-RED is an open-source, flow-based programming tool for wiring together hardware devices, APIs, and online services. It provides a browser-based editor for creating workflows by connecting pre-built nodes or creating custom ones. Node-RED is widely used in IoT, home automation, and service integration scenarios. It offers a large library of community-contributed nodes, enabling users to extend its functionality easily. With its visual programming approach and rich ecosystem, Node-RED simplifies the process of building and deploying workflows across various domains.
+
+Pros: Big community, active development, well suited for iot
+Cons: More IoT oriented
 ## Kestra
 
 
@@ -34,6 +74,9 @@ in today's fast-paced digital landscape, businesses constantly seek ways to stre
 
 
 Kestra is an open-source, distributed workflow orchestration platform. It allows you to build, schedule, and monitor complex workflows and data pipelines. Kestra provides a web UI and API to design and manage workflows as code. It supports integrations with various systems and offers features like parallel execution, resuming failed tasks, and versioning. Kestra aims to make it easier to create reliable, scalable workflows for data processing and automation.
+
+Pros: Nice UI, solid workflows
+Cons: Heavy java backend, yaml configuration
 ## Huginn
 
 
@@ -51,6 +94,9 @@ Kestra is an open-source, distributed workflow orchestration platform. It allows
 
 
 Huginn is a free and open-source automation platform that enables users to create agents that monitor and act on events. It allows building flexible workflows by configuring autonomous agents that can perform various tasks. Huginn agents can watch for events, fetch data, transform information, and take actions based on specified rules. The platform provides a web interface to create, manage, and interconnect agents using a drag-and-drop workflow editor. Huginn aims to empower users to automate repetitive tasks, data collection, and reactions to events without relying on external services.
+
+Pros: Used to be a good choice for ruby lovers.
+Cons: start to get outdated, not so intuitive ui and complex development / maintenance of tasks. Process maintenance are also quite complex.
 
 ## Airflow
 
@@ -70,6 +116,8 @@ Huginn is a free and open-source automation platform that enables users to creat
 
 Apache Airflow is an open-source platform for programmatically authoring, scheduling, and monitoring workflows. It provides a rich user interface to visualize pipelines running in production, monitor progress, and troubleshoot issues. Airflow uses directed acyclic graphs (DAGs) to define workflows and supports a wide range of integrations with various tools and services. It offers a robust and scalable solution for data pipeline orchestration and automation.
 
+Pros: big ecosystem and years of production usage
+Cons: start to get old too, new platform offer more modern UI and flexibility
 ## Prefect
 
 
@@ -88,6 +136,8 @@ Apache Airflow is an open-source platform for programmatically authoring, schedu
 
 Prefect is a modern workflow management system that emphasizes ease of use, flexibility, and observability. It allows users to define workflows using Python and provides a powerful set of tools for building, running, and monitoring data pipelines. Prefect supports both local and cloud-based execution, making it suitable for various environments. It offers features like task retries, data caching, and real-time monitoring to ensure reliable and efficient workflow execution.
 
+Pros: easy integration with python code
+Cons: Mainly a UI over code, Very limited compared to the business edition
 ## Dagster
 
 
@@ -106,6 +156,8 @@ Prefect is a modern workflow management system that emphasizes ease of use, flex
 
 Dagster is a data orchestrator that enables defining and executing data pipelines with a focus on data quality and asset management. It provides a unified view of data assets, allowing users to track and manage data dependencies across pipelines. Dagster offers a type system for data, making it easier to ensure data integrity and consistency. It supports a wide range of integrations and provides a flexible and modular architecture for building data-intensive applications.
 
+Pros: Very advanced data management with nice UI and features.
+Cons: Complex concepts ( the recent changes to Software Defined Asset are not fully documented), requires a PhD in Data Management and Dagster to setup dataflow outside the simple cases.
 ## Luigi
 
 
@@ -128,52 +180,21 @@ Luigi is a Python package developed by Spotify that helps build complex pipeline
 
 <div class="p-4 flex">
   <div class="w-24 h-24 mr-4 flex-shrink-0">
-    <img src="undefined" alt="Preview Image" class="w-full h-full object-cover rounded">
+    <img src="https://avatars.githubusercontent.com/u/30269780?s=48&v=4" alt="Preview Image" class="w-full h-full object-cover rounded">
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
       <a href="https://argoproj.github.io/argo-workflows/" target="_blank" class="text-blue-600 hover:underline">Argo Workflows - The workflow engine for Kubernetes</a>
     </div>
-    <p class="text-gray-600"></p>
+    <p class="text-gray-600">Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. Argo Workflows is implemented as a Kubernetes CRD (Custom Resource Definition).</p>
   </div>
 </div>
 
 
 Argo Workflows is a container-native workflow engine for orchestrating parallel jobs on Kubernetes. It provides a YAML-based domain-specific language (DSL) for defining workflows and a web-based user interface for managing and monitoring them. Argo Workflows supports features like parameter substitution, artifacts, and resource templates, making it highly flexible and customizable. It enables users to run complex computational workflows, machine learning pipelines, and data processing tasks efficiently on Kubernetes clusters.
-## n8n 
 
-
-<div class="p-4 flex">
-  <div class="w-24 h-24 mr-4 flex-shrink-0">
-    <img src="https://n8niostorageaccount.blob.core.windows.net/n8nio-strapi-blobs-prod/assets/og_image_website_3_afd66761a9.png" alt="Preview Image" class="w-full h-full object-cover rounded">
-  </div>
-  <div>
-    <div class="text-xl font-semibold mb-2 flex items-center">
-      <a href="https://n8n.io" target="_blank" class="text-blue-600 hover:underline">n8n.io - a powerful workflow automation tool</a>
-    </div>
-    <p class="text-gray-600">n8n is a free and source-available workflow automation tool</p>
-  </div>
-</div>
-
-
-n8n is a fair-code licensed automation tool that allows connecting different services, APIs, and devices to create powerful workflows. It provides a user-friendly interface for designing and automating workflows without requiring extensive programming knowledge. n8n supports a wide range of integrations, enabling users to connect various tools and services seamlessly. It offers features like error handling, conditional execution, and data transformation, making it a versatile tool for automating tasks and workflows.
-## Node-RED
-
-
-<div class="p-4 flex">
-  <div class="w-24 h-24 mr-4 flex-shrink-0">
-    <img src="undefined" alt="Preview Image" class="w-full h-full object-cover rounded">
-  </div>
-  <div>
-    <div class="text-xl font-semibold mb-2 flex items-center">
-      <a href="https://nodered.org/" target="_blank" class="text-blue-600 hover:underline">Node-RED</a>
-    </div>
-    <p class="text-gray-600">undefined</p>
-  </div>
-</div>
-
-Node-RED is an open-source, flow-based programming tool for wiring together hardware devices, APIs, and online services. It provides a browser-based editor for creating workflows by connecting pre-built nodes or creating custom ones. Node-RED is widely used in IoT, home automation, and service integration scenarios. It offers a large library of community-contributed nodes, enabling users to extend its functionality easily. With its visual programming approach and rich ecosystem, Node-RED simplifies the process of building and deploying workflows across various domains.
-
+Pros: Very user friendly UI and workflow
+Cons: Kubernetes only
 ### Mentions
 
 
