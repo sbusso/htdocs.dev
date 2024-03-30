@@ -1,13 +1,13 @@
 ---
 title: "Deploying Prefect with Docker Compose: A Comprehensive Guide"
 author: Stephane Busso
-description: 
+description: Deploy Prefect using Docker Compose and some essential considerations and configuration details
 published: true
 tags:
   - prefect
   - python
   - docker
-updated: 2024-03-31T10:55
+updated: 2024-03-31T11:06
 created: 2024-03-31T10:40
 cover: 
 ---
