@@ -1,6 +1,6 @@
 ---
 created: 2024-03-17T11:30
-updated: 2024-03-31T14:21
+updated: 2024-03-31T14:23
 title: The 10 Best Open Source Projects for Workflow Orchestration and Automation
 description: Discover the power of open-source workflow orchestration and automation tools like Apache Airflow, Prefect, Dagster, and more. Streamline your processes, boost efficiency, and unlock the true potential of your workflows with these cutting-edge solutions.
 published: true
@@ -183,6 +183,8 @@ Verdict (4/10)
 
 
 Luigi is a Python package developed by Spotify that helps build complex pipelines of batch jobs. It handles dependency resolution, workflow management, and visualization. Luigi allows users to define tasks and their dependencies, making it easier to create and maintain large-scale data pipelines. It provides a command-line interface and a web interface for monitoring and managing workflows. Luigi is highly extensible and can be integrated with various data sources and targets.
+
+Not recently tested.
 ## Argo
 
 
@@ -201,7 +203,7 @@ Luigi is a Python package developed by Spotify that helps build complex pipeline
 
 Argo Workflows is a container-native workflow engine for orchestrating parallel jobs on Kubernetes. It provides a YAML-based domain-specific language (DSL) for defining workflows and a web-based user interface for managing and monitoring them. Argo Workflows supports features like parameter substitution, artifacts, and resource templates, making it highly flexible and customizable. It enables users to run complex computational workflows, machine learning pipelines, and data processing tasks efficiently on Kubernetes clusters.
 
-Verdict (5/1)
+Verdict (5/10)
 - Pros: Very user friendly UI and workflow
 - Cons: Kubernetes only
 ### Mentions
