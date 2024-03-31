@@ -7,7 +7,7 @@ const dateTimeWithSecondsRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/; // Mat
 
 const dateTimeWithTimezoneRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/; // Matches "YYYY-MM-DDTHH:MM:SSZ"
 
-const blog = defineCollection({
+const blogCollection = defineCollection({
   type: "content",
   schema: ({ image }) =>
     z.object({
@@ -46,7 +46,7 @@ const blog = defineCollection({
     }),
 });
 
-const cookbooks = defineCollection({
+const cookbookCollection = defineCollection({
   type: "content",
   schema: ({ image }) =>
     z.object({
@@ -72,7 +72,7 @@ const cookbooks = defineCollection({
     }),
 });
 
-const projects = defineCollection({
+const projectCollection = defineCollection({
   type: "content",
   schema: ({ image }) =>
     z.object({
@@ -99,4 +99,8 @@ const projects = defineCollection({
     }),
 });
 
-export const collections = { blog, cookbooks, projects };
+export const collections = {
+  blogCollection,
+  cookbookCollection,
+  projectCollection,
+};
