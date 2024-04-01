@@ -50,8 +50,8 @@ devDependencies:
     specifier: ^5.1.0
     version: 5.1.0(astro@4.5.5)(tailwindcss@3.4.1)
   '@divriots/jampack':
-    specifier: ^0.23.3
-    version: 0.23.3(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^0.23.4
+    version: 0.23.4(react-dom@18.2.0)(react@18.2.0)
   '@tailwindcss/typography':
     specifier: ^0.5.10
     version: 0.5.10(tailwindcss@3.4.1)
@@ -578,8 +578,8 @@ packages:
       whatwg-mimetype: 3.0.0
     dev: true
 
-  /@divriots/jampack@0.23.3(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-6/miLs7PzFh1SJ3VJjySrUYH7qsAm036JQVz/mvCPxH5A6EE2c5ojtha3NtTeYBT+4/l8vzWkQNYA2o2aqbBeA==}
+  /@divriots/jampack@0.23.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-4Ws976QXPqQJs34LAyr1GwRruk8Ry57YnurlSW/fFvLa1qHE/zavJgh+yDUb4V6ccpToZH2NqpzmB2/HlbLQRQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -2463,7 +2463,7 @@ packages:
       dom-serializer: 2.0.0
       domhandler: 5.0.3
       htmlparser2: 8.0.2
-      postcss: 8.4.32
+      postcss: 8.4.35
       pretty-bytes: 5.6.0
     dev: true
 
