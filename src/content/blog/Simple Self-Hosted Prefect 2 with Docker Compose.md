@@ -7,7 +7,7 @@ tags:
   - prefect
   - python
   - docker
-updated: 2024-04-01T11:43
+updated: 2024-04-01T23:45
 created: 2024-03-31T10:40
 cover: 
 ---
@@ -136,7 +136,7 @@ Once the deployment is complete, you can access the Prefect UI by navigating to 
 
 Out of the 2 available options to deploy a workflow we will go to the `.serve` options which provide a much easier option than the worker pool.
 
-[TBD]
+TBD
 ## Conclusion
 
 Deploying Prefect with Docker Compose provides a convenient and reproducible way to set up your workflow management system. By following the steps outlined in this article and properly configuring your database and Docker Compose file, you can quickly get Prefect up and running.
