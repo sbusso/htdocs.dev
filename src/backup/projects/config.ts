@@ -7,7 +7,7 @@ const dateTimeWithSecondsRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/; // Mat
 
 const dateTimeWithTimezoneRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/; // Matches "YYYY-MM-DDTHH:MM:SSZ"
 
-const blogCollection = defineCollection({
+const projectCollection = defineCollection({
   type: "content",
   schema: ({ image }) =>
     z.object({
@@ -27,25 +27,13 @@ const blogCollection = defineCollection({
       description: z.string(),
       canonicalURL: z.string().optional(),
       published: z.boolean().optional(),
-      created: z.union([
-        z.string().refine(date => dateRegex.test(date)),
-        z.string().refine(dateTime => dateTimeRegex.test(dateTime)),
-        z
-          .string()
-          .refine(dateTimeWithSeconds =>
-            dateTimeWithSecondsRegex.test(dateTimeWithSeconds)
-          ),
-        z
-          .string()
-          .refine(dateTimeWithTimezone =>
-            dateTimeWithTimezoneRegex.test(dateTimeWithTimezone)
-          ),
-        z.date(),
-      ]),
+      created: z.string().refine(date => {
+        return dateRegex.test(date) || dateTimeRegex.test(date);
+      }),
       updated: z.string().optional(),
     }),
 });
 
 export const collections = {
-  blogCollection,
+  projectCollection,
 };
