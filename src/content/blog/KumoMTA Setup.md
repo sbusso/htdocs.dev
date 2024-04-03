@@ -1,6 +1,6 @@
 ---
 created: 2023-12-13T08:41
-updated: 2024-03-17T21:04
+updated: 2024-04-03T15:26
 published: true
 description: KumoMTA is a new (as of the end of 2023) solution for a high-volume, high-performance, on-premise email-sending platform. It is designed with a modern architecture mindset, mixing Rust and Lua for high performance and configurability.
 title: KumoMTA
@@ -16,6 +16,8 @@ For 15 years or so, Postfix has been my solution for sending out marketing email
 KumoMTA is a new solution for a high-volume, high-performance, on-premise email-sending platform. It is designed with a modern architecture mindset, mixing Rust and Lua for high performance and configurability. 
 
 The Open Source project Email Service Providers don't want you to know about. Some pricey, big-name products out there (looking at you, PowerMTA) should be sweating bullets right now.
+
+**Warning**: This was initially written in December 2023 and will be regularly updated. This is heavily based on the fantastic documentation from [KumoMTA](https://docs.kumomta.com/tutorial/quickstart/), with some specific data and the whole process required to get up and running. **Refer to the official documentation** to ensure up-to-date information, as the platform is still in the early days and actively developed.
 ## Features
 - Use Lua as a configuration language.
 - Delivery to SMTP and HTTP
