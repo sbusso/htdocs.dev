@@ -42,7 +42,7 @@ dependencies:
 devDependencies:
   '@astrojs/react':
     specifier: ^3.1.0
-    version: 3.1.0(@types/react-dom@18.2.18)(@types/react@18.2.66)(react-dom@18.2.0)(react@18.2.0)(vite@5.1.5)
+    version: 3.1.0(@types/react-dom@18.2.18)(@types/react@18.3.1)(react-dom@18.2.0)(react@18.3.1)(vite@5.1.5)
   '@astrojs/sitemap':
     specifier: ^3.1.2
     version: 3.1.2
@@ -51,7 +51,7 @@ devDependencies:
     version: 5.1.0(astro@4.5.5)(tailwindcss@3.4.1)
   '@divriots/jampack':
     specifier: ^0.23.4
-    version: 0.23.4(react-dom@18.2.0)(react@18.2.0)
+    version: 0.23.4(react-dom@18.2.0)(react@18.3.1)
   '@tailwindcss/typography':
     specifier: ^0.5.10
     version: 0.5.10(tailwindcss@3.4.1)
@@ -59,8 +59,8 @@ devDependencies:
     specifier: ^2.0.0
     version: 2.0.0
   '@types/react':
-    specifier: ^18.2.66
-    version: 18.2.66
+    specifier: ^18.3.1
+    version: 18.3.1
   '@typescript-eslint/parser':
     specifier: ^7.2.0
     version: 7.2.0(eslint@8.57.0)(typescript@5.4.2)
@@ -95,11 +95,11 @@ devDependencies:
     specifier: ^0.5.13
     version: 0.5.13(prettier-plugin-astro@0.13.0)(prettier@3.2.5)
   react:
-    specifier: ^18.2.0
-    version: 18.2.0
+    specifier: ^18.3.1
+    version: 18.3.1
   react-dom:
     specifier: ^18.2.0
-    version: 18.2.0(react@18.2.0)
+    version: 18.2.0(react@18.3.1)
 
 packages:
 
@@ -213,7 +213,7 @@ packages:
     dependencies:
       prismjs: 1.29.0
 
-  /@astrojs/react@3.1.0(@types/react-dom@18.2.18)(@types/react@18.2.66)(react-dom@18.2.0)(react@18.2.0)(vite@5.1.5):
+  /@astrojs/react@3.1.0(@types/react-dom@18.2.18)(@types/react@18.3.1)(react-dom@18.2.0)(react@18.3.1)(vite@5.1.5):
     resolution: {integrity: sha512-KZhZyV+sUDZEjlrmPWNiPGeYowG9uq6/aMbCgVaeKEBlWT4Kg32TNwBOhZk6AcE4LY1l3mIwt3orUGE2JV96/g==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
@@ -222,11 +222,11 @@ packages:
       react: ^17.0.2 || ^18.0.0
       react-dom: ^17.0.2 || ^18.0.0
     dependencies:
-      '@types/react': 18.2.66
+      '@types/react': 18.3.1
       '@types/react-dom': 18.2.18
       '@vitejs/plugin-react': 4.2.1(vite@5.1.5)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
+      react: 18.3.1
+      react-dom: 18.2.0(react@18.3.1)
       ultrahtml: 1.5.2
     transitivePeerDependencies:
       - supports-color
@@ -578,7 +578,7 @@ packages:
       whatwg-mimetype: 3.0.0
     dev: true
 
-  /@divriots/jampack@0.23.4(react-dom@18.2.0)(react@18.2.0):
+  /@divriots/jampack@0.23.4(react-dom@18.2.0)(react@18.3.1):
     resolution: {integrity: sha512-4Ws976QXPqQJs34LAyr1GwRruk8Ry57YnurlSW/fFvLa1qHE/zavJgh+yDUb4V6ccpToZH2NqpzmB2/HlbLQRQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
@@ -600,7 +600,7 @@ packages:
       lightningcss: 1.22.1
       mini-svg-data-uri: 1.4.4
       ora: 7.0.1
-      quicklink: 2.3.0(react-dom@18.2.0)(react@18.2.0)
+      quicklink: 2.3.0(react-dom@18.2.0)(react@18.3.1)
       sharp: 0.33.1
       svgo: 3.1.0
       table: 6.8.1
@@ -1576,6 +1576,13 @@ packages:
     dependencies:
       '@types/prop-types': 15.7.11
       '@types/scheduler': 0.16.8
+      csstype: 3.1.3
+    dev: true
+
+  /@types/react@18.3.1:
+    resolution: {integrity: sha512-V0kuGBX3+prX+DQ/7r2qsv1NsdfnCLnTgnRJ1pYnxykBhGMz+qj+box5lq7XsO5mtZsBqpjwwTu/7wszPfMBcw==}
+    dependencies:
+      '@types/prop-types': 15.7.11
       csstype: 3.1.3
     dev: true
 
@@ -5138,14 +5145,14 @@ packages:
     requiresBuild: true
     optional: true
 
-  /quicklink@2.3.0(react-dom@18.2.0)(react@18.2.0):
+  /quicklink@2.3.0(react-dom@18.2.0)(react@18.3.1):
     resolution: {integrity: sha512-FyTanYArl5Gz2/C0ZjErvfFJtem/+d1RM4eK0jiXO6mL4Zjje+xsYtcK3ZtKX2Yb3HSfah5HekWrH2qhttYQjQ==}
     peerDependencies:
       react: ^16.8.0
       react-dom: ^16.8.0
     dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
+      react: 18.3.1
+      react-dom: 18.2.0(react@18.3.1)
       route-manifest: 1.0.0
       throttles: 1.0.1
     dev: true
@@ -5161,13 +5168,13 @@ packages:
       strip-json-comments: 2.0.1
     optional: true
 
-  /react-dom@18.2.0(react@18.2.0):
+  /react-dom@18.2.0(react@18.3.1):
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
       react: ^18.2.0
     dependencies:
       loose-envify: 1.4.0
-      react: 18.2.0
+      react: 18.3.1
       scheduler: 0.23.0
     dev: true
 
@@ -5176,8 +5183,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react@18.2.0:
-    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
+  /react@18.3.1:
+    resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
