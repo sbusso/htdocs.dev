@@ -41,8 +41,8 @@ dependencies:
 
 devDependencies:
   '@astrojs/react':
-    specifier: ^3.1.0
-    version: 3.1.0(@types/react-dom@18.2.18)(@types/react@18.2.66)(react-dom@18.2.0)(react@18.2.0)(vite@5.1.5)
+    specifier: ^3.3.4
+    version: 3.3.4(@types/react-dom@18.2.18)(@types/react@18.2.66)(react-dom@18.2.0)(react@18.2.0)(vite@5.1.5)
   '@astrojs/sitemap':
     specifier: ^3.1.2
     version: 3.1.2
@@ -213,21 +213,21 @@ packages:
     dependencies:
       prismjs: 1.29.0
 
-  /@astrojs/react@3.1.0(@types/react-dom@18.2.18)(@types/react@18.2.66)(react-dom@18.2.0)(react@18.2.0)(vite@5.1.5):
-    resolution: {integrity: sha512-KZhZyV+sUDZEjlrmPWNiPGeYowG9uq6/aMbCgVaeKEBlWT4Kg32TNwBOhZk6AcE4LY1l3mIwt3orUGE2JV96/g==}
-    engines: {node: '>=18.14.1'}
+  /@astrojs/react@3.3.4(@types/react-dom@18.2.18)(@types/react@18.2.66)(react-dom@18.2.0)(react@18.2.0)(vite@5.1.5):
+    resolution: {integrity: sha512-azFYckxcMnHcc5kfXW38oNXR3Na+OMFnzimXVBxRJ906tHkO/sBOBXhsmgQ8JGr/4WEjyaz8zKZj76TWjNMCdw==}
+    engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
     peerDependencies:
       '@types/react': ^17.0.50 || ^18.0.21
       '@types/react-dom': ^17.0.17 || ^18.0.6
-      react: ^17.0.2 || ^18.0.0
-      react-dom: ^17.0.2 || ^18.0.0
+      react: ^17.0.2 || ^18.0.0 || ^19.0.0-beta
+      react-dom: ^17.0.2 || ^18.0.0 || ^19.0.0-beta
     dependencies:
       '@types/react': 18.2.66
       '@types/react-dom': 18.2.18
       '@vitejs/plugin-react': 4.2.1(vite@5.1.5)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      ultrahtml: 1.5.2
+      ultrahtml: 1.5.3
     transitivePeerDependencies:
       - supports-color
       - vite
@@ -6103,8 +6103,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  /ultrahtml@1.5.2:
-    resolution: {integrity: sha512-qh4mBffhlkiXwDAOxvSGxhL0QEQsTbnP9BozOK3OYPEGvPvdWzvAUaXNtUSMdNsKDtuyjEbyVUPFZ52SSLhLqw==}
+  /ultrahtml@1.5.3:
+    resolution: {integrity: sha512-GykOvZwgDWZlTQMtp5jrD4BVL+gNn2NVlVafjcFUJ7taY20tqYdwdoWBFy6GBJsNTZe1GkGPkSl5knQAjtgceg==}
     dev: true
 
   /undici-types@5.26.5:
