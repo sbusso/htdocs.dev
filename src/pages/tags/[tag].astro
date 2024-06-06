@@ -38,7 +38,10 @@ const tagPosts = getPostsByTag(posts, tag);
 const sortTagsPost = getSortedPosts(tagPosts);
 ---
 
-<Layout title={`Tag:${tag} | ${SITE.title}`}>
+<Layout
+  title={`Tag:${tag} | ${SITE.title}`}
+  description={`All the articles with the tag "${tag}"`}
+>
   <Header activeNav="tags" />
   <Main
     pageTitle={[`Tag:`, `${tag}`]}
