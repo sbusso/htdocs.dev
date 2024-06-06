@@ -13,7 +13,7 @@ cover:
 
 <div class="p-4 flex">
   <div class="w-24 h-24 mr-4 flex-shrink-0">
-    <img src="undefined" alt="Preview Image" class="w-full h-full object-cover rounded">
+
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
@@ -58,11 +58,11 @@ cover:
 
 <div class="p-4 flex">
   <div class="w-24 h-24 mr-4 flex-shrink-0">
-    <img src="undefined" alt="Preview Image" class="w-full h-full object-cover rounded">
+
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
-      <img src="undefined" alt="Favicon" class="w-4 h-4 mr-2">
+
       <a href="https://echarts.apache.org/en/index.html" target="_blank" class="text-blue-600 hover:underline">"Apache ECharts"</a>
     </div>
     <p class="text-gray-600">"Apache ECharts, a powerful, interactive charting and visualization library for browser"</p>

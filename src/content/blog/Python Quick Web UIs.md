@@ -63,7 +63,7 @@ Streamlit is an open-source Python library that provides development components 
 
 <div class="p-4 flex">
   <div class="w-24 h-24 mr-4 flex-shrink-0">
-    <img src="undefined" alt="Preview Image" class="w-full h-full object-cover rounded">
+
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
@@ -95,13 +95,13 @@ Streamlit is an open-source Python library that provides development components 
 
 <div class="p-4 flex">
   <div class="w-24 h-24 mr-4 flex-shrink-0">
-    <img src="undefined" alt="Preview Image" class="w-full h-full object-cover rounded">
+
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
       <a href="https://perspective.finos.org" target="_blank" class="text-blue-600 hover:underline">Perspective | Perspective</a>
     </div>
-    <p class="text-gray-600">undefined</p>
+
   </div>
 </div>
 
@@ -209,13 +209,13 @@ Open source UI framework written in Python, running on Windows, Linux, macOS, An
 
 <div class="p-4 flex">
   <div class="w-24 h-24 mr-4 flex-shrink-0">
-    <img src="undefined" alt="Preview Image" class="w-full h-full object-cover rounded">
+
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
       <a href="https://panel.holoviz.org" target="_blank" class="text-blue-600 hover:underline">Overview — Panel v1.3.9a1</a>
     </div>
-    <p class="text-gray-600">undefined</p>
+
   </div>
 </div>
 
@@ -227,13 +227,13 @@ Open source UI framework written in Python, running on Windows, Linux, macOS, An
 
 <div class="p-4 flex">
   <div class="w-24 h-24 mr-4 flex-shrink-0">
-    <img src="undefined" alt="Preview Image" class="w-full h-full object-cover rounded">
+
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
       <a href="https://voici.readthedocs.io/en/latest/" target="_blank" class="text-blue-600 hover:underline">Try it online — voici 0.6.0 documentation</a>
     </div>
-    <p class="text-gray-600">undefined</p>
+
   </div>
 </div>
 
@@ -277,7 +277,7 @@ Open source UI framework written in Python, running on Windows, Linux, macOS, An
 
 <div class="p-4 flex">
   <div class="w-24 h-24 mr-4 flex-shrink-0">
-    <img src="undefined" alt="Preview Image" class="w-full h-full object-cover rounded">
+    <img src="" alt="Preview Image" class="w-full h-full object-cover rounded">
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
@@ -309,13 +309,13 @@ Open source UI framework written in Python, running on Windows, Linux, macOS, An
 
 <div class="p-4 flex">
   <div class="w-24 h-24 mr-4 flex-shrink-0">
-    <img src="undefined" alt="Preview Image" class="w-full h-full object-cover rounded">
+
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
       <a href="https://observablehq.com/framework/" target="_blank" class="text-blue-600 hover:underline">Observable Framework</a>
     </div>
-    <p class="text-gray-600">undefined</p>
+
   </div>
 </div>
 

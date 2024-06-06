@@ -233,7 +233,7 @@ cover:
 
 <div class="p-4 flex">
   <div class="w-24 h-24 mr-4 flex-shrink-0">
-    <img src="undefined" alt="Preview Image" class="w-full h-full object-cover rounded">
+
   </div>
   <div>
     <div class="text-xl font-semibold mb-2 flex items-center">
