@@ -4,6 +4,9 @@ updated: 2024-03-26T01:21
 title: Python Quick Web UIs
 description: Quickly build web ui with python frameworks
 published: true
+tags: []
+author: Stephane Busso
+cover:
 ---
 
 A list of libraries to build quick Web UI with python
@@ -29,7 +32,7 @@ demo = gr.Interface(fn=greet, inputs="text", outputs="text")
 demo.launch()
 ```
 
-Gradio Playground 
+Gradio Playground
 https://www.gradio.app/playground
 
 Hosting Hugging Face Spaces or self hosted
@@ -44,7 +47,7 @@ hyperdiv docs
 
 https://hyperdiv.io
 
-deploy to 
+deploy to
 https://replit.com
 https://railway.app
 https://fly.io
@@ -117,7 +120,7 @@ https://www.pysimplegui.com
 3. Download [main.py](https://901301.pysimplegui.work/main.py), which contains:
 ```python
 import PySimpleGUI as sg
-    
+
 # All the stuff inside your window.
 layout = [  [sg.Text("What's your name?")],
 			[sg.InputText()],
@@ -136,7 +139,7 @@ while True:
 
 print('Hello', values[0], '!')
 window.close()
-``` 
+```
 
 4. Run:
 ```python
@@ -347,4 +350,3 @@ Open source UI framework written in Python, running on Windows, Linux, macOS, An
     <p class="text-gray-600">PyGWalker: Turn your pandas dataframe into an interactive UI for visual analysis - Kanaries/pygwalker</p>
   </div>
 </div>
-

@@ -4,6 +4,10 @@ updated: 2023-12-18T00:48
 published: true
 description: Ship KumoMTA logs with Filebeat
 title: Ship KumoMTA logs with Filebeat
+tags:
+  - kumomta
+author: Stephane Busso
+cover:
 ---
 
 DISCLAIMER: not the recommended way, AMPQ is much more scalable.

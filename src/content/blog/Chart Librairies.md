@@ -4,6 +4,10 @@ updated: 2024-03-16T23:32
 title: Chart Libraries
 description: Interesting chart libraries
 published: true
+tags:
+  - d3
+author: Stephane Busso
+cover:
 ---
 
 
@@ -95,4 +99,3 @@ published: true
     <p class="text-gray-600">"Create beautiful charts with one line of JavaScript - ankane/chartkick.js"</p>
   </div>
 </div>
-

@@ -4,6 +4,9 @@ updated: 2024-03-15T14:53
 title: ChatGPT thoughts on Dependency Injection
 description: This answer from ChatGPT, whether or not Direct Injection is a good pattern to adopt in any project, is spot on. Go for it if you are ready to embrace the associated complexity. Don't go for it, if you lean toward simplicity.
 published: true
+tags: []
+author: Stephane Busso
+cover:
 ---
 
 This answer from ChatGPT, whether or not Direct Injection is a good pattern to adopt in any project, is spot on. Go for it if you are ready to embrace the associated complexity. Don't go for it, if you lean toward simplicity.

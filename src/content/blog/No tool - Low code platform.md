@@ -4,6 +4,9 @@ updated: 2024-03-23T20:45
 published: true
 title: No tool - Low code platform
 description: No tool - Low code platform
+tags: []
+author: Stephane Busso
+cover:
 ---
 
 
@@ -378,4 +381,3 @@ Admin
     <p class="text-gray-600">The Modern Data Stack 🐰 — Directus is an instant REST+GraphQL API and intuitive no-code data collaboration app for any SQL database. - directus/directus</p>
   </div>
 </div>
-
