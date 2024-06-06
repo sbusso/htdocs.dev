@@ -7,7 +7,7 @@ published: true
 tags:
   - ai
 ---
-## Agent 
+## Agent
 
 - **Model**
     - **Style**: The agent’s interactive style, aligned with the company’s voice, determining its communicative approach.
@@ -19,7 +19,7 @@ tags:
 - **Capabilities**: A description of the agent’s autonomous functions, dictated by its knowledge, training, and available tools, with examples of tasks or scenarios it can handle.
 
 3 special agents:
-- **Programmatic Agent**: A programmatic agent is enhanced with programmatic rules to push the model to improve its results. Programmatic agents can enhance tasks using [self-reflection](self-reflection.md), [React](React.md), [CoT](CoT.md), [ToT](ToT.md), etc.
+- **Programmatic Agent**: A programmatic agent is enhanced with programmatic rules to push the model to improve its results. Programmatic agents can enhance tasks using self-reflection.md, React.md, CoT, ToT, etc.
 - **Orchestrator**: A higher-order agent whose primary role is task planning and routing.
 	- **Role**: Analyzes the requirements of a given job, plans and delegates tasks to appropriate agents. It ensures that each task is assigned to the agent best suited to handle it, optimizing for efficiency and quality of results.
 	- **Routing**

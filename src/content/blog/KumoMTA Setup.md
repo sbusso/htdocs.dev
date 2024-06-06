@@ -219,7 +219,7 @@ sudo openssl rsa -in /opt/kumomta/etc/dkim/$DOMAIN/$SELECTOR.key -outform PEM -p
 sudo chown kumod:kumod /opt/kumomta/etc/dkim/$DOMAIN -R
 ```
 
-[KumoMTA Configuration](./KumoMTA%20Configuration.md) [TODO]
+[KumoMTA Configuration](#) [TODO]
 
 As you are setting up the DNS record, one more record
 
