@@ -8,9 +8,9 @@ tags:
   - scraping
 updated: 2024-03-24T10:28
 created: 2024-03-24T10:16
-cover: 
+cover:
 ---
-![What are Scraping, Crawling and Spidering.png](/assets/What%20are%20Scraping,%20Crawling%20and%20Spidering.png)
+![What are Scraping, Crawling and Spidering.webp](/assets/What%20are%20Scraping,%20Crawling%20and%20Spidering.webp)
 Scraping, crawling, and spiders are related concepts in the context of **web data extraction**, but they have some differences. Let's clarify each term:
 
 1. Web Scraping:
