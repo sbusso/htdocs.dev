@@ -3,8 +3,9 @@ title: Indie Hacker Success Framework
 author: Stephane Busso
 description: Key principles distilled from the journeys of successful indie hackers like Pieter Levels (Levelsio), Marc Lou, and others in the Indie Hackers community.
 published: true
-tags: 
-updated: 2024-08-22T20:17
+tags:
+  - Business
+updated: 2024-08-22T20:20
 created: 2024-08-22T20:14
 cover: 
 ---
