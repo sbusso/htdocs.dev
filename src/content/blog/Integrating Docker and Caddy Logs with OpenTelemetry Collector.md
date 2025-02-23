@@ -7,7 +7,7 @@ published: true
 tags:
   - caddy
   - opentelemetry
-updated: 2025-02-23T15:13
+updated: 2025-02-23T15:16
 created: 2025-02-23T15:12
 cover: 
 ---
