@@ -199,7 +199,3 @@ For production systems, augment this base with log sampling, alerting pipelines,
 29. [https://docs.docker.com/engine/logging/configure/](https://docs.docker.com/engine/logging/configure/)
 30. [https://betterstack.com/community/guides/logging/how-to-start-logging-with-docker/](https://betterstack.com/community/guides/logging/how-to-start-logging-with-docker/)
 31. [https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/8982](https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/8982)
-
----
-
-Answer from Perplexity: [pplx.ai/share](pplx.ai/share)
