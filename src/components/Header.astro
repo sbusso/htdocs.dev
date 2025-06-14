@@ -14,26 +14,32 @@ const { activeNav } = Astro.props;
   <a id="skip-to-content" href="#main-content">Skip to content</a>
   <div class="nav-container">
     <div class="top-nav-wrap">
-      <a href="/" class="logo whitespace-nowrap font-light">
-        HTDOCS<span class="text-gray-400">.DEV</span></a
-      >
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="rss-link"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="rss-icon mb-1 ml-1 h-5 w-5 fill-skin-accent"
-          ><path
-            d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-          ></path><path
-            d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-          ></path><circle cx="6" cy="18" r="2"></circle>
-        </svg>
-      </a>
+      <div class="flex flex-col">
+        <div class="flex items-center gap-2">
+          <a href="/" class="logo whitespace-nowrap font-light">
+            HTDOCS<span class="text-gray-400">.DEV</span></a
+          >
+          <a
+            target="_blank"
+            href="/rss.xml"
+            class="rss-link"
+            aria-label="rss feed"
+            title="RSS Feed"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="rss-icon mb-1 ml-1 h-5 w-5 fill-skin-accent"
+              ><path
+                d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
+              ></path><path
+                d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
+              ></path><circle cx="6" cy="18" r="2"></circle>
+            </svg>
+          </a>
+        </div>
+        <h2 class="text-sm text-gray-500 mt-1">AI, Technologies and Software Engineering</h2>
+      </div>
+      
       <nav id="nav-menu">
         <button
           class="hamburger-menu focus-outline"
