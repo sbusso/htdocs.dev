@@ -5,9 +5,10 @@ description: A curated directory that brings together the best tools, configurat
 published: true
 tags:
   - claudecode
-updated: 2025-06-14T21:12
+updated: 2025-06-14T21:17
 created: 2025-06-14T21:06
 cover: /assets/dotclaude.png
+featured: true
 ---
 I'm excited to announce the launch of [.claude](https://claude.com/) - a curated directory that brings together the best tools, configurations, and resources for Claude Code, Anthropic's powerful agentic coding assistant.
 
