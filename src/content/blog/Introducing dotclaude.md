@@ -10,9 +10,11 @@ created: 2025-06-14T21:06
 cover: /assets/dotclaude.png
 featured: true
 ---
-I'm excited to announce the launch of [.claude](https://claude.com/) - a curated directory that brings together the best tools, configurations, and resources for Claude Code, Anthropic's powerful agentic coding assistant.
+
+I'm excited to announce the launch of [.claude](https://dotclaude.com/) - a curated directory that brings together the best tools, configurations, and resources for Claude Code, Anthropic's powerful agentic coding assistant.
 
 ![dotclaude.png](/assets/dotclaude.png)
+
 ## The Claude Code Revolution
 
 If you haven't tried Claude Code yet, you're missing out on what might be the most significant shift in AI-assisted development since GitHub Copilot. Unlike traditional code completion tools, Claude Code is an agentic assistant that lives in your terminal, understands your entire codebase, and can handle complex, multi-step development tasks through natural language commands.
