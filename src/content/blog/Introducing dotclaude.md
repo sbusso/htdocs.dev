@@ -5,7 +5,7 @@ description: A curated directory that brings together the best tools, configurat
 published: true
 tags:
   - claudecode
-updated: 2025-06-14T21:09
+updated: 2025-06-14T21:12
 created: 2025-06-14T21:06
 cover: /assets/dotclaude.png
 ---
@@ -28,7 +28,7 @@ After spending months working with Claude Code across different projects, I noti
 
 ## Enter .claude
 
-**.claude** is my attempt to solve these problems by creating a comprehensive, beautifully organized directory of everything you need to supercharge your Claude Code workflow.
+**[.claude](https://dotclaude.com/)** is my attempt to solve these problems by creating a comprehensive, beautifully organized directory of everything you need to supercharge your Claude Code workflow.
 
 ### 🛠️ **200+ MCP Tools & Servers**
 
@@ -77,12 +77,8 @@ This is just the beginning. The Claude Code ecosystem is evolving rapidly, and I
 
 ## Get Started Today
 
-Ready to unlock Claude Code's full potential? Head over to [.claude](https://claude.com/) and transform your development workflow.
+Ready to unlock Claude Code's full potential? Head over to [.claude](https://dotclaude.com/) and transform your development workflow.
 
 Whether you're just getting started with Claude Code or you're a power user looking for new integrations, you'll find something valuable. And if you've created your own useful configurations or discovered great tools, I'd love to hear about them!
 
-**Check it out: [.claude](https://claude.com/)**
-
----
-
-_What's your experience with Claude Code been like? Have you found any amazing tools or configurations that should be in the directory? Let me know in the comments or reach out directly!_
+**Check it out: [.claude](https://dotclaude.com/)**
