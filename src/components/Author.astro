@@ -1,0 +1,60 @@
+---
+import Socials from "@components/Socials.astro";
+---
+
+<div class="author-container">
+    <h2 class="author-title">About the author</h2>
+    <div class="author-content">
+        <div class="author-image border-2 border-skin-line dark:border-white/10 border-black/10 rounded-full mr-6">
+            <img src="/author.png" alt="Stephane Busso" />
+        </div>
+        <div class="author-info">
+            <div class="author-name">
+                Stephane Busso
+            </div>
+            <p class="author-bio">
+                Software builder and engineering manager based in New Zealand 🇳🇿. HTDOCS.dev is a medium to share about ai, technologies and engineering.
+            </p>
+            <div class="social-links-wrapper">
+                <Socials />
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.author-container {
+    @apply mt-12 mb-8;
+}
+.author-title {
+    @apply text-2xl font-semibold mb-4;
+}
+.author-content {
+    @apply flex items-start;
+}
+.author-image img {
+    @apply w-24 h-24 rounded-full ;
+}
+.author-info {
+    @apply flex-1;
+}
+.author-name {
+    @apply text-xl font-bold;
+}
+.author-bio {
+    @apply mt-2 text-skin-base;
+}
+.social-links-wrapper {
+    @apply mt-4;
+}
+
+/* Adjust layout for smaller screens */
+@media (max-width: 640px) {
+  .author-content {
+    @apply flex-col;
+  }
+  .author-image img {
+    @apply mb-4;
+  }
+}
+</style> 

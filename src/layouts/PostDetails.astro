@@ -6,12 +6,28 @@ import Tag from "@components/Tag.astro";
 import Datetime from "@components/Datetime";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
+import Author from "@components/Author.astro";
+import PostNavigation from "@components/PostNavigation.astro";
+import { getCollection } from "astro:content";
+import getSortedPosts from "@utils/getSortedPosts";
 
 export interface Props {
   post: CollectionEntry<"blog">;
 }
 
 const { post } = Astro.props;
+
+const allPosts = await getCollection("blog");
+const sortedPosts = getSortedPosts(allPosts);
+const currentIndex = sortedPosts.findIndex(
+  p => slugifyStr(p.data.title) === slugifyStr(post.data.title)
+);
+
+const prevPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : undefined;
+const nextPost =
+  currentIndex < sortedPosts.length - 1
+    ? sortedPosts[currentIndex + 1]
+    : undefined;
 
 const { title, author, description, ogImage, canonicalURL, created, tags } =
   post.data;
@@ -47,14 +63,20 @@ const ogUrl = new URL(
   </div>
   <main id="main-content">
     <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
-    <Datetime datetime={created} size="lg" className="my-2" />
+    <div class="flex items-center gap-2">
+      <Datetime datetime={created} size="lg" className="my-2" />
+      <ul class="flex-wrap">
+        {tags.map((tag: string) => <Tag name={slugifyStr(tag)} />)}
+      </ul>
+    </div>
     <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
       <Content />
     </article>
 
-    <ul class="my-8">
-      {tags.map(tag => <Tag name={slugifyStr(tag)} />)}
-    </ul>
+    <Author />
+
+    <PostNavigation prevPost={prevPost} nextPost={nextPost} />
+
     <div class="flex justify-end">
       <button
         id="back-to-top"
@@ -78,6 +100,9 @@ const ogUrl = new URL(
   }
   .post-title {
     @apply text-2xl font-semibold text-skin-accent;
+  }
+  ul {
+    @apply m-0 list-none p-0;
   }
 </style>
 

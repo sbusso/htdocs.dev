@@ -1,0 +1,48 @@
+---
+import Hr from "@components/Hr.astro";
+import slugify from "@utils/slugify";
+import type { CollectionEntry } from "astro:content";
+
+export interface Props {
+  prevPost?: CollectionEntry<"blog">;
+  nextPost?: CollectionEntry<"blog">;
+}
+
+const { prevPost, nextPost } = Astro.props;
+---
+<nav class="my-8">
+  <Hr />
+  <div class="grid grid-cols-1 gap-4 py-8 sm:grid-cols-2">
+    <a
+      href={prevPost ? `/posts/${slugify(prevPost.data)}` : "#"}
+      class:list={[
+        "post-link",
+        "text-left",
+        { "pointer-events-none": !prevPost },
+      ]}
+    >
+      <p class="text-sm uppercase text-skin-muted">
+        &lt; Previous Post
+      </p>
+      <p class="text-lg font-medium text-skin-accent">
+        {prevPost?.data.title ?? "No Older Posts"}
+      </p>
+    </a>
+    <a
+      href={nextPost ? `/posts/${slugify(nextPost.data)}` : "#"}
+      class:list={[
+        "post-link",
+        "text-right",
+        { "pointer-events-none": !nextPost },
+      ]}
+    >
+      <p class="text-sm uppercase text-skin-muted">
+        Next Post &gt;
+      </p>
+      <p class="text-lg font-medium text-skin-accent">
+        {nextPost?.data.title ?? "No Newer Posts"}
+      </p>
+    </a>
+  </div>
+  <Hr />
+</nav> 
