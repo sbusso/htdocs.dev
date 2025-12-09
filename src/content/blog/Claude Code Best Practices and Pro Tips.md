@@ -209,7 +209,8 @@ MCP allows Claude Code to interact with various tools and services.
     You can use the fetch capability to provide Claude with any knowledge from a URL that it might need for a task. For example, to build a game based on specific rules:
     ```
     > write pseudo code to describe the rules of uno based on here: https://www.unorules.com/
-    ```    Claude will fetch the rules:
+    ```
+    Claude will fetch the rules:
     ```
     * Fetch(https://www.unorules.com/)...
     Received 123.8KB (200 OK)
