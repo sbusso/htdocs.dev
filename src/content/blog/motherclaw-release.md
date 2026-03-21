@@ -13,6 +13,9 @@ published: true
 author:
   - Stephane Busso
 description: A NanoClaw fork rebuilt as a Claude Code plugin — sandbox isolation, structured memory, webhook triggers, cost tracking, and 24 skills. One day, 22 commits, 386 tests.
+cover:
+created: 2026-03-21T23:29:00
+updated: 2026-03-21T23:29:00
 ---
 ## What Is MotherClaw
 
