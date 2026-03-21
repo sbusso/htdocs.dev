@@ -10,7 +10,7 @@ tags:
 updated: 2025-06-15T16:37
 created: 2025-06-13T02:09
 cover:
-featured: false
+featured: true
 ---
 ## Claude Code in 2025: comprehensive guide to features and advanced usage
 
