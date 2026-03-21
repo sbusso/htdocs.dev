@@ -7,10 +7,10 @@ tags:
   - ai
   - claudecode
   - anthropic
-updated: 2025-06-15T16:36
+updated: 2025-06-15T16:37
 created: 2025-06-13T02:09
 cover:
-featured: true
+featured: false
 ---
 ## Claude Code in 2025: comprehensive guide to features and advanced usage
 
