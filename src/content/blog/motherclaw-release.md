@@ -8,7 +8,7 @@ tags:
   - plugin
   - agents
   - sandbox
-featured: true
+featured: false
 published: true
 author:
   - Stephane Busso
