@@ -13,7 +13,7 @@ cover:
 created: 2026-03-22T15:18:00
 updated: 2026-03-22T15:18:00
 description: ClaudeClaw is a Claude Code plugin that turns Claude into a persistent, always-on agent orchestrator. It listens to messaging channels (Slack, WhatsApp, Telegram, Discord, Gmail), routes messages to isolated Claude agents, and manages conversations, memory, scheduled tasks, and webhooks — all from a single Node.js process.
-featured: true
+featured: false
 published: true
 author:
   - Stephane Busso
