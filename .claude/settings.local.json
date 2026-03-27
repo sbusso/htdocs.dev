@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(CLOUDFLARE_ACCOUNT_ID=cf96aad6aa4d2627ef9912377e8a7f39 npx wrangler pages deployment list --project-name htdocs-dev)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}

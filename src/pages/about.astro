@@ -14,11 +14,25 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 
   <section id="about">
     <h1>About</h1>
+    <p class="about-tagline">AI Enablement &amp; Agentic Systems &middot; Change Management &middot; Technical Leader &middot; Advisor</p>
     <div class="about-content article-content">
       <p>
-        Hey there &#128075;! <strong>Stephane Busso</strong> here, a French 🇫🇷 software
-        builder and engineering leader currently based in Thailand 🇹🇭. HTDOCS.dev
-        is a space to share about AI, technologies, and engineering.
+        Hey there! <strong>Stephane Busso</strong> here, a French software
+        builder and engineering leader with 25+ years of hands-on experience in
+        web development, AI, and cloud infrastructure. Currently based in
+        Thailand, I build teams, systems, and culture &mdash; enabling
+        organisations to become AI-native.
+      </p>
+      <p>
+        Today, I lead digital innovation and change management at a 40+
+        nationality remote media company &mdash; designing the infrastructure,
+        agentic workflows, and adoption strategies that turn non-technical teams
+        into builders. From AI-powered content pipelines to internal platforms
+        and practice groups, my focus is making AI fluency a daily habit across
+        every department.
+      </p>
+      <p>
+        HTDOCS.dev is a space to share about AI, technologies, and engineering.
       </p>
     </div>
 
@@ -42,6 +56,14 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   }
   #about h1 {
     font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-bottom: 0.75rem;
+  }
+  .about-tagline {
+    font-family: "JetBrains Mono Variable", monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
     margin-bottom: 1.5rem;
   }
   .social-wrapper {
