@@ -426,12 +426,10 @@
     border-radius: 12px;
     text-decoration: none;
     color: inherit;
-    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
   }
   .post-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 32px color-mix(in srgb, var(--accent) 8%, transparent);
   }
   .card-meta {
     font-family: "JetBrains Mono Variable", monospace;
