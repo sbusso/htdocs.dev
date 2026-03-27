@@ -144,25 +144,25 @@ const topTags = Object.entries(tagCounts)
   #main-content {
     max-width: 1080px;
     margin: 0 auto;
-    padding: 0 32px 1rem;
+    padding: 0 40px 1rem;
   }
   @media (max-width: 640px) {
-    #main-content { padding: 0 16px 1rem; }
+    #main-content { padding: 0 20px 1rem; }
   }
 
   /* ═══════ Hero ═══════ */
   .hero { padding: 3.5rem 0 3rem; }
   .hero-inner {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
+    grid-template-columns: 3fr 2fr;
+    gap: 48px;
     align-items: start;
   }
   @media (max-width: 768px) {
     .hero-inner { grid-template-columns: 1fr; gap: 28px; }
     .hero-terminal { display: none; }
   }
-  .hero-content { max-width: 500px; }
+  .hero-content { }
   .hero-tag {
     display: inline-flex; align-items: center; gap: 10px;
     font-family: "JetBrains Mono Variable", monospace;
@@ -209,7 +209,7 @@ const topTags = Object.entries(tagCounts)
 
 
   /* Terminal widget */
-  .hero-terminal { margin-top: 28px; }
+  .hero-terminal { margin-top: 12px; }
   .term-window {
     border-radius: 10px; overflow: hidden;
     background: var(--code-bg);
