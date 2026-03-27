@@ -42,13 +42,10 @@ export default function SearchBar({ searchList }: Props) {
   );
 
   useEffect(() => {
-    // if URL has search query,
-    // insert that search query in input field
     const searchUrl = new URLSearchParams(window.location.search);
     const searchStr = searchUrl.get("q");
     if (searchStr) setInputVal(searchStr);
 
-    // put focus cursor at the end of the string
     setTimeout(function () {
       inputRef.current!.selectionStart = inputRef.current!.selectionEnd =
         searchStr?.length || 0;
@@ -56,12 +53,9 @@ export default function SearchBar({ searchList }: Props) {
   }, []);
 
   useEffect(() => {
-    // Add search result only if
-    // input value is more than one character
     let inputResult = inputVal.length > 1 ? fuse.search(inputVal) : [];
     setSearchResults(inputResult);
 
-    // Update search string in URL
     if (inputVal.length > 0) {
       const searchParams = new URLSearchParams(window.location.search);
       searchParams.set("q", inputVal);
@@ -98,16 +92,16 @@ export default function SearchBar({ searchList }: Props) {
       </label>
 
       {inputVal.length > 1 && (
-        <div className="mt-8">
+        <div className="mt-8" style={{ fontSize: "0.88rem", color: "var(--text-muted)" }}>
           Found {searchResults?.length}
           {searchResults?.length && searchResults?.length === 1
             ? " result"
             : " results"}{" "}
-          for '{inputVal}'
+          for &lsquo;{inputVal}&rsquo;
         </div>
       )}
 
-      <ul>
+      <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginTop: "1rem" }}>
         {searchResults &&
           searchResults.map(({ item, refIndex }) => (
             <Card
@@ -116,7 +110,7 @@ export default function SearchBar({ searchList }: Props) {
               key={`${refIndex}-${slugify(item.data)}`}
             />
           ))}
-      </ul>
+      </div>
     </>
   );
 }

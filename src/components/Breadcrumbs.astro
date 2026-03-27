@@ -36,27 +36,25 @@ breadcrumbList[0] === "posts" &&
 
 <style>
   .breadcrumb {
-    @apply mx-auto mb-1 mt-8 w-full max-w-3xl px-4;
+    max-width: 1080px;
+    margin: 2rem auto 0.25rem;
+    padding: 0 32px;
+    width: 100%;
     font-family: "JetBrains Mono Variable", monospace;
     font-size: 0.72rem;
     letter-spacing: 0.03em;
   }
-  .breadcrumb ul li {
-    @apply inline;
+  @media (max-width: 640px) {
+    .breadcrumb { padding: 0 16px; }
   }
+  .breadcrumb ul li { display: inline; }
   .breadcrumb ul li a {
     color: var(--text-muted);
     text-decoration: none;
     text-transform: capitalize;
     transition: color 0.15s;
   }
-  .breadcrumb ul li a:hover {
-    color: var(--accent);
-  }
-  .breadcrumb ul li span {
-    color: var(--text-faint);
-  }
-  .breadcrumb ul li .current {
-    color: var(--text-secondary);
-  }
+  .breadcrumb ul li a:hover { color: var(--accent); }
+  .breadcrumb ul li span { color: var(--text-faint); }
+  .breadcrumb ul li .current { color: var(--text-secondary); }
 </style>

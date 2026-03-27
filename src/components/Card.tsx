@@ -9,11 +9,11 @@ export interface Props {
 }
 
 export default function Card({ href, frontmatter, secHeading = true }: Props) {
-  const { title, created, description, tags } = frontmatter;
+  const { title, created, description } = frontmatter;
 
   const formattedDate = new Date(created).toLocaleDateString(LOCALE[0] || "en-US", {
     year: "numeric",
-    month: "long",
+    month: "short",
     day: "numeric",
   });
 
@@ -23,16 +23,15 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
   };
 
   return (
-    <li className="list-none">
-      <a href={href} className="post-card">
-        <time className="card-date">{formattedDate}</time>
-        {secHeading ? (
-          <h2 {...headerProps}>{title}</h2>
-        ) : (
-          <h3 {...headerProps}>{title}</h3>
-        )}
-        {description && <p className="card-desc">{description}</p>}
-      </a>
-    </li>
+    <a href={href} className="post-card">
+      <div className="card-meta">{formattedDate}</div>
+      {secHeading ? (
+        <h2 {...headerProps}>{title}</h2>
+      ) : (
+        <h3 {...headerProps}>{title}</h3>
+      )}
+      {description && <p className="card-desc">{description}</p>}
+      <span className="card-read">Read &rarr;</span>
+    </a>
   );
 }
