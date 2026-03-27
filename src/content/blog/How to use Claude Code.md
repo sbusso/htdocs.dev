@@ -1,24 +1,60 @@
 ---
 title: How to use Claude Code
 author: Stephane Busso
-description: How to work with Claude Code agentic Mode and be a 100X developer
+description: The complete guide to Claude Code in 2026 — features, hooks, skills, MCP servers, subagents, permission modes, and advanced workflows for maximum productivity
 published: true
 tags:
   - ai
   - claudecode
   - anthropic
-updated: 2025-06-15T16:37
+updated: 2026-03-27T10:00
 created: 2025-06-13T02:09
 cover:
 featured: true
 ---
-## Claude Code in 2025: comprehensive guide to features and advanced usage
+## Claude Code in 2026: comprehensive guide to features and advanced usage
 
-Claude Code has emerged as a transformative AI coding agent, offering unprecedented capabilities that fundamentally change how both developers and non-technical users approach software creation. This article provides a complete guide to maximizing productivity with Claude Code in 2025.
+Claude Code has evolved from a terminal-based AI coding agent into a full autonomous agent platform. Now available as a CLI, desktop app, VS Code and JetBrains extension, web app at `claude.ai/code`, and even controllable from your phone, it ships with hooks, custom skills, subagent orchestration, git worktree isolation, voice input, and computer use on macOS. This article provides a complete guide to maximizing productivity with Claude Code in 2026.
 
-## Custom slash commands creation and organization
+## Platforms and availability
 
-Slash commands provide powerful workflow automation through reusable prompt templates stored as Markdown files. These commands dramatically reduce repetitive tasks and standardize team workflows.
+Claude Code runs everywhere in 2026:
+
+- **CLI** — the original terminal experience, composable with Unix pipes
+- **Desktop app** — standalone GUI with visual diffs, live app preview, computer use, and scheduled tasks
+- **VS Code extension** — launch with `Cmd+Esc` (Mac) or `Ctrl+Esc`, shares selection, open tabs, and diagnostics automatically
+- **JetBrains plugin** — IntelliJ, PyCharm, WebStorm, CLion, and Rider with interactive diff viewer
+- **Web** — `claude.ai/code` runs on Anthropic cloud VMs, no local setup required
+- **Mobile** — send tasks from your phone via Dispatch or control a local session with Remote Control
+
+All platforms share the same engine and feature set. You can start a session on your desktop, teleport it to your terminal with `claude --teleport`, or control it remotely from your phone.
+
+## Models and effort levels
+
+### Available models
+
+| Alias    | Model            | Best for                                       |
+| -------- | ---------------- | ---------------------------------------------- |
+| `opus`   | Claude Opus 4.6  | Complex reasoning, architecture, deep analysis |
+| `sonnet` | Claude Sonnet 4.6 | Daily tasks, balanced capability and speed     |
+| `haiku`  | Claude Haiku 4.5 | Simple tasks, fast responses                   |
+
+Both Opus and Sonnet are available with **1 million token context windows** (`opus[1m]`, `sonnet[1m]`), enabling work across large codebases without losing context. Switch models mid-session with `/model` or set a default in settings.
+
+### Effort levels (adaptive reasoning)
+
+Control how deeply Claude reasons beyond the natural language triggers:
+
+- **low** — minimal reasoning, fastest responses
+- **medium** — balanced (default)
+- **high** — deep reasoning for complex problems
+- **max** — deepest reasoning, Opus 4.6 only
+
+Set with `/effort` or in settings. **Fast mode** (toggle with `/fast`) uses the same model but optimizes for speed — available on Team and Enterprise plans.
+
+## Custom slash commands and skills
+
+Slash commands provide powerful workflow automation through reusable prompt templates stored as Markdown files. These commands dramatically reduce repetitive tasks and standardize team workflows. In 2026, commands have evolved into the more powerful **skills** system (covered below), but classic commands remain fully supported.
 
 ### Creating and managing commands
 
@@ -66,6 +102,8 @@ Deploy extended thinking for **multi-constraint problems** where Claude must bal
 
 Extended thinking excels when applied to debugging complex issues, refactoring strategies, and system design challenges. The feature performs optimally with English language inputs and high-level instructions that allow Claude to determine the optimal thinking approach.
 
+In 2026, extended thinking works alongside the **effort level** system (see Models section above). Toggle thinking visibility with `Ctrl+O` (verbose mode) or `Option+T`. The thinking process is now powered by **adaptive reasoning** on Opus and Sonnet 4.6, which dynamically allocates thinking based on task complexity rather than fixed token budgets.
+
 ## MCP servers setup and benefits
 
 The Model Context Protocol represents a paradigm shift in AI-tool integration, serving as the **"USB-C of AI applications."** This open standard enables standardized connections between AI models and external data sources, tools, and services.
@@ -106,7 +144,18 @@ claude mcp add puppeteer -s project -- npx -y @modelcontextprotocol/server-puppe
 
 ### Transformative benefits
 
-MCP servers enable **visual testing** through Puppeteer integration, **error monitoring** via Sentry, **direct database operations**, and seamless **enterprise system integration**. The ecosystem has grown to over 1,000+ community servers as of 2025, with adoption by major AI providers including OpenAI, Google, and Microsoft.
+MCP servers enable **visual testing** through Puppeteer integration, **error monitoring** via Sentry, **direct database operations**, and seamless **enterprise system integration**. The ecosystem has grown to thousands of community servers, with adoption by major AI providers including OpenAI, Google, and Microsoft.
+
+### Connection types in 2026
+
+MCP now supports four connection types:
+
+- **Remote HTTP** — cloud APIs, SaaS tools
+- **Remote SSE** — real-time streaming connections
+- **Local stdio** — desktop apps, databases, filesystem tools
+- **WebSocket** — bidirectional communication
+
+Additional capabilities include OAuth2 authentication, push messages via channels, managed allowlists/denylists, and MCP resources (data files and documentation exposed to Claude).
 
 ## Sub-agents and task delegation
 
@@ -128,6 +177,36 @@ Trigger parallel execution with requests like: "Research three separate approach
 **Research and analysis** benefits from parallel investigation of competing solutions and simultaneous review of multiple codebases. **Development tasks** excel with parallel component development and independent test suite creation. **Quality assurance** improves through independent security analysis and cross-verification of implementations.
 
 Sub-agents preserve main context by handling specialized tasks, reduce context switching overhead, and enable more efficient token usage. The system catches edge cases through independent validation and provides multiple perspectives for robust solutions.
+
+### Built-in subagent types (2026)
+
+Claude Code now ships with specialized built-in subagents:
+
+- **Explore** — fast, read-only codebase analysis (uses Haiku for speed)
+- **Plan** — research agent for plan mode investigations
+- **General-purpose** — complex multi-step work with full tool access
+
+### Custom agents
+
+Define your own agents in `.claude/agents/`:
+
+```markdown
+# .claude/agents/security-reviewer.md
+---
+name: security-reviewer
+description: Review code for security vulnerabilities
+model: opus
+allowed-tools: ["Read", "Grep", "Glob"]
+---
+
+You are a security-focused code reviewer. Analyze code for OWASP top 10 vulnerabilities, injection risks, and authentication issues.
+```
+
+Custom agents support tool restrictions, model selection, persistent memory, worktree isolation, max turn limits, and lifecycle hooks.
+
+### Agent teams (experimental)
+
+Multiple independent Claude Code sessions can now coordinate via shared tasks and peer-to-peer messaging. Each agent gets its own full context window, enabling truly parallel complex work on separate features or research tracks.
 
 ## Workflow optimization tips
 
@@ -159,7 +238,7 @@ Replace vague requests with **precise instructions**. Instead of "fix this," use
 
 ### Performance optimization
 
-Leverage **git worktrees** for parallel Claude sessions on different features. Use headless mode (`-p` flag) for automation and scripts. Implement allowlists for trusted tools to optimize token usage. Monitor costs with automatic session summaries and set appropriate model selection (Sonnet 4 for most tasks, Opus 4 for complex decisions).
+Leverage **git worktrees** for parallel Claude sessions on different features. Use headless mode (`-p` flag) for automation and scripts. Implement allowlists for trusted tools to optimize token usage. Monitor costs with `/cost` for per-session token tracking and set appropriate model selection (Sonnet 4.6 for most tasks, Opus 4.6 for complex decisions, Haiku 4.5 for simple queries).
 
 ## Project initialization best practices
 
@@ -171,14 +250,20 @@ Running `/init` in your project root generates comprehensive project analysis, c
 
 Organize projects with dedicated directories:
 
-```
+```text
 project/
 ├── .claude/
-│   ├── commands/          # Custom slash commands
-│   └── logs/             # Conversation logs
-├── CLAUDE.md             # Main configuration
-├── .mcp.json             # MCP server config
-└── spec.md               # Project specification
+│   ├── commands/           # Classic slash commands
+│   ├── skills/             # Custom skills (replaces commands)
+│   ├── agents/             # Custom subagent definitions
+│   ├── hooks/              # Reusable hook scripts
+│   ├── rules/              # Path-scoped conditional rules
+│   ├── settings.json       # Project settings, hooks, permissions
+│   └── settings.local.json # Personal settings (gitignored)
+├── CLAUDE.md               # Main project instructions
+├── .mcp.json               # MCP server config
+├── .worktreeinclude        # Files to copy into worktrees
+└── spec.md                 # Project specification
 ```
 
 ### Team collaboration setup
@@ -208,11 +293,213 @@ The democratization of programming enables:
 
 Companies leverage Claude Code for applications they "wouldn't have had bandwidth for," including AI labeling tools, sales ROI calculators, and complex multi-step automated tasks. Small teams achieve **enterprise-level output** through AI multiplication of resources.
 
-## Advanced features and future capabilities
+## Hooks: deterministic automation
 
-### Memory and persistence
+Hooks are one of the most powerful additions in 2026. They are shell scripts that run at specific lifecycle points — no LLM involved, fully deterministic. They automate behaviors like "format code after every edit" or "block changes to `.env` files."
 
-Opus 4 creates and maintains memory files for long-term context, enabling sophisticated project understanding across sessions. Background task support through GitHub Actions integration allows continuous operation beyond interactive sessions.
+### Hook events
+
+Claude Code exposes 20+ hook events including:
+
+- `PreToolUse` / `PostToolUse` — before/after tool execution (can block)
+- `SessionStart` — session begins or resumes
+- `UserPromptSubmit` — before processing a prompt
+- `Stop` — Claude finishes responding
+- `Notification` — Claude needs your attention
+- `FileChanged` — watched files change
+- `SubagentStart` / `SubagentStop` — subagent lifecycle
+- `PreCompact` / `PostCompact` — before/after context compression
+
+### Hook types
+
+1. **Command hooks** — shell scripts with stdin/stdout
+2. **Prompt-based hooks** — single LLM call for yes/no decisions
+3. **Agent-based hooks** — full subagent with tool access for verification
+4. **HTTP hooks** — POST data to external endpoints
+
+### Practical examples
+
+**Auto-format after edits** (in `.claude/settings.json`):
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit",
+        "command": "npx prettier --write $CLAUDE_FILE_PATH"
+      }
+    ]
+  }
+}
+```
+
+**Block edits to protected files:**
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit",
+        "command": "if echo $CLAUDE_FILE_PATH | grep -qE '\\.(env|lock)$'; then exit 2; fi"
+      }
+    ]
+  }
+}
+```
+
+Exit codes control behavior: `0` = allow, `2` = block. This makes hooks a reliable safety net for your workflow.
+
+## Custom skills: the evolution of slash commands
+
+Skills are reusable workflows or knowledge packages that Claude loads automatically when relevant or on demand via `/skill-name`. They replace and extend the classic commands system with richer capabilities.
+
+### Creating a skill
+
+Create `.claude/skills/deploy/SKILL.md`:
+
+```markdown
+---
+name: deploy
+description: Deploy the application to production
+---
+
+1. Run the test suite
+2. Build the project
+3. Deploy with railway up
+4. Verify the deployment is healthy
+5. Report the deployment URL
+```
+
+### Skill features
+
+- **Arguments** — use `$ARGUMENTS` or `$0`, `$1` for dynamic inputs
+- **Templates** — include template files Claude fills in
+- **Tool restrictions** — limit which tools a skill can use
+- **Model override** — force a specific model for the skill
+- **Path scoping** — only load for matching file patterns (e.g., `paths: src/**/*.tsx`)
+- **Fork context** — run in an isolated subagent to protect main context
+
+Skills can be project-scoped (`.claude/skills/`) or user-scoped (`~/.claude/skills/`), and can be distributed as part of **plugins** that bundle skills, hooks, agents, and MCP servers together.
+
+## Permission modes and security
+
+Claude Code offers granular control over what actions require approval. Cycle through modes with `Shift+Tab`:
+
+1. **Default** — asks before edits, bash commands, and network operations
+2. **Accept Edits** — auto-approves file edits, still asks for bash/network
+3. **Plan** — read-only exploration, proposes but doesn't execute changes
+4. **Auto** — background classifier evaluates each action for safety (Team/Enterprise, research preview)
+5. **Don't Ask** — only pre-approved tools execute, others blocked silently (ideal for CI/CD)
+6. **Bypass Permissions** — no checks at all (only for isolated environments like containers)
+
+### Fine-grained permission rules
+
+Configure in settings with glob patterns and wildcards:
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(bun run test)",
+      "Read(**/*.ts)",
+      "Edit(src/**)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Edit(.env*)"
+    ]
+  }
+}
+```
+
+Organization admins can enforce **managed policies** that users cannot override, ensuring security standards across teams.
+
+## Git worktrees: parallel development
+
+Git worktrees let you run multiple Claude sessions on different features without file conflicts:
+
+```bash
+# Terminal 1
+claude --worktree feature-auth
+
+# Terminal 2
+claude --worktree feature-payments
+
+# Terminal 3
+claude --worktree bugfix-login
+```
+
+Each session creates an isolated copy at `.claude/worktrees/<name>/` with its own branch. They share git history but have independent working files. Use `.worktreeinclude` to automatically copy `.gitignore`d files (like `.env`) into new worktrees.
+
+Subagents can also run in isolated worktrees with `isolation: worktree`, preventing file conflicts during parallel execution.
+
+## Memory system
+
+### Auto memory
+
+Claude automatically maintains memory across sessions, stored at `~/.claude/projects/<project>/memory/`. It tracks patterns it discovers: build commands that work, architectural decisions, your coding preferences. The first 200 lines load at every session start.
+
+### Manual memory
+
+Use `/memory` to view and edit memory files directly. You can also tell Claude to "remember that we use Vitest, not Jest" and it will persist the information for future sessions.
+
+### CLAUDE.md as persistent instructions
+
+While auto memory is machine-learned, `CLAUDE.md` is your explicit, version-controlled project knowledge. Use `.claude/rules/` for **path-scoped rules** — a rule file with `paths: src/components/**/*.tsx` only loads when working on matching files, keeping context lean.
+
+## Voice input and computer use
+
+### Voice mode
+
+Claude Code supports push-to-talk voice input in 20+ languages. Press spacebar to speak, and Claude transcribes and processes your request. Available across all platforms.
+
+### Computer use (macOS)
+
+On the desktop app, Claude can control your screen — clicking, typing, navigating applications. Combined with Remote Control, you can send instructions from your phone and watch Claude execute desktop operations.
+
+## Essential keyboard shortcuts
+
+| Shortcut | Action |
+| -------- | ------ |
+| `Shift+Tab` | Cycle permission modes |
+| `Ctrl+O` | Toggle verbose mode (see thinking) |
+| `Option+T` | Toggle extended thinking |
+| `Ctrl+C` | Interrupt current operation |
+| `Ctrl+B` | Background current task |
+| `Ctrl+G` | Open plan in editor |
+| `Ctrl+R` | Reverse history search |
+| `Escape` | Cancel/exit current mode |
+
+### Input shortcuts
+
+- `@file` or `@directory` — reference files with autocomplete
+- `!command` — run as bash command directly
+- `{` or `Shift+Enter` — multiline input
+- `/btw` — side question without tool access
+
+## Slash commands reference
+
+| Command | Purpose |
+| ------- | ------- |
+| `/compact` | Compress conversation to free context |
+| `/clear` | Start fresh session |
+| `/resume` | Resume a previous session |
+| `/model` | Switch models |
+| `/effort` | Adjust reasoning depth |
+| `/memory` | View/edit CLAUDE.md and memory files |
+| `/agents` | Create and manage subagents |
+| `/hooks` | Browse configured hooks |
+| `/batch` | Parallel changes across codebase (5-30 agents) |
+| `/loop` | Run a prompt on a recurring interval |
+| `/simplify` | Review and fix code quality issues |
+| `/cost` | Show token usage and costs |
+| `/context` | View context window usage |
+| `/init` | Generate CLAUDE.md for your project |
+
+## Advanced features
 
 ### Visual development
 
@@ -222,6 +509,10 @@ Screenshot-based development enables UI creation from mockups. Claude analyzes v
 
 Claude Sonnet 4 powers **GitHub Copilot** as its base model. The platform integrates with Cursor for state-of-the-art coding capabilities. Enterprise deployments through AWS Bedrock and Google Vertex AI enable secure, scalable implementations.
 
+### Agent SDK
+
+The Claude Agent SDK (available in Python and TypeScript) lets you build custom AI agents with Claude Code capabilities. It provides tool management, agent loop execution, streaming, structured outputs, and session management — enabling you to embed Claude Code features in your own applications and CI/CD pipelines.
+
 ## Maximizing productivity with Claude Code
 
 Success with Claude Code requires understanding its capabilities as an **orchestrated system** rather than a simple tool. Implement specification-driven development by generating detailed specs before coding. Embrace test-driven development, which Claude excels at implementing. Use iterative improvement—2-3 passes typically yield significantly better results.
@@ -230,4 +521,4 @@ Configure your environment with comprehensive CLAUDE.md files, relevant MCP serv
 
 The evidence demonstrates Claude Code as a **transformative force** in software development, enabling both seasoned developers and complete beginners to build sophisticated applications. As the ecosystem continues expanding with community contributions and enterprise adoption, Claude Code is positioned to fundamentally reshape how software is created, making programming accessible to broader audiences while amplifying professional developer capabilities.
 
-With productivity gains ranging from 2x to 10x and breakthrough capabilities in autonomous operation, Claude Code represents not just an evolution in AI assistance but a revolution in how we approach software creation. The key to success lies in embracing its full capabilities—from custom commands and extended thinking to MCP integration and multi-agent workflows—to achieve unprecedented development efficiency and innovation.
+With productivity gains ranging from 2x to 10x and breakthrough capabilities in autonomous operation, Claude Code represents not just an evolution in AI assistance but a revolution in how we approach software creation. The key to success lies in embracing its full capabilities—from hooks and skills to MCP integration, permission modes, worktree isolation, and multi-agent workflows—to achieve unprecedented development efficiency and innovation. Invest time in your `CLAUDE.md`, set up hooks for your common workflows, connect the MCP servers your team needs, and let Claude handle the orchestration.
