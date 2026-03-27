@@ -29,7 +29,6 @@ const topTags = Object.entries(tagCounts)
 <Layout>
   <Header />
   <main id="main-content">
-
     <!-- ── Hero ── -->
     <section class="hero">
       <div class="hero-inner">
@@ -38,7 +37,10 @@ const topTags = Object.entries(tagCounts)
             <span class="hero-dot"></span>
             // personal blog
           </div>
-          <h1>Notes on <mark>AI</mark>, technologies &amp;&nbsp;software&nbsp;engineering.</h1>
+          <h1>
+            Notes on <mark>AI</mark>, technologies
+            &amp;&nbsp;software&nbsp;engineering.
+          </h1>
           <p class="hero-sub">
             Exploring AI agents, modern tooling, and systems architecture.
           </p>
@@ -50,76 +52,130 @@ const topTags = Object.entries(tagCounts)
         <div class="hero-terminal">
           <div class="term-window">
             <div class="term-bar">
-              <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+              <span class="dot r"></span><span class="dot y"></span><span
+                class="dot g"></span>
               <span class="term-title">~/htdocs.dev</span>
             </div>
             <div class="term-body">
-              <div><span class="c-prompt">~ </span><span class="c-cmd">cat</span> <span class="c-file">topics.md</span></div>
+              <div>
+                <span class="c-prompt">~ </span><span class="c-cmd">cat</span>
+                <span class="c-file">topics.md</span>
+              </div>
               <div class="c-muted"># What I write about</div>
               <div><span class="c-ok">✓</span> Claude Code &amp; AI agents</div>
               <div><span class="c-ok">✓</span> Full-stack architecture</div>
               <div><span class="c-ok">✓</span> Developer tooling</div>
               <div><span class="c-ok">✓</span> Systems design</div>
               <div class="c-muted">&nbsp;</div>
-              <div><span class="c-prompt">~ </span><span class="c-accent">{posts.length} posts</span> <span class="c-muted">and counting.</span></div>
+              <div>
+                <span class="c-prompt">~ </span><span class="c-accent"
+                  >{posts.length} posts</span
+                >
+                <span class="c-muted">and counting.</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-
     <!-- ── Featured (2-col grid) ── -->
-    {featuredPosts.length > 0 && (
-      <section class="posts-section">
-        <div class="section-label">// featured</div>
-        <h2 class="section-heading">Highlights</h2>
-        <p class="section-desc">Hand-picked articles worth starting with.</p>
-        <div class="cards-grid-2col">
-          {featuredPosts.map(({ data }) => (
-            <Card
-              href={`/posts/${slugify(data)}`}
-              frontmatter={data}
-              secHeading={false}
-            />
-          ))}
-        </div>
-      </section>
-    )}
+    {
+      featuredPosts.length > 0 && (
+        <section class="posts-section">
+          <div class="section-label">// featured</div>
+          <h2 class="section-heading">Highlights</h2>
+          <p class="section-desc">Hand-picked articles worth starting with.</p>
+          <div class="cards-grid-2col">
+            <a
+              href="https://sbusso.github.io/claudeclaw/"
+              target="_blank"
+              rel="noopener"
+              class="callout-card"
+            >
+              <div class="callout-content">
+                <div class="callout-badge">Open Source Project</div>
+                <div class="callout-logo-row">
+                  <img
+                    src="/images/claudeclaw-logo.webp"
+                    alt="ClaudeClaw"
+                    class="callout-logo"
+                  />
+                  <h3 class="callout-name">ClaudeClaw</h3>
+                </div>
+                <p class="callout-desc">
+                  Use Claude to orchestrate agents like OpenClaw. Secured, fast, and
+                  extensible.
+                </p>
+                <div class="callout-stats">
+                  <span class="callout-stat"
+                    ><span class="stat-value">&lt;10ms</span> cold start</span
+                  >
+                  <span class="callout-stat"
+                    ><span class="stat-value">Kernel</span> sandboxed</span
+                  >
+                  <span class="callout-stat"
+                    ><span class="stat-value">~8K</span> lines</span
+                  >
+                </div>
+                <span class="callout-link">View project &rarr;</span>
+              </div>
+              <div class="callout-visual">
+                <img
+                  src="/images/claudeclaw-sandbox.png"
+                  alt="ClaudeClaw sandbox security model"
+                  class="callout-img"
+                />
+              </div>
+            </a>
+            {featuredPosts.map(({ data }) => (
+              <Card
+                href={`/posts/${slugify(data)}`}
+                frontmatter={data}
+                secHeading={false}
+              />
+            ))}
+          </div>
+        </section>
+      )
+    }
 
     <!-- ── Recent (2-col grid) ── -->
     <section class="posts-section">
       <div class="section-label">// latest</div>
       <h2 class="section-heading">Recent Posts</h2>
       <div class="cards-grid-2col">
-        {recentPosts.map(
-          ({ data }, index) =>
-            index < SITE.postPerPage && (
-              <Card
-                href={`/posts/${slugify(data)}`}
-                frontmatter={data}
-                secHeading={false}
-              />
-            )
-        )}
+        {
+          recentPosts.map(
+            ({ data }, index) =>
+              index < SITE.postPerPage && (
+                <Card
+                  href={`/posts/${slugify(data)}`}
+                  frontmatter={data}
+                  secHeading={false}
+                />
+              )
+          )
+        }
       </div>
       <div class="all-posts-link">
         <a href="/posts">All posts <span>&rarr;</span></a>
       </div>
     </section>
 
-
     <!-- ── Topics ── -->
     <section class="topics-section">
       <div class="section-label">// topics</div>
       <h2 class="section-heading">Browse by topic</h2>
       <div class="topics-grid">
-        {topTags.map(tag => (
-          <a href={`/tags/${tag}`} class="topic-pill">
-            <span class="topic-hash">#</span>{tag}
-            <span class="topic-count">{tagCounts[tag]}</span>
-          </a>
-        ))}
+        {
+          topTags.map(tag => (
+            <a href={`/tags/${tag}`} class="topic-pill">
+              <span class="topic-hash">#</span>
+              {tag}
+              <span class="topic-count">{tagCounts[tag]}</span>
+            </a>
+          ))
+        }
       </div>
       <div class="all-posts-link" style="margin-top:1.25rem">
         <a href="/tags">All tags <span>&rarr;</span></a>
@@ -130,14 +186,13 @@ const topTags = Object.entries(tagCounts)
     <section class="quote-section">
       <div class="quote-mark" aria-hidden="true">&ldquo;</div>
       <blockquote>
-        Build things, share what you learn, and <mark>don't&nbsp;wait</mark> until it's perfect.
+        Build things, share what you learn, and <mark>don't&nbsp;wait</mark> until
+        it's perfect.
       </blockquote>
     </section>
-
   </main>
   <Footer />
 </Layout>
-
 
 <style>
   /* Wider homepage container — famstack uses 1080px */
@@ -147,91 +202,279 @@ const topTags = Object.entries(tagCounts)
     padding: 0 40px 1rem;
   }
   @media (max-width: 640px) {
-    #main-content { padding: 0 20px 1rem; }
+    #main-content {
+      padding: 0 20px 1rem;
+    }
   }
 
   /* ═══════ Hero ═══════ */
-  .hero { padding: 3.5rem 0 3rem; }
+  .hero {
+    padding: 3.5rem 0 3rem;
+  }
   .hero-inner {
     display: grid;
     grid-template-columns: 3fr 2fr;
     gap: 48px;
-    align-items: start;
+    align-items: center;
   }
   @media (max-width: 768px) {
-    .hero-inner { grid-template-columns: 1fr; gap: 28px; }
-    .hero-terminal { display: none; }
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .hero-terminal {
+      display: none;
+    }
   }
-  .hero-content { }
+  .hero-content {
+  }
   .hero-tag {
-    display: inline-flex; align-items: center; gap: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     font-family: "JetBrains Mono Variable", monospace;
-    font-size: 0.75rem; font-weight: 500;
-    color: var(--teal); letter-spacing: 0.06em;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--teal);
+    letter-spacing: 0.06em;
     margin-bottom: 28px;
   }
   .hero-dot {
-    width: 7px; height: 7px; background: var(--accent);
-    border-radius: 50%; animation: pulse-dot 2s infinite;
+    width: 7px;
+    height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
   }
-  @keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:.4} }
-
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
 
   .hero h1 {
     font-size: clamp(2.2rem, 5vw, 3rem);
-    font-weight: 500; line-height: 1.12; margin-bottom: 20px;
+    font-weight: 500;
+    line-height: 1.12;
+    margin-bottom: 20px;
   }
   .hero-sub {
-    font-size: 1.05rem; line-height: 1.75;
-    color: var(--text-secondary); margin-bottom: 28px;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
   }
-  .hero-cta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .hero-cta {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
   .btn-primary {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--accent); color: var(--bg); border: none;
-    padding: 10px 22px; border-radius: 8px;
-    font-family: "Inter Variable", sans-serif; font-weight: 600; font-size: 0.85rem;
-    text-decoration: none; transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-family: "Inter Variable", sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.2s;
     box-shadow: 0 2px 8px color-mix(in srgb, var(--accent) 20%, transparent);
   }
   .btn-primary:hover {
-    background: var(--accent-hover); transform: translateY(-1px);
+    background: var(--accent-hover);
+    transform: translateY(-1px);
     box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 19%, transparent);
   }
   .btn-outline {
-    background: transparent; color: var(--text);
-    border: 1.5px solid var(--border); padding: 10px 22px;
-    border-radius: 8px; font-family: "Inter Variable", sans-serif;
-    font-weight: 600; font-size: 0.85rem;
-    text-decoration: none; transition: all 0.2s;
+    background: transparent;
+    color: var(--text);
+    border: 1.5px solid var(--border);
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-family: "Inter Variable", sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.2s;
   }
-  .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
-
+  .btn-outline:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+  }
 
   /* Terminal widget */
-  .hero-terminal { margin-top: 12px; }
+  .hero-terminal {
+    margin-top: 12px;
+  }
   .term-window {
-    border-radius: 10px; overflow: hidden;
+    border-radius: 10px;
+    overflow: hidden;
     background: var(--code-bg);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
     font-family: "JetBrains Mono Variable", monospace;
   }
   .term-bar {
     background: color-mix(in srgb, var(--code-bg) 80%, black);
-    padding: 8px 12px; display: flex; align-items: center; gap: 6px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
-  .dot { width: 10px; height: 10px; border-radius: 50%; }
-  .dot.r { background: #ff5f57; } .dot.y { background: #febc2e; } .dot.g { background: #28c840; }
-  .term-title { font-size: 0.6rem; color: var(--text-muted); margin-left: 6px; }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .dot.r {
+    background: #ff5f57;
+  }
+  .dot.y {
+    background: #febc2e;
+  }
+  .dot.g {
+    background: #28c840;
+  }
+  .term-title {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    margin-left: 6px;
+  }
   .term-body {
-    padding: 14px 16px; display: flex; flex-direction: column; gap: 4px;
-    font-size: 0.72rem; line-height: 1.55;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.72rem;
+    line-height: 1.55;
   }
-  .term-body div { color: #ccc; }
-  .c-prompt { color: #585b70; user-select: none; }
-  .c-cmd { color: #89b4fa; } .c-file { color: #a6e3a1; }
-  .c-muted { color: #585b70; } .c-ok { color: #a6e3a1; }
-  .c-accent { color: var(--accent); }
+  .term-body div {
+    color: #ccc;
+  }
+  .c-prompt {
+    color: #585b70;
+    user-select: none;
+  }
+  .c-cmd {
+    color: #89b4fa;
+  }
+  .c-file {
+    color: #a6e3a1;
+  }
+  .c-muted {
+    color: #585b70;
+  }
+  .c-ok {
+    color: #a6e3a1;
+  }
+  .c-accent {
+    color: var(--accent);
+  }
+
+  /* ═══════ Callout (inside featured grid) ═══════ */
+  .callout-card {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text);
+    background: color-mix(in srgb, var(--bg) 85%, black);
+    border-radius: 14px;
+    padding: 28px 32px;
+  }
+  .callout-card:hover {
+    box-shadow: 0 8px 32px color-mix(in srgb, var(--accent) 8%, transparent);
+  }
+  @media (max-width: 768px) {
+    .callout-card {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 24px 20px;
+    }
+  }
+  .callout-badge {
+    display: inline-block;
+    font-family: "JetBrains Mono Variable", monospace;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 14px;
+  }
+  .callout-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .callout-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+  }
+  .callout-name {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  .callout-desc {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin: 0 0 16px;
+  }
+  .callout-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+  .callout-stat {
+    font-family: "JetBrains Mono Variable", monospace;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+  .stat-value {
+    font-weight: 700;
+    color: var(--text);
+  }
+  .callout-link {
+    font-family: "Space Grotesk Variable", sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--accent);
+    transition: all 0.2s;
+  }
+  .callout-card:hover .callout-link {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .callout-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .callout-img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
 
   /* ═══════ Post Sections ═══════ */
   .posts-section {
@@ -240,13 +483,16 @@ const topTags = Object.entries(tagCounts)
   }
   .section-heading {
     font-size: clamp(1.6rem, 3vw, 2.2rem);
-    font-weight: 500; margin-bottom: 8px;
+    font-weight: 500;
+    margin-bottom: 8px;
   }
   .section-desc {
-    font-size: 0.95rem; color: var(--text-secondary);
-    line-height: 1.65; margin-bottom: 1.5rem; max-width: 540px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+    max-width: 540px;
   }
-
 
   /* 2-column card grid — famstack blog teaser style */
   .cards-grid-2col {
@@ -255,18 +501,34 @@ const topTags = Object.entries(tagCounts)
     gap: 20px;
   }
   @media (max-width: 640px) {
-    .cards-grid-2col { grid-template-columns: 1fr; }
+    .cards-grid-2col {
+      grid-template-columns: 1fr;
+    }
   }
 
-  .all-posts-link { margin-top: 1.75rem; text-align: center; }
+  .all-posts-link {
+    margin-top: 1.75rem;
+    text-align: center;
+  }
   .all-posts-link a {
     font-family: "Space Grotesk Variable", sans-serif;
-    font-weight: 600; font-size: 0.85rem;
-    color: var(--accent); text-decoration: none; transition: all 0.2s;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--accent);
+    text-decoration: none;
+    transition: all 0.2s;
   }
-  .all-posts-link a:hover { text-decoration: underline; text-underline-offset: 3px; }
-  .all-posts-link a span { display: inline-block; transition: transform 0.2s; }
-  .all-posts-link a:hover span { transform: translateX(3px); }
+  .all-posts-link a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .all-posts-link a span {
+    display: inline-block;
+    transition: transform 0.2s;
+  }
+  .all-posts-link a:hover span {
+    transform: translateX(3px);
+  }
 
   /* ═══════ Topics ═══════ */
   .topics-section {
@@ -274,49 +536,76 @@ const topTags = Object.entries(tagCounts)
     border-top: 1px solid var(--border-light);
   }
   .topics-grid {
-    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1rem;
   }
   .topic-pill {
-    display: inline-flex; align-items: center; gap: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
     font-family: "JetBrains Mono Variable", monospace;
-    font-size: 0.78rem; font-weight: 500;
-    padding: 6px 14px; border-radius: 8px;
-    background: var(--bg-paper); color: var(--text-secondary);
-    border: 1.5px solid var(--border); text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 8px;
+    background: var(--bg-paper);
+    color: var(--text-secondary);
+    border: 1.5px solid var(--border);
+    text-decoration: none;
     transition: all 0.2s;
   }
   .topic-pill:hover {
-    border-color: var(--accent); color: var(--accent);
-    background: var(--accent-soft); transform: translateY(-1px);
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-soft);
+    transform: translateY(-1px);
   }
-  .topic-hash { color: var(--accent); opacity: 0.5; }
+  .topic-hash {
+    color: var(--accent);
+    opacity: 0.5;
+  }
   .topic-count {
-    font-size: 0.62rem; color: var(--text-faint);
-    background: var(--bg-subtle); padding: 1px 6px;
-    border-radius: 4px; margin-left: 2px;
+    font-size: 0.62rem;
+    color: var(--text-faint);
+    background: var(--bg-subtle);
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-left: 2px;
   }
-
 
   /* ═══════ Quote ═══════ */
   .quote-section {
     padding: 3rem 0 2.5rem;
     border-top: 1px solid var(--border-light);
-    text-align: center; position: relative;
+    text-align: center;
+    position: relative;
   }
   .quote-mark {
     font-family: "Newsreader Variable", Georgia, serif;
-    font-size: 5rem; line-height: 1;
-    color: var(--accent); opacity: 0.15;
-    position: absolute; top: 1.5rem; left: 50%;
-    transform: translateX(-50%); pointer-events: none; user-select: none;
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--accent);
+    opacity: 0.15;
+    position: absolute;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    user-select: none;
   }
   .quote-section blockquote {
     font-family: "Newsreader Variable", Georgia, serif;
     font-size: clamp(1.15rem, 2.5vw, 1.45rem);
-    font-weight: 400; font-style: italic;
-    line-height: 1.6; color: var(--text);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--text);
     letter-spacing: -0.01em;
-    max-width: 540px; margin: 0 auto;
-    padding: 0; border: none;
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 0;
+    border: none;
   }
 </style>
