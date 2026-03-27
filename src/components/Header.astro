@@ -1,6 +1,5 @@
 ---
 import { LOGO_IMAGE, SITE } from "@config";
-import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
 
 export interface Props {
@@ -14,32 +13,13 @@ const { activeNav } = Astro.props;
   <a id="skip-to-content" href="#main-content">Skip to content</a>
   <div class="nav-container">
     <div class="top-nav-wrap">
-      <div class="flex flex-col">
-        <div class="flex items-center gap-2">
-          <a href="/" class="logo whitespace-nowrap font-light">
-            HTDOCS<span class="text-gray-400">.DEV</span></a
-          >
-          <a
-            target="_blank"
-            href="/rss.xml"
-            class="rss-link"
-            aria-label="rss feed"
-            title="RSS Feed"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="rss-icon mb-1 ml-1 h-5 w-5 fill-skin-accent"
-              ><path
-                d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-              ></path><path
-                d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-              ></path><circle cx="6" cy="18" r="2"></circle>
-            </svg>
-          </a>
-        </div>
-        <h2 class="text-sm text-gray-500 mt-1">AI, Technologies and Software Engineering</h2>
+      <div class="logo-block">
+        <a href="/" class="logo">
+          htdocs<span class="logo-tld">.dev</span>
+        </a>
+        <span class="logo-sub">AI, Technologies &amp; Software Engineering</span>
       </div>
-      
+
       <nav id="nav-menu">
         <button
           class="hamburger-menu focus-outline"
@@ -66,20 +46,12 @@ const { activeNav } = Astro.props;
             <line x1="6" y1="6" x2="18" y2="18" class="close"></line>
           </svg>
         </button>
-        <ul id="menu-items" class="display-none font-light sm:flex">
+        <ul id="menu-items" class="display-none sm:flex">
           <li>
             <a href="/posts" class={activeNav === "posts" ? "active" : ""}>
               Posts
             </a>
           </li>
-          <!-- <li>
-            <a
-              href="/cookbooks"
-              class={activeNav === "cookbooks" ? "active" : ""}
-            >
-              Cookbooks
-            </a>
-          </li> -->
           <li>
             <a href="/tags" class={activeNav === "tags" ? "active" : ""}>
               Tags
@@ -108,6 +80,18 @@ const { activeNav } = Astro.props;
               </svg>
             </LinkButton>
           </li>
+          <li class="nav-socials">
+            <a href="https://github.com/sbusso" target="_blank" rel="noopener" aria-label="GitHub" class="social-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23A11.52 11.52 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"></path></svg>
+            </a>
+            <a href="/rss.xml" target="_blank" aria-label="RSS Feed" class="social-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"></path>
+                <path d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"></path>
+                <circle cx="6" cy="18" r="2"></circle>
+              </svg>
+            </a>
+          </li>
           <li>
             {
               SITE.lightAndDarkMode && (
@@ -132,21 +116,63 @@ const { activeNav } = Astro.props;
       </nav>
     </div>
   </div>
-  <Hr />
 </header>
 
 <style>
   #skip-to-content {
     @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
   }
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid var(--border-light);
+  }
   .nav-container {
     @apply mx-auto flex max-w-3xl flex-col items-center justify-between sm:flex-row;
   }
   .top-nav-wrap {
-    @apply relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8;
+    @apply relative flex w-full items-start justify-between sm:items-center;
+    padding: 12px 16px;
+  }
+  @media (min-width: 640px) {
+    .top-nav-wrap {
+      padding: 14px 16px;
+    }
+  }
+  .logo-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
   }
   .logo {
-    @apply absolute py-1 text-xl font-semibold sm:static sm:text-2xl;
+    font-family: "Inter Variable", sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .logo:hover {
+    color: var(--accent);
+  }
+  .logo-tld {
+    color: var(--text-muted);
+    font-family: "JetBrains Mono Variable", monospace;
+    font-weight: 400;
+    font-size: 0.8em;
+  }
+  .logo-sub {
+    font-family: "JetBrains Mono Variable", monospace;
+    font-size: 0.6rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    line-height: 1;
   }
   .hamburger-menu {
     @apply self-end p-2 sm:hidden;
@@ -154,33 +180,45 @@ const { activeNav } = Astro.props;
   .hamburger-menu svg {
     @apply h-6 w-6 scale-125 fill-skin-base;
   }
-
   nav {
     @apply flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
   }
   nav ul {
-    @apply mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
+    @apply mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-4 sm:gap-y-0;
+    align-items: center;
   }
   nav ul li {
     @apply col-span-2 flex items-center justify-center;
   }
-  nav ul li a {
-    @apply w-full px-4 py-3 text-center  hover:text-skin-accent sm:my-0 sm:px-2 sm:py-1;
+  nav ul li a:not(.social-link) {
+    @apply w-full px-4 py-3 text-center sm:my-0 sm:px-2 sm:py-1;
+    font-family: "Space Grotesk Variable", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+  }
+  nav ul li a:not(.social-link):hover {
+    color: var(--text);
   }
   nav ul li:nth-last-child(2) a {
     @apply w-auto;
   }
   nav ul li:nth-last-child(1),
-  nav ul li:nth-last-child(2) {
+  nav ul li:nth-last-child(2),
+  nav ul li:nth-last-child(3) {
     @apply col-span-1;
   }
   nav a.active {
-    @apply underline decoration-wavy decoration-2 underline-offset-4;
+    color: var(--accent) !important;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
   }
   nav a.active svg {
     @apply fill-skin-accent;
   }
-
   nav button {
     @apply p-1;
   }
@@ -193,7 +231,23 @@ const { activeNav } = Astro.props;
   #theme-btn svg {
     @apply scale-125 hover:rotate-12 sm:scale-100;
   }
-
+  .nav-socials {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .social-link {
+    display: flex;
+    color: var(--text-faint);
+    transition: color 0.2s;
+  }
+  .social-link:hover {
+    color: var(--text-muted);
+  }
+  .social-link svg {
+    width: 16px;
+    height: 16px;
+  }
   .menu-icon line {
     @apply transition-opacity duration-75 ease-in-out;
   }
@@ -210,7 +264,6 @@ const { activeNav } = Astro.props;
 
 <script>
   function toggleNav() {
-    // Toggle menu
     const menuBtn = document.querySelector(".hamburger-menu");
     const menuIcon = document.querySelector(".menu-icon");
     const menuItems = document.querySelector("#menu-items");
@@ -228,7 +281,5 @@ const { activeNav } = Astro.props;
   }
 
   toggleNav();
-
-  // Runs on view transitions navigation
   document.addEventListener("astro:after-swap", toggleNav);
 </script>

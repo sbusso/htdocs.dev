@@ -24,7 +24,7 @@ const next = pageNum < totalPages ? "" : "disabled";
 <Layout title={`Posts | ${SITE.title}`}>
   <Header activeNav="posts" />
   <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
-    <ul>
+    <ul class="post-list">
       {
         posts.map(({ data }) => (
           <Card href={`/posts/${slugify(data)}`} frontmatter={data} />
@@ -65,8 +65,19 @@ const next = pageNum < totalPages ? "" : "disabled";
 </Layout>
 
 <style>
+  .post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
   .pagination-wrapper {
     @apply mb-8 mt-auto flex justify-center;
+    font-family: "Space Grotesk Variable", sans-serif;
+    font-weight: 600;
+    font-size: 0.88rem;
   }
   .disabled {
     @apply pointer-events-none select-none opacity-50 hover:text-skin-base group-hover:fill-skin-base;

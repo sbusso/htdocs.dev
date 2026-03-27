@@ -49,44 +49,34 @@ const ogUrl = new URL(
   canonicalURL={canonicalURL}
 >
   <Header />
-  <div class="mx-auto flex w-full max-w-3xl justify-start px-2">
-    <button
-      class="focus-outline mb-2 mt-8 flex hover:opacity-75"
-      onclick="history.back()"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg"
-        ><path
-          d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
-        ></path>
-      </svg><span>Go back</span>
+  <div class="mx-auto flex w-full max-w-3xl justify-start px-4">
+    <button class="back-btn focus-outline" onclick="history.back()">
+      <svg xmlns="http://www.w3.org/2000/svg"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path></svg>
+      <span>Go back</span>
     </button>
   </div>
   <main id="main-content">
-    <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
-    <div class="flex items-center gap-2">
-      <Datetime datetime={created} size="lg" className="my-2" />
-      <ul class="flex-wrap">
-        {tags.map((tag: string) => <Tag name={slugifyStr(tag)} />)}
-      </ul>
-    </div>
-    <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
-      <Content />
+    <article class="article-page">
+      <header class="article-header">
+        <Datetime datetime={created} size="lg" className="" />
+        <h1 transition:name={slugifyStr(title)} class="article-title">{title}</h1>
+        {description && <p class="article-desc">{description}</p>}
+        <ul class="tag-list">
+          {tags.map((tag: string) => <Tag name={slugifyStr(tag)} />)}
+        </ul>
+      </header>
+
+      <div class="article-content" role="article">
+        <Content />
+      </div>
     </article>
 
     <Author />
-
     <PostNavigation prevPost={prevPost} nextPost={nextPost} />
 
     <div class="flex justify-end">
-      <button
-        id="back-to-top"
-        class="focus-outline whitespace-nowrap hover:opacity-75"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="rotate-90">
-          <path
-            d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
-          ></path>
-        </svg>
+      <button id="back-to-top" class="back-to-top focus-outline">
+        <svg xmlns="http://www.w3.org/2000/svg" class="rotate-90"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path></svg>
         <span>Back to Top</span>
       </button>
     </div>
@@ -98,19 +88,74 @@ const ogUrl = new URL(
   main {
     @apply mx-auto w-full max-w-3xl px-4 pb-12;
   }
-  .post-title {
-    @apply text-2xl font-semibold text-skin-accent;
+  .back-btn {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-family: "Space Grotesk Variable", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: color 0.2s;
   }
-  ul {
-    @apply m-0 list-none p-0;
+  .back-btn:hover { color: var(--accent); }
+
+  /* Famstack article header:
+     title: clamp(1.8rem, 4vw, 2.6rem) — big and prominent
+     desc: 1.05rem
+     spacing: 48px header margin-bottom */
+  .article-header {
+    margin-bottom: 48px;
   }
+  .article-title {
+    font-family: "Newsreader Variable", Georgia, serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+    margin-top: 12px;
+    margin-bottom: 16px;
+  }
+  .article-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .back-to-top {
+    display: flex;
+    align-items: center;
+    font-family: "Space Grotesk Variable", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    background: none;
+    border: none;
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+  .back-to-top:hover { color: var(--accent); }
 </style>
 
 <script is:inline>
-  /* When the user clicks on the "Back to Top" button,
-   * scroll to the top of the document */
   document.querySelector("#back-to-top")?.addEventListener("click", () => {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   });
 </script>

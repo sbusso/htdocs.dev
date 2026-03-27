@@ -1,13 +1,7 @@
 ---
-// Remove current url path and remove trailing slash if exists
 const currentUrlPath = Astro.url.pathname.replace(/\/+$/, "");
-
-// Get url array from path
-// eg: /tags/tailwindcss => ['tags', 'tailwindcss']
 const breadcrumbList = currentUrlPath.split("/").slice(1);
 
-// if breadcrumb is Home > Posts > 1 <etc>
-// replace Posts with Posts (page number)
 breadcrumbList[0] === "posts" &&
   breadcrumbList.splice(0, 2, `Posts (page ${breadcrumbList[1] || 1})`);
 ---
@@ -16,24 +10,23 @@ breadcrumbList[0] === "posts" &&
   <ul>
     <li>
       <a href="/">Home</a>
-      <span aria-hidden="true">&nbsp;&gt;&nbsp;</span>
+      <span aria-hidden="true">&nbsp;/&nbsp;</span>
     </li>
     {
       breadcrumbList.map((breadcrumb, index) =>
         index + 1 === breadcrumbList.length ? (
           <li>
             <span
-              class={`${index > 0 ? "lowercase" : "capitalize"}`}
+              class={`${index > 0 ? "lowercase" : "capitalize"} current`}
               aria-current="page"
             >
-              {/* make the last part lowercase in Home > Tags > some-tag */}
               {decodeURIComponent(breadcrumb)}
             </span>
           </li>
         ) : (
           <li>
             <a href={`/${breadcrumb}`}>{breadcrumb}</a>
-            <span aria-hidden="true">&nbsp;&gt;&nbsp;</span>
+            <span aria-hidden="true">&nbsp;/&nbsp;</span>
           </li>
         )
       )
@@ -44,17 +37,26 @@ breadcrumbList[0] === "posts" &&
 <style>
   .breadcrumb {
     @apply mx-auto mb-1 mt-8 w-full max-w-3xl px-4;
+    font-family: "JetBrains Mono Variable", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
   }
   .breadcrumb ul li {
     @apply inline;
   }
   .breadcrumb ul li a {
-    @apply capitalize opacity-70;
+    color: var(--text-muted);
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: color 0.15s;
+  }
+  .breadcrumb ul li a:hover {
+    color: var(--accent);
   }
   .breadcrumb ul li span {
-    @apply opacity-70;
+    color: var(--text-faint);
   }
-  .breadcrumb ul li:not(:last-child) a {
-    @apply hover:opacity-100;
+  .breadcrumb ul li .current {
+    color: var(--text-secondary);
   }
 </style>

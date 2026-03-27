@@ -1,5 +1,4 @@
 ---
-import Hr from "@components/Hr.astro";
 import slugify from "@utils/slugify";
 import type { CollectionEntry } from "astro:content";
 
@@ -10,39 +9,83 @@ export interface Props {
 
 const { prevPost, nextPost } = Astro.props;
 ---
-<nav class="my-8">
-  <Hr />
-  <div class="grid grid-cols-1 gap-4 py-8 sm:grid-cols-2">
+<nav class="post-nav">
+  <hr class="hr-line" />
+  <div class="post-nav-grid">
     <a
       href={prevPost ? `/posts/${slugify(prevPost.data)}` : "#"}
       class:list={[
-        "post-link",
+        "post-nav-link",
         "text-left",
-        { "pointer-events-none": !prevPost },
+        { "is-disabled": !prevPost },
       ]}
     >
-      <p class="text-sm uppercase text-skin-muted">
-        &lt; Previous Post
-      </p>
-      <p class="text-lg font-medium text-skin-accent">
+      <span class="post-nav-label">&larr; Previous</span>
+      <span class="post-nav-title">
         {prevPost?.data.title ?? "No Older Posts"}
-      </p>
+      </span>
     </a>
     <a
       href={nextPost ? `/posts/${slugify(nextPost.data)}` : "#"}
       class:list={[
-        "post-link",
+        "post-nav-link",
         "text-right",
-        { "pointer-events-none": !nextPost },
+        { "is-disabled": !nextPost },
       ]}
     >
-      <p class="text-sm uppercase text-skin-muted">
-        Next Post &gt;
-      </p>
-      <p class="text-lg font-medium text-skin-accent">
+      <span class="post-nav-label">Next &rarr;</span>
+      <span class="post-nav-title">
         {nextPost?.data.title ?? "No Newer Posts"}
-      </p>
+      </span>
     </a>
   </div>
-  <Hr />
-</nav> 
+  <hr class="hr-line" />
+</nav>
+
+<style>
+  .post-nav {
+    margin: 2rem 0;
+  }
+  .post-nav-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 2rem 0;
+  }
+  @media (max-width: 640px) {
+    .post-nav-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .post-nav-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s;
+  }
+  .post-nav-link:hover .post-nav-title {
+    color: var(--accent);
+  }
+  .post-nav-link.is-disabled {
+    pointer-events: none;
+    opacity: 0.4;
+  }
+  .post-nav-label {
+    display: block;
+    font-family: "JetBrains Mono Variable", monospace;
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+  .post-nav-title {
+    display: block;
+    font-family: "Newsreader Variable", Georgia, serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.35;
+    transition: color 0.2s;
+  }
+</style>

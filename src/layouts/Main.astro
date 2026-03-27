@@ -31,7 +31,7 @@ const { props } = Astro;
       <h1>{props.pageTitle}</h1>
     )
   }
-  <p>{props.pageDesc}</p>
+  {props.pageDesc && <p class="page-desc">{props.pageDesc}</p>}
   <slot />
 </main>
 
@@ -40,9 +40,14 @@ const { props } = Astro;
     @apply mx-auto w-full max-w-3xl px-4 pb-12;
   }
   #main-content h1 {
-    @apply text-2xl font-semibold sm:text-3xl;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    margin-bottom: 0.25rem;
   }
-  #main-content p {
-    @apply mb-6 mt-2 italic;
+  .page-desc {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-top: 0;
+    margin-bottom: 2rem;
   }
 </style>

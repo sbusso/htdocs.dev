@@ -1,34 +1,31 @@
 ---
 import Socials from "@components/Socials.astro";
-
 import { SITE, SOCIALS } from "@config";
 import Layout from "@layouts/Layout.astro";
-
 import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
-import Hr from "@components/Hr.astro";
 
 const title = "About";
-
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
 
 <Layout title={`${title} | ${SITE.title}`}>
-  <Header />
+  <Header activeNav="about" />
 
-  <section id="hero">
-    <p class="prose min-w-full text-skin-base">
-      Hey there &#128075;! <strong>Stephane Busso</strong> here, a French 🇫🇷 software
-      builder and engineering manager currently based in New Zealand 🇳🇿. HTDOCS.dev
-      is a medium to share about technologies and engineering.
-    </p>
-    <Hr />
+  <section id="about">
+    <h1>About</h1>
+    <div class="about-content article-content">
+      <p>
+        Hey there &#128075;! <strong>Stephane Busso</strong> here, a French 🇫🇷 software
+        builder and engineering leader currently based in Thailand 🇹🇭. HTDOCS.dev
+        is a space to share about AI, technologies, and engineering.
+      </p>
+    </div>
 
     {
-      // only display if at least one social link is enabled
       socialCount > 0 && (
         <div class="social-wrapper">
-          <div class="social-links">Social Links:</div>
+          <span class="social-label">Find me on:</span>
           <Socials />
         </div>
       )
@@ -38,39 +35,28 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 </Layout>
 
 <style>
-  /* ===== Hero Section ===== */
-  #hero {
-    @apply pb-6 pt-8;
+  #about {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
   }
-  #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
-  }
-  #hero .rss-link {
-    @apply mb-6;
-  }
-  #hero .rss-icon {
-    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
-  }
-  #hero p {
-    @apply my-2;
+  #about h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-bottom: 1.5rem;
   }
   .social-wrapper {
-    @apply mt-4 flex flex-col sm:flex-row sm:items-center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
   }
-  .social-links {
-    @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
-  }
-
-  /* ===== Featured & Recent Posts Sections ===== */
-  #featured,
-  #recent-posts {
-    @apply pb-6 pt-12;
-  }
-  #featured h2,
-  #recent-posts h2 {
-    @apply text-2xl font-semibold tracking-wide;
-  }
-  .all-posts-btn-wrapper {
-    @apply my-8 text-center;
+  .social-label {
+    font-family: "Space Grotesk Variable", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    white-space: nowrap;
   }
 </style>

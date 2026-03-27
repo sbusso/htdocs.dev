@@ -10,19 +10,12 @@ function withOpacity(variableName) {
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
-  darkMode: "media",
+  darkMode: "class",
   theme: {
-    // Remove the following screen breakpoint or add other breakpoints
-    // if one breakpoint is not enough for you
     screens: {
       sm: "640px",
     },
-
-
     extend: {
-      // colors: {
-      //   border: withOpacity("--color-border"),
-      // },
       textColor: {
         skin: {
           base: withOpacity("--color-text-base"),
@@ -59,24 +52,12 @@ module.exports = {
         transparent: "transparent",
       },
       fontFamily: {
-        mono: ["IBM Plex Mono", "monospace"],
-      },
-
-
-
-      typography: {
-        DEFAULT: {
-          css: {
-            pre: {
-              color: false,
-            },
-            code: {
-              color: false,
-            },
-          },
-        },
+        sans: ['"Inter Variable"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        serif: ['"Newsreader Variable"', 'Georgia', 'serif'],
+        display: ['"Space Grotesk Variable"', '-apple-system', 'sans-serif'],
+        mono: ['"JetBrains Mono Variable"', 'monospace'],
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [],
 };

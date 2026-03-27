@@ -23,6 +23,10 @@ const { href, className, ariaLabel, title, disabled = false } = Astro.props;
 
 <style>
   a {
-    @apply hover:text-skin-accent;
+    color: var(--text);
+    transition: color 0.2s;
+  }
+  a:hover {
+    color: var(--accent);
   }
 </style>

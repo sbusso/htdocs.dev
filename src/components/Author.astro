@@ -3,17 +3,16 @@ import Socials from "@components/Socials.astro";
 ---
 
 <div class="author-container">
-    <h2 class="author-title">About the author</h2>
+    <hr class="hr-line" />
     <div class="author-content">
-        <div class="author-image border-2 border-skin-line dark:border-white/10 border-black/10 rounded-full mr-6">
+        <div class="author-image">
             <img src="/author.png" alt="Stephane Busso" />
         </div>
         <div class="author-info">
-            <div class="author-name">
-                Stephane Busso
-            </div>
+            <div class="author-name">Stephane Busso</div>
             <p class="author-bio">
-                Software builder and engineering manager based in New Zealand 🇳🇿. HTDOCS.dev is a medium to share about ai, technologies and engineering.
+                Software builder and engineering manager based in Thailand 🇹🇭.
+                HTDOCS.dev is a space to share about AI, technologies and engineering.
             </p>
             <div class="social-links-wrapper">
                 <Socials />
@@ -24,37 +23,43 @@ import Socials from "@components/Socials.astro";
 
 <style>
 .author-container {
-    @apply mt-12 mb-8;
-}
-.author-title {
-    @apply text-2xl font-semibold mb-4;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
 }
 .author-content {
-    @apply flex items-start;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding-top: 2rem;
 }
 .author-image img {
-    @apply w-24 h-24 rounded-full ;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: 2px solid var(--border);
 }
 .author-info {
-    @apply flex-1;
+    flex: 1;
 }
 .author-name {
-    @apply text-xl font-bold;
+    font-family: "Space Grotesk Variable", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
 }
 .author-bio {
-    @apply mt-2 text-skin-base;
+    margin-top: 0.5rem;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
 }
 .social-links-wrapper {
-    @apply mt-4;
+    margin-top: 0.75rem;
 }
 
-/* Adjust layout for smaller screens */
 @media (max-width: 640px) {
-  .author-content {
-    @apply flex-col;
-  }
-  .author-image img {
-    @apply mb-4;
-  }
+    .author-content {
+        flex-direction: column;
+    }
 }
-</style> 
+</style>

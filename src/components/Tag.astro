@@ -7,32 +7,45 @@ export interface Props {
 const { name, size = "sm" } = Astro.props;
 ---
 
-<li
-  class={`inline-block ${
-    size === "sm" ? "my-1 underline-offset-4" : "my-3 mx-1 underline-offset-8"
-  }`}
->
+<li class={`tag-item ${size === "lg" ? "tag-lg" : ""}`}>
   <a
     href={`/tags/${name.toLowerCase()}`}
     transition:name={name.toLowerCase()}
-    class={`${size === "sm" ? "text-sm" : "text-lg"} pr-2 group`}
+    class="tag-link"
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class={`${size === "sm" ? " scale-75" : "scale-110"}`}
-      ><path
-        d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
-      ></path>
-    </svg>
-    &nbsp;<span>{name.toLowerCase()}</span>
+    <span class="tag-hash">#</span>{name.toLowerCase()}
   </a>
 </li>
 
 <style>
-  a {
-    @apply relative underline decoration-dashed hover:-top-0.5 hover:text-skin-accent focus-visible:p-1;
+  .tag-item {
+    display: inline-block;
   }
-  a svg {
-    @apply -mr-5 h-6 w-6 scale-95 text-skin-base opacity-80 group-hover:fill-skin-accent;
+  .tag-link {
+    display: inline-block;
+    font-family: "JetBrains Mono Variable", monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 3px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--bg-paper);
+    transition: all 0.15s;
+    letter-spacing: 0.02em;
+  }
+  .tag-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--bg-accent-soft, var(--bg-paper));
+  }
+  .tag-hash {
+    opacity: 0.4;
+    margin-right: 1px;
+  }
+  .tag-lg .tag-link {
+    font-size: 0.82rem;
+    padding: 5px 14px;
   }
 </style>

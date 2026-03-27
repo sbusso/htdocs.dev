@@ -2,7 +2,6 @@
 import Card from "@components/Card";
 import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
-import Hr from "@components/Hr.astro";
 import LinkButton from "@components/LinkButton.astro";
 import { SITE } from "@config";
 import Layout from "@layouts/Layout.astro";
@@ -11,7 +10,6 @@ import slugify from "@utils/slugify";
 import { getCollection } from "astro:content";
 
 const posts = await getCollection("blog");
-
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 ---
@@ -19,12 +17,12 @@ const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 <Layout>
   <Header />
   <main id="main-content">
-    
     {
       featuredPosts.length > 0 && (
         <>
           <section id="featured">
-            <h2>Featured</h2>
+            <div class="section-label">// featured</div>
+            <h2 class="section-heading">Highlights</h2>
             <ul>
               {featuredPosts.map(({ data }) => (
                 <Card
@@ -35,13 +33,13 @@ const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
               ))}
             </ul>
           </section>
-          <Hr />
         </>
       )
     }
 
     <section id="recent-posts">
-      <h2>Recent Posts</h2>
+      <div class="section-label">// latest</div>
+      <h2 class="section-heading">Recent Posts</h2>
       <ul>
         {
           sortedPosts
@@ -70,44 +68,55 @@ const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
       </div>
     </section>
   </main>
-
   <Footer />
 </Layout>
 
 <style>
-  /* ===== Hero Section ===== */
-  #hero {
-    @apply pb-6 pt-8;
-  }
-  #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
-  }
-  #hero .rss-link {
-    @apply mb-6;
-  }
-  #hero .rss-icon {
-    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
-  }
-  #hero p {
-    @apply my-2;
-  }
-  .social-wrapper {
-    @apply mt-4 flex flex-col sm:flex-row sm:items-center;
-  }
-  .social-links {
-    @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
+  /* Famstack: padding 100px top (after sticky nav) 64px bottom */
+  #main-content {
+    @apply mx-auto w-full max-w-3xl px-4;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
   }
 
-  /* ===== Featured & Recent Posts Sections ===== */
   #featured,
   #recent-posts {
-    @apply pb-6 pt-12;
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
   }
-  #featured h2,
-  #recent-posts h2 {
-    @apply text-2xl font-semibold tracking-wide;
+  #featured + #recent-posts {
+    border-top: 1px solid var(--border-light);
+    margin-top: 0.5rem;
   }
+
+  /* Famstack section titles: clamp(1.6rem, 3vw, 2.2rem) */
+  .section-heading {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
   .all-posts-btn-wrapper {
-    @apply my-8 text-center;
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .all-posts-btn-wrapper a {
+    font-family: "Space Grotesk Variable", sans-serif;
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--accent);
+  }
+  .all-posts-btn-wrapper a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 </style>
