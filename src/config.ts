@@ -5,7 +5,7 @@ export const SITE: Site = {
   author: "Stephane Busso",
   desc: "Notes on AI, technologies and software engineering by Stephane Busso.",
   title: "htdocs.dev",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "og.png",
   lightAndDarkMode: true,
   postPerPage: 6,
 };

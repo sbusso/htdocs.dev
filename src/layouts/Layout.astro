@@ -32,7 +32,11 @@ const socialImageURL = new URL(
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
@@ -44,10 +48,15 @@ const socialImageURL = new URL(
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -56,7 +65,20 @@ const socialImageURL = new URL(
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
 
-    <meta name="theme-color" content="" />
+    <meta name="theme-color" content="#D06030" />
+
+    <!-- JSON-LD WebSite schema -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": SITE.title,
+      "url": SITE.website,
+      "description": SITE.desc,
+      "author": {
+        "@type": "Person",
+        "name": SITE.author
+      }
+    })} />
 
     {
       googleSiteVerification && (
@@ -75,6 +97,7 @@ const socialImageURL = new URL(
       window.op("init", { clientId: "6db4713a-95e8-4869-8094-f65abffe06af", trackScreenViews: true, trackOutgoingLinks: true, trackAttributes: true, apiUrl: "https://o.inbocks.com/api" });
     </script>
     <script is:inline src="/toggle-theme.js"></script>
+    <slot name="head" />
   </head>
   <body>
     <slot />

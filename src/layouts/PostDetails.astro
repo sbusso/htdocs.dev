@@ -6,10 +6,12 @@ import Tag from "@components/Tag.astro";
 import Datetime from "@components/Datetime";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
+import slugify from "@utils/slugify";
 import Author from "@components/Author.astro";
 import PostNavigation from "@components/PostNavigation.astro";
 import { getCollection } from "astro:content";
 import getSortedPosts from "@utils/getSortedPosts";
+import { SITE } from "@config";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -39,6 +41,27 @@ const ogUrl = new URL(
   ogImageUrl ?? `/posts/${slugifyStr(title)}.png`,
   Astro.url.origin
 ).href;
+
+const postUrl = new URL(`/posts/${slugify(post.data)}`, SITE.website).href;
+const articleJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "author": {
+    "@type": "Person",
+    "name": typeof author === "string" ? author : SITE.author
+  },
+  "datePublished": created,
+  ...(updated && { "dateModified": updated }),
+  "url": postUrl,
+  "image": ogUrl,
+  "publisher": {
+    "@type": "Person",
+    "name": SITE.author
+  },
+  "keywords": tags
+});
 ---
 
 <Layout
@@ -48,6 +71,12 @@ const ogUrl = new URL(
   ogImage={ogUrl}
   canonicalURL={canonicalURL}
 >
+  <Fragment slot="head">
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content={created} />
+    {updated && <meta property="article:modified_time" content={updated} />}
+    <script is:inline type="application/ld+json" set:html={articleJsonLd} />
+  </Fragment>
   <Header />
   <div class="mx-auto flex w-full max-w-3xl justify-start px-4">
     <button class="back-btn focus-outline" onclick="history.back()">

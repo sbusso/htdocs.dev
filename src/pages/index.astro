@@ -24,9 +24,53 @@ const topTags = Object.entries(tagCounts)
   .sort((a, b) => b[1] - a[1])
   .slice(0, 10)
   .map(([name]) => name);
+
+const faqs = [
+  {
+    question: "How to use Claude Code effectively?",
+    answer: "Claude Code is Anthropic's CLI tool for AI-assisted development. Learn best practices including sub-agents, skills, hooks, and full-stack configuration to supercharge your workflow.",
+    link: "/posts/how-to-use-claude-code",
+  },
+  {
+    question: "What are the best open-source workflow orchestration tools in 2026?",
+    answer: "Top tools include n8n, Dagster, Prefect, Kestra, and Argo Workflows. Each excels in different areas from low-code automation to data pipeline orchestration.",
+    link: "/posts/the-10-best-open-source-projects-for-workflow-orchestration-and-automation",
+  },
+  {
+    question: "What is the modern Python data stack?",
+    answer: "The modern Python data stack in 2026 combines tools like Dagster, dbt, Great Expectations, and DuckDB for orchestration, transformation, quality, and analytics.",
+    link: "/posts/the-modern-python-data-stack-in-2026",
+  },
+  {
+    question: "What are the best backend-as-a-service platforms?",
+    answer: "Leading open-source BaaS options include Appwrite, Supabase, Payload CMS, Directus, and Convex — offering auth, databases, storage, and APIs out of the box.",
+    link: "/posts/backend-as-a-service",
+  },
+  {
+    question: "How to get started with web scraping in Python?",
+    answer: "Python offers powerful scraping tools: Scrapy for large-scale crawling, BeautifulSoup with Requests for quick scripts, and Parsel for lightweight parsing with CSS and XPath selectors.",
+    link: "/posts/web-scraping-scrapy-vs-beautifulsouprequests",
+  },
+];
+
+const faqJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+});
 ---
 
 <Layout>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={faqJsonLd} />
+  </Fragment>
   <Header />
   <main id="main-content">
     <!-- ── Hero ── -->
@@ -179,6 +223,23 @@ const topTags = Object.entries(tagCounts)
       </div>
       <div class="all-posts-link" style="margin-top:1.25rem">
         <a href="/tags">All tags <span>&rarr;</span></a>
+      </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section class="faq-section">
+      <div class="section-label">// faq</div>
+      <h2 class="section-heading">Frequently Asked</h2>
+      <div class="faq-list">
+        {faqs.map(faq => (
+          <details class="faq-item">
+            <summary class="faq-question">{faq.question}</summary>
+            <div class="faq-answer">
+              <p>{faq.answer}</p>
+              <a href={faq.link} class="faq-link">Read more &rarr;</a>
+            </div>
+          </details>
+        ))}
       </div>
     </section>
 
@@ -573,6 +634,70 @@ const topTags = Object.entries(tagCounts)
     padding: 1px 6px;
     border-radius: 4px;
     margin-left: 2px;
+  }
+
+  /* ═══════ FAQ ═══════ */
+  .faq-section {
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--border-light);
+  }
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 1rem;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--border-light);
+  }
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    font-family: "Space Grotesk Variable", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    list-style: none;
+    transition: color 0.2s;
+  }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question::after {
+    content: "+";
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+  details[open] .faq-question::after {
+    content: "−";
+    color: var(--accent);
+  }
+  .faq-question:hover { color: var(--accent); }
+  .faq-answer {
+    padding: 0 0 16px;
+  }
+  .faq-answer p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin: 0 0 8px;
+  }
+  .faq-link {
+    font-family: "Space Grotesk Variable", sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--accent);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .faq-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   /* ═══════ Quote ═══════ */
