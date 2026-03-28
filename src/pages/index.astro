@@ -191,7 +191,7 @@ const faqJsonLd = JSON.stringify({
         {
           recentPosts.map(
             ({ data }, index) =>
-              index < SITE.postPerPage && (
+              index < 6 && (
                 <Card
                   href={`/posts/${slugify(data)}`}
                   frontmatter={data}
