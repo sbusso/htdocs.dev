@@ -7,7 +7,7 @@ export const SITE: Site = {
   title: "htdocs.dev",
   ogImage: "og.png",
   lightAndDarkMode: true,
-  postPerPage: 6,
+  postPerPage: 10,
 };
 
 export const LOCALE = ["en-EN"];

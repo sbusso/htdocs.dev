@@ -11,6 +11,7 @@ import robotsTxt from "astro-robots-txt";
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
+  trailingSlash: "always",
   integrations: [tailwind({
     applyBaseStyles: false
   }), react(), sitemap(), robotsTxt()],
