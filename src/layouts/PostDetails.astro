@@ -29,7 +29,7 @@ const nextPost =
     ? sortedPosts[currentIndex + 1]
     : undefined;
 
-const { title, author, description, ogImage, canonicalURL, created, tags } =
+const { title, author, description, ogImage, canonicalURL, created, updated, tags } =
   post.data;
 
 const { Content } = await post.render();
@@ -58,7 +58,7 @@ const ogUrl = new URL(
   <main id="main-content">
     <article class="article-page">
       <header class="article-header">
-        <Datetime datetime={created} size="lg" className="" />
+        <Datetime datetime={updated || created} size="lg" className="" />
         <h1 transition:name={slugifyStr(title)} class="article-title">{title}</h1>
         {description && <p class="article-desc">{description}</p>}
         <ul class="tag-list">
