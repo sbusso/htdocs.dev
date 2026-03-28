@@ -9,9 +9,9 @@ export interface Props {
 }
 
 export default function Card({ href, frontmatter, secHeading = true }: Props) {
-  const { title, created, description } = frontmatter;
+  const { title, created, updated, description } = frontmatter;
 
-  const formattedDate = new Date(created).toLocaleDateString(LOCALE[0] || "en-US", {
+  const formattedDate = new Date(updated || created).toLocaleDateString(LOCALE[0] || "en-US", {
     year: "numeric",
     month: "short",
     day: "numeric",

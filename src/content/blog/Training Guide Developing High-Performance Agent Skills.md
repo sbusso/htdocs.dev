@@ -1,5 +1,5 @@
 ---
-title: "Untitled 5Training Guide: Developing High-Performance Agent Skills"
+title: "Training Guide: Developing High-Performance Agent Skills"
 author: Stephane Busso
 description: This training material focuses on moving beyond simple markdown instructions toward **optimizing skills through code** to increase efficiency and reduce costs,.
 published: true
