@@ -14,7 +14,7 @@ tags:
 updated: 2026-03-21T11:59
 created: 2026-03-21T11:59
 cover:
-featured: true
+featured: false
 ---
 ## The Problem with AI Agent Security
 
