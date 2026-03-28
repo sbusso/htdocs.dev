@@ -18,7 +18,7 @@ tags:
 updated: 2026-03-28T12:00
 created: 2025-02-25T15:49
 cover:
-featured: false
+featured: true
 faq:
   - question: What is the best open-source AI low-code platform in 2026?
     answer: It depends on your use case. Dify leads for enterprise LLMOps and agentic workflows, n8n for general-purpose automation with AI agents, Langflow for RAG pipelines, and CrewAI for multi-agent orchestration. All are free to self-host.
