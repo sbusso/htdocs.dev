@@ -353,16 +353,41 @@ Exit codes control behavior: `0` = allow, `2` = block. This makes hooks a reliab
 
 ## Custom skills: the evolution of slash commands
 
-Skills are reusable workflows or knowledge packages that Claude loads automatically when relevant or on demand via `/skill-name`. They replace and extend the classic commands system with richer capabilities.
+Skills are reusable workflows or knowledge packages that Claude loads automatically when relevant or on demand via `/skill-name`. They replace and extend the classic commands system with richer capabilities. Unlike classic slash commands (single markdown files with fixed logic), skills are **directories** that can contain scripts, templates, reference docs, and assets — and they activate automatically based on context.
+
+### How skills differ from slash commands
+
+| Aspect | Slash Commands | Skills |
+| ------ | -------------- | ------ |
+| **Structure** | Single `.md` file | Directory with `SKILL.md` + supporting files |
+| **Invocation** | Manual only (`/command`) | Manual or auto-triggered by description match |
+| **Supporting files** | None | Templates, examples, scripts, reference docs |
+| **Configuration** | Minimal | Rich frontmatter (model, tools, paths, hooks, fork) |
+| **Distribution** | Copy the file | Plugin packaging with marketplace support |
+
+As of Claude Code 2.1, commands and skills share the same `/` invocation syntax. Files at `.claude/commands/deploy.md` and `.claude/skills/deploy/SKILL.md` both create `/deploy`. Skills are the recommended approach going forward.
 
 ### Creating a skill
 
-Create `.claude/skills/deploy/SKILL.md`:
+Each skill lives in its own directory with a required `SKILL.md` file:
+
+```
+.claude/skills/deploy/
+├── SKILL.md              # Required: instructions + frontmatter
+├── template.md           # Optional: template Claude fills in
+├── reference.md          # Optional: detailed specs
+├── examples/
+│   └── good-output.md    # Optional: example outputs
+└── scripts/
+    └── validate.sh       # Optional: executable scripts
+```
+
+A minimal `SKILL.md`:
 
 ```markdown
 ---
 name: deploy
-description: Deploy the application to production
+description: Deploy the application to production. Use when the user says "deploy", "ship", or "push to prod".
 ---
 
 1. Run the test suite
@@ -372,16 +397,291 @@ description: Deploy the application to production
 5. Report the deployment URL
 ```
 
-### Skill features
+### Complete frontmatter reference
 
-- **Arguments** — use `$ARGUMENTS` or `$0`, `$1` for dynamic inputs
-- **Templates** — include template files Claude fills in
-- **Tool restrictions** — limit which tools a skill can use
-- **Model override** — force a specific model for the skill
-- **Path scoping** — only load for matching file patterns (e.g., `paths: src/**/*.tsx`)
-- **Fork context** — run in an isolated subagent to protect main context
+```yaml
+---
+name: my-skill                    # Identifier, becomes /my-skill
+description: What this does       # CRITICAL — Claude uses this to decide auto-loading
+argument-hint: [issue-number]     # Shown in autocomplete
+disable-model-invocation: false   # true = only user can invoke (not auto-triggered)
+user-invocable: true              # false = hidden from / menu, Claude can still auto-trigger
+allowed-tools: Read, Grep, Glob   # Tool allowlist while skill is active
+model: sonnet                     # Override session model (opus, sonnet, haiku, inherit)
+effort: high                      # Override effort level (low, medium, high, max)
+context: fork                     # Run in isolated subagent instead of main conversation
+agent: Explore                    # Subagent type when context: fork (Explore, Plan, general-purpose)
+paths: "src/**/*.ts"              # Auto-load only when editing matching files
+shell: bash                       # Shell for !`command` blocks (bash or powershell)
+hooks:                            # Lifecycle hooks scoped to this skill
+  PreToolUse:
+    - matcher: "Bash"
+      hooks:
+        - type: command
+          command: "./scripts/validate.sh"
+---
+```
 
-Skills can be project-scoped (`.claude/skills/`) or user-scoped (`~/.claude/skills/`), and can be distributed as part of **plugins** that bundle skills, hooks, agents, and MCP servers together.
+### The description field is everything
+
+The `description` is the most important field. Claude reads all skill descriptions at session start (~2% of context budget) and uses them to decide which skills to load. The full skill content only loads when invoked.
+
+**Bad:** `description: Helper for code`
+**Good:** `description: Refactor code for readability and performance. Use when improving existing code, simplifying complex logic, or optimizing hot paths.`
+
+Be specific about **when** the skill should trigger — include the verbs and phrases a user would say.
+
+### Skill scoping and discovery
+
+Skills are discovered from multiple locations, with higher scopes overriding lower:
+
+| Scope | Location | Version controlled | Use case |
+| ----- | -------- | ------------------ | -------- |
+| Enterprise | Managed settings | Admin-controlled | Org-wide standards |
+| Personal | `~/.claude/skills/<name>/SKILL.md` | No | Personal workflows across all projects |
+| Project | `.claude/skills/<name>/SKILL.md` | Yes | Team conventions, project-specific workflows |
+| Plugin | `<plugin>/skills/<name>/SKILL.md` | Distributable | Shared tools across teams |
+| Nested | Subdirectory `.claude/skills/` | Yes | Monorepo package-specific skills |
+
+**Nested discovery**: when editing `packages/frontend/src/App.tsx`, Claude also discovers skills in `packages/frontend/.claude/skills/`. Skills in directories added via `--add-dir` are picked up automatically with live change detection.
+
+### Arguments and string substitution
+
+Skills support dynamic inputs via several substitution variables:
+
+| Variable | Description | Example |
+| -------- | ----------- | ------- |
+| `$ARGUMENTS` | All arguments as a single string | `/fix 123` → `$ARGUMENTS` = `"123"` |
+| `$0`, `$1`, `$2` | Positional arguments (0-indexed) | `/migrate SearchBar React Vue` → `$0`=`SearchBar`, `$1`=`React`, `$2`=`Vue` |
+| `${CLAUDE_SESSION_ID}` | Current session ID | For logging and correlation |
+| `${CLAUDE_SKILL_DIR}` | Directory containing the SKILL.md | Reference bundled scripts regardless of cwd |
+| `${CLAUDE_PLUGIN_DATA}` | Persistent data folder for the skill | Store state across sessions |
+
+If a skill doesn't reference `$ARGUMENTS`, Claude Code automatically appends `ARGUMENTS: <input>` so Claude still sees what you typed.
+
+**Positional example:**
+
+```markdown
+---
+name: migrate-component
+description: Migrate a component between frameworks
+argument-hint: [component] [from-framework] [to-framework]
+---
+
+Migrate the $0 component from $1 to $2.
+Preserve all existing behavior and tests.
+```
+
+### Tool restrictions
+
+The `allowed-tools` field limits which tools Claude can use without asking permission while the skill is active:
+
+```yaml
+allowed-tools: Read, Grep, Glob
+```
+
+This creates a **read-only skill** — Claude cannot Edit, Write, or Bash without explicit user approval. Use wildcards for tool families: `mcp__github__*` allows all GitHub MCP tools. Combine with hooks for conditional restrictions (e.g., allow Bash but only for SELECT queries):
+
+```yaml
+hooks:
+  PreToolUse:
+    - matcher: "Bash"
+      hooks:
+        - type: command
+          command: "./scripts/validate-readonly-query.sh"
+```
+
+### Model and effort overrides
+
+Force a specific model for the skill's execution, regardless of session settings:
+
+```yaml
+model: opus    # Complex analysis, deep refactoring
+model: haiku   # Fast, simple tasks (cost savings)
+model: sonnet  # Balanced (default if omitted)
+```
+
+Combine with effort level: `effort: max` for Opus 4.6 deep reasoning on critical skills.
+
+### Path scoping for auto-loading
+
+Restrict when a skill auto-loads based on which files are being edited:
+
+```yaml
+# Only loads when editing Rust files
+paths: "src/**/*.rs"
+
+# Multiple patterns (comma-separated)
+paths: "src/**/*.tsx,src/**/*.css,**/*.md"
+
+# Or as YAML list
+paths:
+  - "src/**/*.tsx"
+  - "**/*.test.ts"
+  - "Dockerfile"
+```
+
+With `paths` set, the skill **only auto-loads** for matching files. You can still invoke it manually with `/skill-name` regardless.
+
+### Fork context: isolated subagent execution
+
+Setting `context: fork` runs the skill in an isolated subagent instead of the main conversation:
+
+```yaml
+---
+name: codebase-analysis
+description: Analyze codebase architecture
+context: fork
+agent: Explore
+---
+
+Analyze the codebase and report:
+1. Architecture overview
+2. Key modules and responsibilities
+3. External dependencies
+4. Entry points
+```
+
+| Aspect | Inline (default) | `context: fork` |
+| ------ | ----------------- | --------------- |
+| Context | Full conversation history | Fresh, isolated context |
+| Output | Inline in conversation | Summarized result returned |
+| Token cost | Uses main context window | Uses separate subagent window |
+| Tool access | Session permissions | Controlled by `agent` type |
+
+**When to fork**: self-contained research, verbose output you don't want cluttering context, read-only exploration via `agent: Explore`. **When not to fork**: tasks needing conversation history or iterative refinement.
+
+### Templates and supporting files
+
+Keep `SKILL.md` under 500 lines. Move detailed content to supporting files and reference them:
+
+```markdown
+---
+name: api-endpoint
+description: Create a new REST API endpoint following our conventions
+---
+
+Create a new endpoint using our template:
+
+!`cat ${CLAUDE_SKILL_DIR}/template.ts`
+
+For complete API guidelines, see [reference.md](reference.md).
+For examples, see [examples/](examples/).
+```
+
+The `` !`command` `` syntax executes before Claude sees the content, injecting real data:
+
+```markdown
+Your recent commits:
+!`git log --oneline -10`
+```
+
+### Hooks scoped to skills
+
+Define hooks that **only run while the skill is active**:
+
+```yaml
+---
+name: safe-deploy
+description: Deploy with safety checks
+hooks:
+  PreToolUse:
+    - matcher: "Bash"
+      hooks:
+        - type: command
+          command: "./scripts/pre-deploy-check.sh"
+  PostToolUse:
+    - matcher: "Edit|Write"
+      hooks:
+        - type: command
+          command: "./scripts/run-linter.sh"
+  Stop:
+    - hooks:
+        - type: command
+          command: "./scripts/cleanup.sh"
+---
+```
+
+These are distinct from session-wide hooks in `settings.json` — skill hooks are cleaned up when the skill finishes.
+
+### Invocation control
+
+Two fields control who can trigger a skill:
+
+- **`disable-model-invocation: true`** — only you can invoke via `/skill-name`. Claude cannot auto-trigger. Use for skills with side effects (deploy, send messages, commit).
+- **`user-invocable: false`** — hidden from the `/` menu. Claude can still auto-trigger. Use for background knowledge (e.g., legacy system context that should load automatically but doesn't need a command).
+
+You can also control skills via permissions in `settings.json`:
+
+```json
+{
+  "permissions": {
+    "allow": ["Skill(code-review)"],
+    "deny": ["Skill(deploy)"]
+  }
+}
+```
+
+### Nine categories of effective skills
+
+Based on Anthropic's guidance, the most valuable skill types are:
+
+1. **Library & API reference** — how to use specific libraries, CLIs, or internal APIs correctly
+2. **Product verification** — test and verify code functionality automatically
+3. **Data fetching & analysis** — connect to data stacks, run queries, generate reports
+4. **Business process automation** — automate repetitive team workflows
+5. **Code scaffolding & templates** — generate boilerplate following project conventions
+6. **Code quality & review** — enforce standards, lint rules, best practices
+7. **CI/CD & deployment** — fetch, push, deploy code through pipelines
+8. **Runbooks** — multi-tool investigation and reporting for incidents
+9. **Infrastructure operations** — routine maintenance and system checks
+
+### Tips for writing effective skills
+
+- **Build a Gotchas section** — this is the highest-signal content. Document what the model will get wrong without explicit guidance.
+- **Don't state the obvious** — focus on information Claude can't derive from reading the code itself.
+- **Use progressive disclosure** — organize content in subfolders so Claude reads the right files at the right time, rather than loading everything upfront.
+- **Avoid railroading** — describe what the skill should accomplish, not every micro-step. Let Claude choose the optimal approach.
+- **Store scripts, generate code** — put validation scripts in `scripts/`, reference them with `${CLAUDE_SKILL_DIR}/scripts/validate.sh`.
+- **Use `${CLAUDE_PLUGIN_DATA}` for persistence** — store data that should survive across sessions (metrics, state, caches).
+- **Test with multiple invocation paths** — verify the skill works for manual `/skill-name`, with arguments, and via auto-trigger.
+
+### Distributing skills via plugins
+
+Skills can be packaged into **plugins** that bundle skills, hooks, agents, and MCP servers:
+
+```
+my-plugin/
+├── plugin.json
+├── skills/
+│   ├── deploy/SKILL.md
+│   └── review/SKILL.md
+├── agents/
+├── hooks/
+└── README.md
+```
+
+**Distribution methods:**
+
+- **Git repository** — `git push` and install with `/plugin install github.com/org/repo`
+- **Plugin marketplace** — a JSON manifest listing plugins that teams subscribe to:
+
+```json
+{
+  "marketplace": {
+    "name": "Team Plugins",
+    "owner": "my-company"
+  },
+  "plugins": [
+    {
+      "name": "team-skills",
+      "source": { "source": "github", "repo": "my-company/claude-plugins", "subdirectory": "team-skills" }
+    }
+  ]
+}
+```
+
+Teams add the marketplace once with `/plugin marketplace add <URL>` and get updates automatically. Plugin skills use namespaced invocation: `/plugin-name:skill-name` to avoid conflicts.
 
 ## Permission modes and security
 
