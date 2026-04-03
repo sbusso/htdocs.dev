@@ -1,7 +1,7 @@
 ---
 title: Pi AI SDK vs Anthropic Claude Agent SDK
 author: Stephane Busso
-description: Pi AI SDK vs Anthropic Claude Agent SDK
+description: '"The analogy from the ecosystem that resonated most: Claude Code is "Rails" — opinionated, structured, with best practices baked in. Pi is "Arch Linux" — giving you the smallest kernel and the greatest freedom. "'
 published: true
 tags:
   - claude
@@ -32,15 +32,15 @@ Its philosophy: _"Give agents a computer."_ Real shell access, real file system 
 
 Pi is structured as a TypeScript monorepo (`pi-mono`) with clearly separated layers:
 
-|Package|Role|
-|---|---|
-|`@mariozechner/pi-ai`|Unified multi-provider LLM API — streaming, tool calling, token/cost tracking, cross-provider context handoffs|
-|`@mariozechner/pi-agent-core`|Agent runtime — agent loop, state management, message queuing, event subscriptions, transport abstraction|
-|`@mariozechner/pi-coding-agent`|The CLI agent — session management, tools, themes, extensions, skills|
-|`@mariozechner/pi-tui`|Terminal UI library with differential rendering|
-|`@mariozechner/pi-web-ui`|Web components for AI chat interfaces|
-|`@mariozechner/pi-mom`|Slack bot delegating to the pi coding agent|
-|`@mariozechner/pi-pods`|CLI for managing vLLM deployments on GPU pods|
+| Package                         | Role                                                                                                           |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `@mariozechner/pi-ai`           | Unified multi-provider LLM API — streaming, tool calling, token/cost tracking, cross-provider context handoffs |
+| `@mariozechner/pi-agent-core`   | Agent runtime — agent loop, state management, message queuing, event subscriptions, transport abstraction      |
+| `@mariozechner/pi-coding-agent` | The CLI agent — session management, tools, themes, extensions, skills                                          |
+| `@mariozechner/pi-tui`          | Terminal UI library with differential rendering                                                                |
+| `@mariozechner/pi-web-ui`       | Web components for AI chat interfaces                                                                          |
+| `@mariozechner/pi-mom`          | Slack bot delegating to the pi coding agent                                                                    |
+| `@mariozechner/pi-pods`         | CLI for managing vLLM deployments on GPU pods                                                                  |
 
 **Key architectural properties:**
 
