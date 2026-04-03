@@ -6,7 +6,8 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(head -20 /Users/sbusso/Code/dev/htdocs.dev/src/content/blog/*.md)",
-      "Bash(bun run:*)"
+      "Bash(bun run:*)",
+      "Bash(npx astro:*)"
     ]
   }
 }

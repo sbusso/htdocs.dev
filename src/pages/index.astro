@@ -98,28 +98,188 @@ const faqJsonLd = JSON.stringify({
             <div class="term-bar">
               <span class="dot r"></span><span class="dot y"></span><span
                 class="dot g"></span>
-              <span class="term-title">~/htdocs.dev</span>
+              <span class="term-title">~/agent-workflows</span>
             </div>
-            <div class="term-body">
-              <div>
-                <span class="c-prompt">~ </span><span class="c-cmd">cat</span>
-                <span class="c-file">topics.md</span>
-              </div>
-              <div class="c-muted"># What I write about</div>
-              <div><span class="c-ok">✓</span> Claude Code &amp; AI agents</div>
-              <div><span class="c-ok">✓</span> Full-stack architecture</div>
-              <div><span class="c-ok">✓</span> Developer tooling</div>
-              <div><span class="c-ok">✓</span> Systems design</div>
-              <div class="c-muted">&nbsp;</div>
-              <div>
-                <span class="c-prompt">~ </span><span class="c-accent"
-                  >{posts.length} posts</span
-                >
-                <span class="c-muted">and counting.</span>
-              </div>
+            <div class="term-body" id="term-anim">
+              <div class="term-cursor"></div>
             </div>
           </div>
         </div>
+        <script>
+          (function () {
+            // Claude Code style: prompt (user), thinking (block bg), output (answer)
+            var lines = [
+              { type: 'cmd', spans: [['> ', 'c-prompt'], ['Build an auth system with subagents', 'c-input']] },
+              { type: 'think', spans: [['Analyzing codebase structure...', 'c-thinking']] },
+              { type: 'think', spans: [['Found 12 files in src/auth/', 'c-thinking']] },
+              { type: 'think', spans: [['Planning agent delegation strategy', 'c-thinking']] },
+              { type: 'out', spans: [['Spawning subagent: code-explorer', 'c-output']] },
+              { type: 'out', spans: [['Worktree isolated: feature/auth-v2', 'c-output']] },
+              { type: 'out', spans: [['4 tools loaded (read, write, edit, bash)', 'c-output']] },
+              { type: 'blank' },
+              { type: 'cmd', spans: [['> ', 'c-prompt'], ['Wire up the lifecycle hooks', 'c-input']] },
+              { type: 'think', spans: [['Reading hook configuration...', 'c-thinking']] },
+              { type: 'think', spans: [['Checking 18 available hook events', 'c-thinking']] },
+              { type: 'out', spans: [['PreToolUse  \u2192 validate permissions', 'c-output']] },
+              { type: 'out', spans: [['PostToolUse \u2192 collect lineage', 'c-output']] },
+              { type: 'out', spans: [['Stop        \u2192 run verification', 'c-output']] },
+              { type: 'blank' },
+              { type: 'cmd', spans: [['> ', 'c-prompt'], ['Hand off to reviewer agent', 'c-input']] },
+              { type: 'think', spans: [['Compacting context (78% used)...', 'c-thinking']] },
+              { type: 'think', spans: [['Preserving session across handoff', 'c-thinking']] },
+              { type: 'out', spans: [['Delegating: architect \u2192 reviewer', 'c-output']] },
+              { type: 'bar', filled: 14, empty: 4, pct: 78 },
+              { type: 'out', spans: [['Review complete \u2014 0 issues', 'c-output']] },
+              { type: 'out', spans: [['Ready.', 'c-output']] },
+            ];
+
+            var el = document.getElementById('term-anim');
+            if (!el) return;
+
+            var MAX_VISIBLE = 8;
+            var TYPE_SPEED = 28;
+            var LINE_PAUSE = 350;
+            var CMD_PAUSE = 600;
+            var BLOCK_PAUSE = 1400;
+            var RESTART_PAUSE = 3000;
+
+            var lineEls = [];
+            var cursor = el.querySelector('.term-cursor');
+
+            function createLine() {
+              var div = document.createElement('div');
+              div.style.opacity = '0';
+              div.style.transform = 'translateY(4px)';
+              div.style.transition = 'opacity 0.25s, transform 0.25s';
+              el.insertBefore(div, cursor);
+              lineEls.push(div);
+              requestAnimationFrame(function () {
+                div.style.opacity = '1';
+                div.style.transform = 'translateY(0)';
+              });
+              while (lineEls.length > MAX_VISIBLE) {
+                var old = lineEls.shift();
+                old.style.opacity = '0';
+                old.style.transform = 'translateY(-4px)';
+                setTimeout(function (node) { node.remove(); }, 250, old);
+              }
+              return div;
+            }
+
+            function renderSpans(div, spans) {
+              spans.forEach(function (s) {
+                var span = document.createElement('span');
+                span.className = s[1];
+                span.textContent = s[0];
+                div.appendChild(span);
+              });
+            }
+
+            function typeSpans(div, spans) {
+              return new Promise(function (resolve) {
+                // Build all spans empty first, then type into them sequentially
+                var spanEls = [];
+                var texts = [];
+                spans.forEach(function (s) {
+                  var span = document.createElement('span');
+                  span.className = s[1];
+                  div.appendChild(span);
+                  spanEls.push(span);
+                  texts.push(s[0]);
+                });
+
+                var si = 0, ci = 0;
+                function tick() {
+                  if (si >= spanEls.length) { resolve(); return; }
+                  if (ci < texts[si].length) {
+                    spanEls[si].textContent += texts[si][ci];
+                    ci++;
+                    setTimeout(tick, TYPE_SPEED);
+                  } else {
+                    si++;
+                    ci = 0;
+                    tick();
+                  }
+                }
+                tick();
+              });
+            }
+
+            function sleep(ms) {
+              return new Promise(function (r) { setTimeout(r, ms); });
+            }
+
+            async function run() {
+              for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+                if (line.type === 'blank') {
+                  var blankDiv = createLine();
+                  blankDiv.textContent = '\u00A0';
+                  await sleep(BLOCK_PAUSE);
+                  continue;
+                }
+                var div = createLine();
+                if (line.type === 'think') {
+                  div.className = 'c-thinking-block';
+                  renderSpans(div, line.spans);
+                  await sleep(LINE_PAUSE);
+                } else if (line.type === 'bar') {
+                  var fillSpan = document.createElement('span');
+                  fillSpan.className = 'c-bar';
+                  var emptySpan = document.createElement('span');
+                  emptySpan.className = 'c-bar-empty';
+                  var pctSpan = document.createElement('span');
+                  pctSpan.className = 'c-bar';
+                  div.appendChild(fillSpan);
+                  div.appendChild(emptySpan);
+                  div.appendChild(pctSpan);
+                  var total = line.filled + line.empty;
+                  // Fill to 78%
+                  for (var b = 0; b < total; b++) {
+                    if (b < line.filled) {
+                      fillSpan.textContent += '\u2588';
+                    } else {
+                      emptySpan.textContent += '\u2591';
+                    }
+                    pctSpan.textContent = ' ' + Math.round(((Math.min(b + 1, line.filled)) / total) * 100) + '%';
+                    await sleep(60);
+                  }
+                  pctSpan.textContent = ' ' + line.pct + '%';
+                  await sleep(400);
+                  // Fill remaining to 100%
+                  for (var r = 0; r < line.empty; r++) {
+                    fillSpan.textContent += '\u2588';
+                    emptySpan.textContent = emptySpan.textContent.substring(1);
+                    pctSpan.textContent = ' ' + Math.round(((line.filled + r + 1) / total) * 100) + '%';
+                    await sleep(80);
+                  }
+                  pctSpan.textContent = ' 100%';
+                  // Turn to neutral color
+                  fillSpan.className = 'c-output';
+                  pctSpan.className = 'c-output';
+                  await sleep(LINE_PAUSE);
+                } else if (line.type === 'cmd') {
+                  await typeSpans(div, line.spans);
+                  await sleep(CMD_PAUSE);
+                } else {
+                  renderSpans(div, line.spans);
+                  await sleep(LINE_PAUSE);
+                }
+              }
+              await sleep(RESTART_PAUSE);
+              lineEls.forEach(function (l) {
+                l.style.opacity = '0';
+                l.style.transform = 'translateY(-4px)';
+              });
+              await sleep(500);
+              lineEls.forEach(function (l) { l.remove(); });
+              lineEls = [];
+              run();
+            }
+
+            setTimeout(run, 800);
+          })();
+        </script>
       </div>
     </section>
     <!-- ── Featured (2-col grid) ── -->
@@ -419,26 +579,50 @@ const faqJsonLd = JSON.stringify({
     line-height: 1.55;
   }
   .term-body div {
-    color: #ccc;
+    color: #cdd6f4;
   }
-  .c-prompt {
+  /* Terminal color classes — :global() because spans are created by JS at runtime */
+  #term-anim :global(.c-prompt) {
     color: #585b70;
     user-select: none;
   }
-  .c-cmd {
-    color: #89b4fa;
+  #term-anim :global(.c-input) {
+    color: #e4e4e7;
   }
-  .c-file {
-    color: #a6e3a1;
+  #term-anim :global(.c-thinking) {
+    color: #7f849c;
+    font-style: italic;
   }
-  .c-muted {
-    color: #585b70;
+  #term-anim :global(div.c-thinking-block) {
+    background: rgba(127, 132, 156, 0.08);
+    border-left: 2px solid rgba(127, 132, 156, 0.25);
+    padding: 2px 8px;
+    margin: 1px -8px;
+    border-radius: 0 4px 4px 0;
   }
-  .c-ok {
-    color: #a6e3a1;
+  #term-anim :global(.c-output) {
+    color: #bac2de;
   }
-  .c-accent {
-    color: var(--accent);
+  #term-anim :global(.c-bar) {
+    color: #e8945a;
+  }
+  #term-anim :global(.c-bar-empty) {
+    color: #45475a;
+  }
+  .term-cursor {
+    display: inline-block;
+    width: 7px;
+    height: 14px;
+    background: #585b70;
+    animation: blink-cursor 1s step-end infinite;
+  }
+  @keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  #term-anim {
+    height: calc(8 * 1.55em + 8 * 4px + 28px);
+    overflow: hidden;
   }
 
   /* ═══════ Callout (inside featured grid) ═══════ */
