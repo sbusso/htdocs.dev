@@ -10,6 +10,7 @@ tags:
 updated: 2026-07-13T10:04
 created: 2026-07-13T10:04
 cover:
+featured: true
 ---
 1984 gave us the personal computer. 1994 connected them. 2007 put one in every pocket and handed our attention to social platforms. 2022 started something we're still mislabeling as "chatbots."
 
