@@ -9,5 +9,24 @@
       "Bash(bun run:*)",
       "Bash(npx astro:*)"
     ]
+  },
+  "skillOverrides": {
+    "railway-central-station": "off",
+    "cloudflare-email-service": "off",
+    "railway-database": "off",
+    "railway-deploy": "off",
+    "railway-deployment": "off",
+    "railway-domain": "off",
+    "durable-objects": "off",
+    "railway-environment": "off",
+    "railway-metrics": "off",
+    "railway-new": "off",
+    "railway-projects": "off",
+    "railway-railway-docs": "off",
+    "sandbox-sdk": "off",
+    "sentry-cf-tanstack": "off",
+    "railway-service": "off",
+    "railway-status": "off",
+    "railway-templates": "off"
   }
 }
