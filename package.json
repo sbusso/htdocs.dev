@@ -21,7 +21,7 @@
     "@fontsource-variable/newsreader": "^5.2.10",
     "@fontsource-variable/space-grotesk": "^5.2.10",
     "@resvg/resvg-js": "^2.6.2",
-    "astro": "^4.16.19",
+    "astro": "^5.17.1",
     "astro-robots-txt": "^1.0.0",
     "fuse.js": "^7.1.0",
     "github-slugger": "^2.0.0",
