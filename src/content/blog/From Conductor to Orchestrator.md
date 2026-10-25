@@ -166,9 +166,9 @@ The Pi vs Claude Code SDK comparison I wrote in [a previous post](https://claude
 
 The killer feature is **cross-tool knowledge persistence**: knowledge captured during a Claude Code session is available to Codex CLI the next day. After a week, the system knows your conventions better than you remember them.
 
-### Agent Orchestrator (Composio) — Fleet Management
+### Orchestrator.inc — Fleet Management
 
-[Agent Orchestrator](https://github.com/ComposioHQ/agent-orchestrator) manages fleets of coding agents in parallel. Each agent gets its own git worktree, branch, and PR. When CI fails, the agent fixes it. When reviewers leave comments, the agent addresses them. Agent-agnostic (Claude Code, Codex, Aider), runtime-agnostic (tmux, Docker), tracker-agnostic (GitHub, Linear).
+[Orchestrator.inc](https://github.com/OrchestratorInc/agent-orchestrator) (formerly Agent Orchestrator) runs fleets of coding agents in parallel from a desktop app for macOS, Windows, and Linux. Each worker gets its own git worktree, branch, and PR. CI failures and review comments go back to the agent that owns the work. A project orchestrator plans across the repository, splits work into tasks, and spawns workers with the right context. A live Kanban groups workers by status: working, needs you, in review, ready to merge. Each worker can preview its app in its own browser. It supports 30+ agents, including Claude Code, Codex, Cursor, opencode, Aider, Gemini CLI, and GitHub Copilot, through chat or each agent's native terminal UI. Other machines running Orchestrator can be added as remote hosts, and the mobile app ([App Store](https://apps.apple.com/app/ao-mobile/id6792552173), [Google Play](https://play.google.com/store/apps/details?id=aoagents.dev)) lets you follow workers, answer approvals, and check PRs from your phone.
 
 ---
 
@@ -341,7 +341,7 @@ The gap between "uses Claude Code" and "orchestrates Claude Code teams" is widen
 - [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex) — Workflow layer for Codex CLI
 - [clawhip](https://github.com/Yeachan-Heo/clawhip) — Event-to-channel notification router
 - [Forge Orchestrator](https://github.com/nxtg-ai/forge-orchestrator) — Multi-AI task orchestration with file locking and knowledge capture
-- [Agent Orchestrator](https://github.com/ComposioHQ/agent-orchestrator) — Fleet management for parallel coding agents
+- [Orchestrator.inc](https://github.com/OrchestratorInc/agent-orchestrator) — Desktop workspace for planning, running, and supervising parallel coding agents
 - [Pi coding agent](https://github.com/badlogic/pi-mono) — Minimal terminal coding harness
 - [OpenCode](https://opencode.ai/) — Open-source Go CLI coding agent
 - [Claude Code Agent Teams docs](https://code.claude.com/docs/en/common-workflows) — Official Anthropic documentation
